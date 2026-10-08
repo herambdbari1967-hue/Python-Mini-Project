@@ -14,8 +14,8 @@
   <!-- Top Announcement Bar -->
   <div class="announcement-bar">
     <div class="announcement-content">
-      <span>🔥 Automate Movie Price Comparison: Never Overpay for Movie Tickets!</span>
-      <a href="#alerts-section" onclick="openAlertsModal()">Set Price Alert ➔</a>
+      <span>🔥 <strong>Live Ticket Aggregator:</strong> Compare prices across BookMyShow, PVR INOX & District to get the best deal!</span>
+      <a href="javascript:void(0)" onclick="openAlertsModal()">Set Price Drop Alert ➔</a>
     </div>
   </div>
 
@@ -30,11 +30,11 @@
       </div>
 
       <nav class="nav-center">
-        <a href="javascript:void(0)" class="nav-link active" onclick="filterCategory('all')">Now Showing</a>
-        <a href="javascript:void(0)" class="nav-link" onclick="openQuickCompare()">Price Compare</a>
-        <a href="javascript:void(0)" class="nav-link" onclick="openAlertsModal()">Price Alerts <span class="nav-badge" id="alert-badge-count">0</span></a>
-        <a href="javascript:void(0)" class="nav-link" onclick="exportDataCSV()">Export Data (Pandas)</a>
-        <a href="javascript:void(0)" class="nav-link" onclick="showAboutModal()">About Project</a>
+        <a href="javascript:void(0)" class="nav-link active" id="nav-now-showing" onclick="switchMainTab('now_showing')">🎬 Now Showing</a>
+        <a href="javascript:void(0)" class="nav-link" id="nav-upcoming" onclick="switchMainTab('upcoming')">✨ Upcoming Movies <span class="nav-badge">New</span></a>
+        <a href="javascript:void(0)" class="nav-link" onclick="openQuickCompare()">📊 Price Matrix</a>
+        <a href="javascript:void(0)" class="nav-link" onclick="openAlertsModal()">🔔 Alerts <span class="nav-badge" id="alert-badge-count">0</span></a>
+        <a href="javascript:void(0)" class="nav-link" onclick="exportDataCSV()">📥 Export CSV</a>
       </nav>
 
       <div class="nav-right">
@@ -51,13 +51,13 @@
           </select>
         </div>
 
-        <!-- Search Button / Input -->
+        <!-- Search Input -->
         <div class="nav-search-box">
           <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
-          <input type="text" id="nav-search-input" placeholder="Search movie, theatre or format..." oninput="onSearchInput(this.value)">
+          <input type="text" id="nav-search-input" placeholder="Search movie, actor, format..." oninput="onSearchInput(this.value)">
         </div>
 
         <button class="icon-btn" title="Price Notifications" onclick="openAlertsModal()">
@@ -79,8 +79,8 @@
     </div>
   </header>
 
-  <!-- Horizontal Category Icon Row (Exact match to OnePlus category bar) -->
-  <section class="category-icon-bar">
+  <!-- Horizontal Category Icon Row (OnePlus category bar) -->
+  <section class="category-icon-bar" id="category-bar">
     <div class="category-container">
       <button class="cat-item active" onclick="selectCategoryPill(this, 'all')">
         <div class="cat-icon">
@@ -89,10 +89,6 @@
             <line x1="7" y1="2" x2="7" y2="22"/>
             <line x1="17" y1="2" x2="17" y2="22"/>
             <line x1="2" y1="12" x2="22" y2="12"/>
-            <line x1="2" y1="7" x2="7" y2="7"/>
-            <line x1="2" y1="17" x2="7" y2="17"/>
-            <line x1="17" y1="17" x2="22" y2="17"/>
-            <line x1="17" y1="7" x2="22" y2="7"/>
           </svg>
         </div>
         <span>All Shows</span>
@@ -102,7 +98,7 @@
         <div class="cat-icon">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <text x="6" y="15" font-size="7" font-weight="bold" fill="currentColor">IMAX</text>
+            <text x="5" y="15" font-size="7" font-weight="bold" fill="currentColor">IMAX</text>
           </svg>
         </div>
         <span>IMAX 3D</span>
@@ -164,8 +160,8 @@
   <!-- Main Content Layout (Sidebar Filters + Products Grid) -->
   <div class="main-layout">
     
-    <!-- Left Sidebar Filters (OnePlus style with check boxes & red tags) -->
-    <aside class="sidebar-filters">
+    <!-- Left Sidebar Filters -->
+    <aside class="sidebar-filters" id="main-sidebar">
       <div class="filter-header">
         <h3>Filters</h3>
         <button class="reset-link" onclick="resetAllFilters()">Reset All</button>
@@ -177,7 +173,7 @@
         <label class="filter-checkbox-label">
           <input type="checkbox" name="format_filter" value="IMAX 3D" onchange="applyFilters()">
           <span>IMAX 3D</span>
-          <span class="tag-red">New</span>
+          <span class="tag-red">Premium</span>
         </label>
         <label class="filter-checkbox-label">
           <input type="checkbox" name="format_filter" value="4DX" onchange="applyFilters()">
@@ -223,7 +219,7 @@
 
       <!-- Theatre Chain Filter Group -->
       <div class="filter-group">
-        <h4 class="filter-title">Theatre Chain</h4>
+        <h4 class="filter-title">Multiplex Partners</h4>
         <label class="filter-checkbox-label">
           <input type="radio" name="chain_filter" value="All" checked onchange="applyFilters()">
           <span>All Multiplexes</span>
@@ -247,17 +243,15 @@
         </label>
       </div>
 
-      <!-- Automation Quick Actions -->
+      <!-- Booking Portals Direct -->
       <div class="filter-group quick-actions-card">
-        <h4 class="filter-title">Automation Tools</h4>
-        <button class="action-btn secondary" onclick="openAlertsModal()">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          Price Drop Watcher
-        </button>
-        <button class="action-btn secondary" onclick="exportDataCSV()">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Export CSV (Pandas)
-        </button>
+        <h4 class="filter-title">Direct Portals</h4>
+        <div class="portal-link-pills">
+          <a href="https://in.bookmyshow.com" target="_blank" class="portal-pill bms-pill">🔴 BookMyShow</a>
+          <a href="https://www.pvrcinemas.com" target="_blank" class="portal-pill pvr-pill">🎬 PVR INOX</a>
+          <a href="https://district.in" target="_blank" class="portal-pill district-pill">⚡ District</a>
+          <a href="https://cinepolisindia.com" target="_blank" class="portal-pill cinepolis-pill">🎟️ Cinépolis</a>
+        </div>
       </div>
     </aside>
 
@@ -267,14 +261,14 @@
       <!-- Top Control Bar (Showing count + Rank By Dropdown) -->
       <div class="showcase-top-bar">
         <div class="results-count">
-          <span id="results-count-text">Loading shows...</span>
+          <span id="results-count-text">Loading live shows...</span>
         </div>
 
-        <div class="rank-by-wrapper">
-          <span class="rank-label">Rank by</span>
+        <div class="rank-by-wrapper" id="rank-by-box">
+          <span class="rank-label">Sort by</span>
           <select id="sort-select" onchange="applyFilters()">
             <option value="cheapest">Lowest Price ⌄</option>
-            <option value="highest_rated">Highest Rated ⌄</option>
+            <option value="highest_rated">Highest Rated (IMDb / BMS) ⌄</option>
             <option value="theatre_count">Most Theatres ⌄</option>
           </select>
         </div>
@@ -285,6 +279,41 @@
         <!-- Injected dynamically via JS -->
       </div>
     </main>
+  </div>
+
+  <!-- Multi-Platform Live Booking Modal (Direct Popup launcher for BMS, PVR, District) -->
+  <div class="modal-overlay" id="booking-portal-modal" style="display:none;">
+    <div class="modal-card booking-modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="booking-modal-title">Select Booking Platform</h2>
+          <p class="modal-subtitle" id="booking-modal-subtitle">Choose your preferred ticketing portal for direct 1-click booking</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeBookingPortalModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" id="booking-modal-body">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Official HD Trailer Player Modal -->
+  <div class="modal-overlay" id="trailer-modal" style="display:none;">
+    <div class="modal-card trailer-modal-card">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="trailer-modal-title">Official Movie Trailer</h2>
+          <p class="modal-subtitle">High Definition 4K Teaser & Trailer</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeTrailerModal()">&times;</button>
+      </div>
+      <div class="modal-body trailer-modal-body">
+        <div class="video-container" id="trailer-video-wrapper">
+          <!-- Injected dynamically via iframe -->
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Price Comparison Matrix Modal -->
@@ -314,19 +343,19 @@
     <div class="modal-card alert-modal-card">
       <div class="modal-header">
         <div>
-          <h2 class="modal-title">🔔 Automated Price Tracker</h2>
-          <p class="modal-subtitle">Get notified in background when ticket prices drop below your budget</p>
+          <h2 class="modal-title">🔔 Automated Price Tracker & Alert</h2>
+          <p class="modal-subtitle">Get instant alerts in background when ticket prices drop within your budget</p>
         </div>
         <button class="modal-close-btn" onclick="closeAlertsModal()">&times;</button>
       </div>
 
       <div class="modal-body">
         <div class="alert-form-box">
-          <h3>Create New Price Alert</h3>
+          <h3>Create New Price Drop Watcher</h3>
           <form id="create-alert-form" onsubmit="submitNewAlert(event)">
             <div class="form-row">
               <div class="form-group">
-                <label>Movie</label>
+                <label>Movie Title</label>
                 <select id="alert-movie-select" required></select>
               </div>
               <div class="form-group">
@@ -373,28 +402,6 @@
             <!-- Injected via JS -->
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- About Project Modal -->
-  <div class="modal-overlay" id="about-modal" style="display:none;">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h2 class="modal-title">Python Mini Project</h2>
-        <button class="modal-close-btn" onclick="closeAboutModal()">&times;</button>
-      </div>
-      <div class="modal-body about-content">
-        <h3>Movie Ticket Price & Show Finder Automation</h3>
-        <p>This application automates the comparison of movie show timings, theatre listings, and seat tier prices across different cinema multiplexes.</p>
-        <h4>Key Technologies Used:</h4>
-        <ul>
-          <li><strong>Python Flask:</strong> Backend REST API & application server</li>
-          <li><strong>Pandas:</strong> Data structuring, aggregation, and CSV export engine</li>
-          <li><strong>Schedule & Threading:</strong> Background price watcher and alert notifier</li>
-          <li><strong>Vanilla CSS & JS:</strong> Custom OnePlus design system with dynamic live filters</li>
-          <li><strong>1-Click Booking:</strong> Smart booking URL generator for instant ticketing</li>
-        </ul>
       </div>
     </div>
   </div>

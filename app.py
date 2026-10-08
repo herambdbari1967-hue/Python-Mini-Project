@@ -1,7 +1,8 @@
 """
 app.py
 Main entry point for Movie Ticket Price & Show Finder Automation.
-Launches Flask web server and opens the OnePlus-inspired interface in the browser.
+Launches Flask web server and serves the OnePlus-inspired interface with live data,
+upcoming movies, price comparison matrix, and multi-platform direct booking launchers.
 """
 
 import os
@@ -9,7 +10,10 @@ import sys
 import webbrowser
 import threading
 from flask import Flask, render_template, request, jsonify, Response
-from finder_engine import CITIES, THEATRES, MOVIES_DATABASE, get_movie_shows, get_price_comparison
+from finder_engine import (
+    CITIES, THEATRES, NOW_SHOWING_MOVIES, UPCOMING_MOVIES, PROMO_CODES,
+    get_movie_shows, get_upcoming_movies, get_price_comparison, get_booking_details
+)
 from price_tracker import alert_manager
 from data_exporter import export_shows_to_csv, export_comparison_to_csv
 
@@ -43,6 +47,16 @@ def api_movies():
         "movies": shows
     })
 
+@app.route('/api/upcoming', methods=['GET'])
+def api_upcoming():
+    search = request.args.get('search', '')
+    upcoming = get_upcoming_movies(search_query=search)
+    return jsonify({
+        "status": "success",
+        "count": len(upcoming),
+        "upcoming_movies": upcoming
+    })
+
 @app.route('/api/comparison', methods=['GET'])
 def api_comparison():
     movie_id = request.args.get('movie_id')
@@ -55,6 +69,28 @@ def api_comparison():
         return jsonify({"status": "error", "message": "Movie not found"}), 404
         
     return jsonify({"status": "success", "comparison": data})
+
+@app.route('/api/booking-details', methods=['GET'])
+def api_booking_details():
+    movie_id = request.args.get('movie_id')
+    city = request.args.get('city', 'Mumbai')
+    theatre_id = request.args.get('theatre_id')
+    
+    if not movie_id:
+        return jsonify({"status": "error", "message": "movie_id is required"}), 400
+        
+    data = get_booking_details(movie_id, theatre_id=theatre_id, city=city)
+    if not data:
+        return jsonify({"status": "error", "message": "Movie not found"}), 404
+        
+    return jsonify({"status": "success", "data": data})
+
+@app.route('/api/promos', methods=['GET'])
+def api_promos():
+    return jsonify({
+        "status": "success",
+        "promos": PROMO_CODES
+    })
 
 @app.route('/api/alerts', methods=['GET', 'POST', 'DELETE'])
 def api_alerts():
