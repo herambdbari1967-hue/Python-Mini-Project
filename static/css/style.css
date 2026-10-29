@@ -2221,12 +2221,15 @@ button, input, select {
    ========================================================================== */
 
 .price-matrix-modal-card {
-  max-width: 1040px;
+  width: 95vw;
+  max-width: 1180px;
   background-color: var(--brand-cream, #F8F3ED);
   border: 2.5px solid var(--brand-black);
   border-radius: 20px;
   box-shadow: 8px 8px 0px var(--brand-black), 0 30px 80px rgba(0,0,0,0.3);
-  padding: 30px;
+  padding: 24px 28px;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .matrix-modal-header {
@@ -2485,20 +2488,24 @@ button, input, select {
 /* 4 Time Window Cards Grid */
 .matrix-windows-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
   margin-bottom: 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1140px) {
   .matrix-windows-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 600px) {
   .matrix-windows-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
 
@@ -2506,11 +2513,14 @@ button, input, select {
   background-color: #fff;
   border: 2px solid var(--brand-black);
   border-radius: 14px;
-  padding: 16px;
+  padding: 15px;
   box-shadow: 3px 3px 0px var(--brand-black);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
   transition: transform 0.15s ease;
 }
 

@@ -1474,13 +1474,24 @@ def get_price_matrix(city="Mumbai", movie_id=None):
             else:
                 windows["night"]["shows"].append(item)
 
-    # Compute window statistics
+    # Compute window statistics with intelligent theatre diversity across time slots
     window_stats = {}
-    for w_key, w_data in windows.items():
+    used_featured_theatres = set()
+
+    for w_key in ["morning", "matinee", "evening", "night"]:
+        w_data = windows[w_key]
         w_shows = w_data["shows"]
         silver_prices = [s["silver"] for s in w_shows if s["silver"] > 0]
         theatres_set = set(s["theatre_name"] for s in w_shows)
-        cheapest = min(w_shows, key=lambda x: x["silver"]) if w_shows else None
+
+        cheapest = None
+        if w_shows:
+            sorted_shows = sorted(w_shows, key=lambda x: x["silver"])
+            # Prioritize distinct premier venues so all 4 slots don't repeat the same single multiplex
+            cheapest = next((s for s in sorted_shows if s["theatre_name"] not in used_featured_theatres), None)
+            if not cheapest:
+                cheapest = sorted_shows[0]
+            used_featured_theatres.add(cheapest["theatre_name"])
 
         window_stats[w_key] = {
             "id": w_data["id"],
@@ -1489,7 +1500,7 @@ def get_price_matrix(city="Mumbai", movie_id=None):
             "icon": w_data["icon"],
             "total_shows": len(w_shows),
             "theatres_count": len(theatres_set),
-            "min_price": min(silver_prices) if silver_prices else 0,
+            "min_price": cheapest["silver"] if cheapest else (min(silver_prices) if silver_prices else 0),
             "max_price": max(silver_prices) if silver_prices else 0,
             "avg_price": round(sum(silver_prices) / len(silver_prices)) if silver_prices else 0,
             "cheapest_show": cheapest
