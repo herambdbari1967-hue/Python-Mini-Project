@@ -123,6 +123,9 @@
     stage.appendChild(face);
 
     root.appendChild(stage);
+
+    // CRITICAL FIX: Wipe existing plain text inside container so it does not duplicate
+    container.innerHTML = '';
     container.appendChild(root);
 
     // Physics & Interaction State
@@ -335,16 +338,21 @@
   function initAllDepthTexts() {
     const mounts = document.querySelectorAll('[data-depth-text]');
     mounts.forEach(mount => {
-      if (mount.dataset.depthInitialized) return;
+      if (mount.dataset.depthInitialized === 'true') return;
       mount.dataset.depthInitialized = 'true';
 
       const text = mount.dataset.depthText || mount.textContent.trim();
+      if (!text) return;
+
       const faceColor = mount.dataset.faceColor || '#141414';
       const depthColor = mount.dataset.depthColor || '#FF5500';
       const fontSize = mount.dataset.fontSize || 'clamp(3rem, 6vw, 6rem)';
       const tilt = parseFloat(mount.dataset.tilt) || 7.0;
       const layers = parseInt(mount.dataset.layers, 10) || 24;
       const depth = parseFloat(mount.dataset.depth) || 2.2;
+
+      // Ensure mount is wiped cleanly before building 3D depth text
+      mount.innerHTML = '';
 
       createDepthText(mount, {
         text,

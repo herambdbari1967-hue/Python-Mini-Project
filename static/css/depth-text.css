@@ -63,6 +63,11 @@
 }
 
 /* Alignment wrapper helpers for CinePlus Hero */
+.depth-text-mount {
+  display: block;
+  line-height: 0.88;
+}
+
 .depth-block-wrapper {
   display: flex;
   flex-direction: column;
@@ -99,3 +104,4 @@
     align-items: center;
   }
 }
+
