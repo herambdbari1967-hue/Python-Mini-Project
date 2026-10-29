@@ -709,7 +709,7 @@ function renderComparisonModal(comp) {
         <td>₹${row.gold_price}</td>
         <td>₹${row.recliner_price}</td>
         <td>
-          <span style="display: inline-block; padding: 3px 8px; border-radius: 4px; font-weight: 600; font-size: 11px; ${row.seats_left < 10 ? 'background: #fee2e2; color: #991b1b;' : (row.seats_left < 30 ? 'background: #fef3c7; color: #92400e;' : 'background: #dcfce7; color: #166534;')}">
+          <span class="seats-badge ${row.seats_left <= 0 ? 'sold-out' : (row.seats_left < 10 ? 'almost-full' : (row.seats_left < 30 ? 'filling-fast' : 'available'))}" style="background-color: var(--brand-primary); color: #ffffff; display: inline-flex; align-items: center; justify-content: center; padding: 4px 10px; border-radius: 9999px; font-weight: 700; font-size: 11px; white-space: nowrap; border: 1px solid #000; box-shadow: 1.5px 1.5px 0 #000;">
             ${row.seats_left > 0 ? `${row.seats_left} seats • ${row.availability || (row.seats_left < 10 ? 'Almost Full' : (row.seats_left < 30 ? 'Filling Fast' : 'Available'))}` : 'Sold Out'}
           </span>
         </td>

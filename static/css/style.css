@@ -1354,7 +1354,7 @@ button, input, select {
 }
 
 .compare-modal-card {
-  max-width: 960px;
+  max-width: 1040px;
 }
 
 .modal-header {
@@ -1433,7 +1433,7 @@ button, input, select {
 .compare-table th {
   background-color: var(--brand-black);
   color: var(--brand-white);
-  padding: 14px 16px;
+  padding: 12px 14px;
   font-family: var(--font-primary-dark);
   font-size: 1.05rem;
   letter-spacing: 0.02em;
@@ -1442,7 +1442,7 @@ button, input, select {
 }
 
 .compare-table td {
-  padding: 14px 16px;
+  padding: 12px 14px;
   border-bottom: 1px solid var(--color-border-subtle);
   color: var(--brand-black);
 }
@@ -1453,6 +1453,44 @@ button, input, select {
 
 .compare-table tr.cheapest-row td {
   background-color: var(--brand-accent) !important;
+}
+
+
+.seats-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  font-size: 11px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--brand-black);
+  box-shadow: 1.5px 1.5px 0px var(--brand-black);
+}
+
+.seats-badge.available {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.seats-badge.filling-fast {
+  background-color: #ff6e26;
+  color: #ffffff;
+}
+
+.seats-badge.almost-full {
+  background-color: var(--brand-black);
+  color: var(--brand-primary);
+  border: 1.5px solid var(--brand-primary);
+}
+
+.seats-badge.sold-out {
+  background-color: #4b5563;
+  color: #ffffff;
+  border: 1px solid var(--brand-black);
 }
 
 .badge-cheapest {
@@ -2600,7 +2638,7 @@ button, input, select {
 }
 
 .fare-val.min-fare {
-  color: #00873a;
+  color: var(--brand-primary);
   font-weight: 900;
 }
 
