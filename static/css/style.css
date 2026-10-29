@@ -540,14 +540,14 @@ button, input, select {
   background-color: var(--brand-black);
   color: var(--brand-accent);
   font-family: var(--font-secondary);
-  font-size: clamp(0.74rem, 0.88vw, 0.88rem);
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: clamp(0.82rem, 1.0vw, 1.02rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 5px 14px;
+  padding: 7px 18px;
   border-radius: var(--radius-pill);
-  margin-bottom: 12px;
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+  margin-bottom: 14px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.18);
   white-space: nowrap;
 }
 
@@ -559,10 +559,11 @@ button, input, select {
 }
 
 .hero-split-heading.left-heading {
-  font-size: clamp(1.6rem, 2.3vw, 2.8rem);
-  line-height: 92%;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.2rem, 3.8vw, 4.2rem);
+  line-height: 88%;
+  letter-spacing: -0.03em;
   text-align: right;
+  white-space: nowrap;
 }
 
 /* Center Column: 3D Video Frame (Big & scaled to comfortably fill hero showcase) */
@@ -607,22 +608,23 @@ button, input, select {
 }
 
 .hero-split-heading.right-heading {
-  font-size: clamp(2.5rem, 4.3vw, 5.0rem);
-  line-height: 85%;
-  letter-spacing: -0.03em;
+  font-size: clamp(3.8rem, 6.8vw, 7.8rem);
+  line-height: 82%;
+  letter-spacing: -0.035em;
   text-align: left;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  white-space: nowrap;
 }
 
 .hero-split-pill.right-pill {
   background-color: var(--brand-primary);
   color: #ffffff;
-  border: 1.5px solid var(--brand-black);
-  box-shadow: 2px 2px 0px var(--brand-black);
-  font-size: clamp(0.74rem, 0.88vw, 0.88rem);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 5px 14px;
+  border: 1.8px solid var(--brand-black);
+  box-shadow: 2.5px 2.5px 0px var(--brand-black);
+  font-size: clamp(0.82rem, 1.0vw, 1.02rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 7px 18px;
   white-space: nowrap;
 }
 
@@ -1971,7 +1973,8 @@ button, input, select {
 
   .hero-split-heading.left-heading {
     text-align: center;
-    font-size: 1.35rem;
+    font-size: 2.2rem;
+    white-space: normal;
   }
 
   .hero-split-center {
@@ -1989,7 +1992,8 @@ button, input, select {
 
   .hero-split-heading.right-heading {
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 3.4rem;
+    white-space: normal;
   }
 
   .movie-cards-grid {
