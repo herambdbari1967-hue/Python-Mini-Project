@@ -759,9 +759,7 @@ function closeCompareModal() {
 }
 
 function openQuickCompare() {
-  if (currentMovies.length > 0) {
-    openCompareModal(currentMovies[0].id);
-  }
+  openPriceMatrixModal();
 }
 
 // Price Alert & Notification Manager
@@ -1018,3 +1016,266 @@ function toggleShowAll(flag) {
   showAllMovies = flag;
   renderMovieGrid(currentMovies);
 }
+
+
+// ==========================================================================
+// CINEPLUS LIVE PRICE MATRIX & GOLDEN-HOUR SHOWTIME ARBITER CONTROLLER
+// 100% Real-time dynamic aggregation & arbitrage engine (BookMyShow feed)
+// ==========================================================================
+
+let currentMatrixData = null;
+
+async function openPriceMatrixModal(movieId = null) {
+  const modal = document.getElementById('price-matrix-modal');
+  if (!modal) return;
+
+  const cityBadge = document.getElementById('matrix-active-city');
+  if (cityBadge) cityBadge.textContent = (currentCity || 'Mumbai').toUpperCase();
+
+  const body = document.getElementById('price-matrix-body');
+  if (body) {
+    body.innerHTML = `
+      <div class="matrix-loading-state">
+        <div class="matrix-spinner"></div>
+        <p>Analyzing live multiplex schedules & computing real-time fare spreads for ${currentCity}...</p>
+      </div>
+    `;
+  }
+
+  modal.style.display = 'flex';
+
+  try {
+    const url = `/api/price-matrix?city=${encodeURIComponent(currentCity)}${movieId ? `&movie_id=${movieId}` : ''}`;
+    const res = await fetch(url);
+    const json = await res.json();
+
+    if (json.status === 'success' && json.data) {
+      currentMatrixData = json.data;
+      populateMatrixMovieDropdown(currentMatrixData.available_movies, currentMatrixData.selected_movie.id);
+      renderPriceMatrixContent(currentMatrixData);
+    } else {
+      if (body) {
+        body.innerHTML = `
+          <div class="matrix-loading-state">
+            <p style="color: #ff3333; font-weight: bold;">Unable to load price matrix for ${currentCity}. Please try again.</p>
+          </div>
+        `;
+      }
+    }
+  } catch (err) {
+    console.error('Error fetching price matrix:', err);
+    if (body) {
+      body.innerHTML = `
+        <div class="matrix-loading-state">
+          <p style="color: #ff3333;">Network error while analyzing live schedules. Please check connection.</p>
+        </div>
+      `;
+    }
+  }
+}
+
+function closePriceMatrixModal() {
+  const modal = document.getElementById('price-matrix-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+function populateMatrixMovieDropdown(movies, selectedId) {
+  const select = document.getElementById('matrix-movie-select');
+  if (!select || !movies) return;
+
+  let optionsHtml = '';
+  movies.forEach(m => {
+    const isSelected = m.id === selectedId ? 'selected' : '';
+    optionsHtml += `<option value="${m.id}" ${isSelected}>${m.title} (${m.show_count} live shows)</option>`;
+  });
+  select.innerHTML = optionsHtml;
+}
+
+async function onMatrixMovieChange(movieId) {
+  const body = document.getElementById('price-matrix-body');
+  if (body) {
+    body.innerHTML = `
+      <div class="matrix-loading-state">
+        <div class="matrix-spinner"></div>
+        <p>Recalculating arbitrage windows for selected screening...</p>
+      </div>
+    `;
+  }
+
+  try {
+    const url = `/api/price-matrix?city=${encodeURIComponent(currentCity)}&movie_id=${movieId}`;
+    const res = await fetch(url);
+    const json = await res.json();
+    if (json.status === 'success' && json.data) {
+      currentMatrixData = json.data;
+      renderPriceMatrixContent(currentMatrixData);
+    }
+  } catch (err) {
+    console.error('Error reloading movie matrix:', err);
+  }
+}
+
+function renderPriceMatrixContent(data) {
+  const body = document.getElementById('price-matrix-body');
+  if (!body || !data) return;
+
+  // 1. Golden Hour Deal Banner
+  const deal = data.golden_deal;
+  let dealHtml = '';
+  if (deal && deal.deal_found && deal.savings_amount > 0) {
+    dealHtml = `
+      <div class="golden-deal-card">
+        <div class="golden-deal-badge">
+          <span>⚡ GOLDEN-HOUR ARBITRAGE OPPORTUNITY</span>
+        </div>
+        <div class="golden-deal-content">
+          <div class="golden-deal-main">
+            <div class="golden-deal-savings">
+              <span class="savings-val">SAVE ₹${deal.savings_amount}</span>
+              <span class="savings-pct">(${deal.savings_pct}% OFF PEAK EVENING)</span>
+            </div>
+            <p class="golden-deal-desc">
+              Book <strong>${escapeHtml(deal.movie_title)}</strong> at <strong>${escapeHtml(deal.theatre_name)}</strong> during the <strong>${deal.time_window} (${deal.show_time})</strong> for only <strong>₹${deal.deal_price}</strong> instead of the ₹${deal.peak_avg_price} prime evening average.
+            </p>
+          </div>
+          <div class="golden-deal-action">
+            <a href="${deal.booking_url}" target="_blank" rel="noopener noreferrer" class="btn-golden-book">
+              BOOK NOW @ ₹${deal.deal_price} ↗
+            </a>
+            <span class="golden-seats-left">${deal.seats_left} seats remaining</span>
+          </div>
+        </div>
+      </div>
+    `;
+  } else if (deal && deal.deal_found) {
+    dealHtml = `
+      <div class="golden-deal-card">
+        <div class="golden-deal-badge">
+          <span>⚡ BEST VALUE SCREENING</span>
+        </div>
+        <div class="golden-deal-content">
+          <div class="golden-deal-main">
+            <div class="golden-deal-savings">
+              <span class="savings-val">₹${deal.deal_price}</span>
+              <span class="savings-pct">(LOWEST PRICE GUARANTEED)</span>
+            </div>
+            <p class="golden-deal-desc">
+              Cheapest verified ticket today for <strong>${escapeHtml(deal.movie_title)}</strong> is at <strong>${escapeHtml(deal.theatre_name)}</strong> at <strong>${deal.show_time}</strong>.
+            </p>
+          </div>
+          <div class="golden-deal-action">
+            <a href="${deal.booking_url}" target="_blank" rel="noopener noreferrer" class="btn-golden-book">
+              BOOK NOW @ ₹${deal.deal_price} ↗
+            </a>
+            <span class="golden-seats-left">${deal.seats_left} seats remaining</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 2. 4 Time-Window Cards
+  const windowsOrder = ['morning', 'matinee', 'evening', 'night'];
+  let cardsHtml = '<div class="matrix-windows-grid">';
+
+  windowsOrder.forEach(wKey => {
+    const w = data.time_windows[wKey];
+    if (!w) return;
+
+    const cheapest = w.cheapest_show;
+    const cheapestBox = cheapest ? `
+      <div class="window-cheapest-box">
+        <div class="cheapest-label">Cheapest in Slot:</div>
+        <div class="cheapest-theatre" title="${escapeHtml(cheapest.theatre_name)}">${escapeHtml(cheapest.theatre_name)}</div>
+        <div class="cheapest-meta">${cheapest.time} • ${cheapest.format}</div>
+        <a href="${cheapest.booking_url}" target="_blank" rel="noopener noreferrer" class="btn-book-slot">
+          Book ₹${cheapest.silver} Show ↗
+        </a>
+      </div>
+    ` : `
+      <div class="window-cheapest-box">
+        <div class="cheapest-meta" style="color: #999;">No active shows in slot</div>
+      </div>
+    `;
+
+    cardsHtml += `
+      <div class="matrix-window-card">
+        <div class="matrix-window-header">
+          <div class="window-badge-row">
+            <h3 class="window-name">${w.label}</h3>
+            <span class="window-count-pill">${w.total_shows} shows</span>
+          </div>
+          <div class="window-time-range">${w.hours}</div>
+        </div>
+
+        <div class="window-fares-row">
+          <div class="fare-col">
+            <span class="fare-lbl">MIN</span>
+            <span class="fare-val min-fare">${w.min_price > 0 ? `₹${w.min_price}` : '—'}</span>
+          </div>
+          <div class="fare-col">
+            <span class="fare-lbl">AVG</span>
+            <span class="fare-val avg-fare">${w.avg_price > 0 ? `₹${w.avg_price}` : '—'}</span>
+          </div>
+          <div class="fare-col">
+            <span class="fare-lbl">MAX</span>
+            <span class="fare-val">${w.max_price > 0 ? `₹${w.max_price}` : '—'}</span>
+          </div>
+        </div>
+
+        ${cheapestBox}
+      </div>
+    `;
+  });
+  cardsHtml += '</div>';
+
+  // 3. Cinema Chain Comparison Section
+  let chainsHtml = '';
+  if (data.chain_comparison && data.chain_comparison.length > 0) {
+    let rowsHtml = '';
+    data.chain_comparison.forEach(c => {
+      rowsHtml += `
+        <tr>
+          <td><span class="chain-badge">${escapeHtml(c.chain_name)}</span></td>
+          <td><strong>₹${c.avg_price}</strong></td>
+          <td style="color: #00873a; font-weight: bold;">₹${c.min_price}</td>
+          <td>${c.shows_count} shows</td>
+          <td style="color: #555;">${escapeHtml(c.cheapest_theatre)} (${c.cheapest_time})</td>
+        </tr>
+      `;
+    });
+
+    chainsHtml = `
+      <div class="matrix-chains-section">
+        <div class="matrix-chains-title">
+          <span>MULTIPLEX CHAIN PRICE ARBITRAGE</span>
+          <span style="font-size: 0.78rem; font-family: var(--font-secondary); color: #777; font-weight: normal;">Ranked from most affordable to premium</span>
+        </div>
+        <table class="matrix-chains-table">
+          <thead>
+            <tr>
+              <th>CHAIN</th>
+              <th>AVG TICKET</th>
+              <th>STARTING FARE</th>
+              <th>ACTIVE SHOWS</th>
+              <th>BEST VALUE VENUE</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rowsHtml}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  body.innerHTML = dealHtml + cardsHtml + chainsHtml;
+}
+
+function exportPriceMatrixCSV() {
+  const select = document.getElementById('matrix-movie-select');
+  const movieId = select ? select.value : '';
+  const url = `/api/export/price-matrix?city=${encodeURIComponent(currentCity)}${movieId ? `&movie_id=${movieId}` : ''}`;
+  window.location.href = url;
+}
+

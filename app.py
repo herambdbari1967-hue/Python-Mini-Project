@@ -12,7 +12,7 @@ import threading
 from flask import Flask, render_template, request, jsonify, Response
 from finder_engine import (
     CITIES, THEATRES, NOW_SHOWING_MOVIES, UPCOMING_MOVIES, PROMO_CODES,
-    get_movie_shows, get_upcoming_movies, get_price_comparison, get_booking_details,
+    get_movie_shows, get_upcoming_movies, get_price_comparison, get_booking_details, get_price_matrix,
     resolve_youtube_trailer_id
 )
 from price_tracker import alert_manager
@@ -186,6 +186,59 @@ def export_comparison():
         mimetype="text/csv",
         headers={"Content-disposition": f"attachment; filename=price_comparison_{movie_id}_{city.lower()}.csv"}
     )
+
+
+@app.route('/api/price-matrix', methods=['GET'])
+def api_price_matrix():
+    city = request.args.get('city', 'Mumbai')
+    movie_id = request.args.get('movie_id', None)
+    matrix = get_price_matrix(city=city, movie_id=movie_id)
+    if not matrix:
+        return jsonify({"status": "error", "message": "No matrix data available for this selection"}), 404
+    return jsonify({"status": "success", "data": matrix})
+
+
+@app.route('/api/export/price-matrix', methods=['GET'])
+def export_price_matrix():
+    city = request.args.get('city', 'Mumbai')
+    movie_id = request.args.get('movie_id', None)
+    matrix = get_price_matrix(city=city, movie_id=movie_id)
+    if not matrix or not matrix.get("all_shows"):
+        return Response("No show data available for export", status=404)
+
+    import pandas as pd
+    import io
+
+    rows = []
+    for s in matrix["all_shows"]:
+        rows.append({
+            "Movie": s["movie_title"],
+            "City": city,
+            "Theatre": s["theatre_name"],
+            "Chain": s["chain"],
+            "Time": s["time"],
+            "Time Window": "Morning" if s["hour"] < 12.0 else ("Matinee" if s["hour"] < 16.0 else ("Evening" if s["hour"] < 20.0 else "Night")),
+            "Format": s["format"],
+            "Silver (Rs)": s["silver"],
+            "Gold (Rs)": s["gold"],
+            "Recliner (Rs)": s["recliner"],
+            "Seats Left": s["seats_left"],
+            "Availability": s["availability"],
+            "Direct Booking Link": s["booking_url"]
+        })
+
+    df = pd.DataFrame(rows)
+    output = io.StringIO()
+    df.to_csv(output, index=False)
+    csv_str = output.getvalue()
+
+    filename = f"cineplus_price_matrix_{matrix['selected_movie']['title'].lower().replace(' ', '_')}_{city.lower()}.csv"
+    return Response(
+        csv_str,
+        mimetype="text/csv",
+        headers={"Content-disposition": f"attachment; filename={filename}"}
+    )
+
 
 def open_browser():
     """Automatically open default web browser to the app"""

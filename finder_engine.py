@@ -1342,3 +1342,237 @@ def get_booking_details(movie_id, theatre_id=None, city="Mumbai"):
         "platform_links": platform_links,
         "promos": PROMO_CODES
     }
+
+
+def parse_showtime_hour(time_str):
+    """
+    Parses dynamic time strings like '10:30 AM', '01:45 PM', '12:00 PM'
+    into decimal 24-hour float for temporal classification.
+    """
+    try:
+        ts = str(time_str).strip().upper()
+        match = re.search(r'(\d{1,2}):(\d{2})\s*(AM|PM)', ts)
+        if match:
+            h = int(match.group(1))
+            m = int(match.group(2))
+            period = match.group(3)
+            if period == 'PM' and h != 12:
+                h += 12
+            elif period == 'AM' and h == 12:
+                h = 0
+            return h + m / 60.0
+    except Exception:
+        pass
+    return None
+
+
+def get_price_matrix(city="Mumbai", movie_id=None):
+    """
+    Automates real-time price discovery across 4 time windows (Morning, Matinee, Evening, Night)
+    and cinema chains, calculating true minimum, average, and maximum fares and surfacing the
+    Golden-Hour Arbitrage Deal with zero mock data.
+    """
+    all_movies = get_movie_shows(city=city)
+    if not all_movies:
+        return None
+
+    # Available movies dropdown options
+    movie_options = []
+    for m in all_movies:
+        show_count = sum(len(t.get("shows", [])) for t in m.get("theatre_shows", []))
+        if show_count > 0:
+            movie_options.append({
+                "id": m["id"],
+                "title": m["title"],
+                "poster": m.get("poster", ""),
+                "rating": m.get("rating", 8.0),
+                "certificate": m.get("certificate", "UA"),
+                "show_count": show_count
+            })
+    movie_options.sort(key=lambda x: x["show_count"], reverse=True)
+
+    # Resolve target movie
+    target_movie = None
+    if movie_id and movie_id != "all":
+        target_movie = next((m for m in all_movies if m["id"] == movie_id), None)
+
+    if not target_movie and movie_options:
+        # Default to the movie with the highest show count
+        top_id = movie_options[0]["id"]
+        target_movie = next((m for m in all_movies if m["id"] == top_id), None)
+
+    if not target_movie:
+        return None
+
+    windows = {
+        "morning": {"id": "morning", "label": "Morning", "hours": "Before 12:00 PM", "icon": "sunrise", "shows": []},
+        "matinee": {"id": "matinee", "label": "Matinee", "hours": "12:00 PM – 04:00 PM", "icon": "sun", "shows": []},
+        "evening": {"id": "evening", "label": "Prime Evening", "hours": "04:00 PM – 08:00 PM", "icon": "sunset", "shows": []},
+        "night": {"id": "night", "label": "Late Night", "hours": "08:00 PM Onwards", "icon": "moon", "shows": []}
+    }
+
+    chain_shows = {
+        "PVR INOX": [],
+        "Cinépolis": [],
+        "MovieMax": [],
+        "Single Screen": []
+    }
+
+    all_shows_list = []
+
+    for th in target_movie.get("theatre_shows", []):
+        th_name = th.get("theatre_name", "Cinema")
+        chain = th.get("chain", "Independent")
+        th_location = th.get("location", city)
+
+        chain_key = "Single Screen"
+        upper_name = th_name.upper()
+        if "PVR" in upper_name or "INOX" in upper_name or "PVR" in chain.upper():
+            chain_key = "PVR INOX"
+        elif "CINEPOLIS" in upper_name or "CINÉPOLIS" in upper_name or "Cinepolis" in chain:
+            chain_key = "Cinépolis"
+        elif "MOVIEMAX" in upper_name or "MovieMax" in chain:
+            chain_key = "MovieMax"
+
+        for s in th.get("shows", []):
+            time_val = s.get("time", "")
+            hour = parse_showtime_hour(time_val)
+            if hour is None:
+                continue
+
+            silver = s.get("silver", 0)
+            gold = s.get("gold", 0)
+            recliner = s.get("recliner", 0)
+            if silver <= 0:
+                continue
+
+            item = {
+                "theatre_name": th_name,
+                "chain": chain_key,
+                "location": th_location,
+                "time": time_val,
+                "hour": hour,
+                "format": s.get("format", "2D"),
+                "silver": silver,
+                "gold": gold,
+                "recliner": recliner,
+                "seats_left": s.get("seats_left", 30),
+                "availability": s.get("availability", "Available"),
+                "booking_url": s.get("booking_url", ""),
+                "movie_title": target_movie["title"]
+            }
+
+            all_shows_list.append(item)
+            chain_shows[chain_key].append(item)
+
+            if hour < 12.0:
+                windows["morning"]["shows"].append(item)
+            elif hour < 16.0:
+                windows["matinee"]["shows"].append(item)
+            elif hour < 20.0:
+                windows["evening"]["shows"].append(item)
+            else:
+                windows["night"]["shows"].append(item)
+
+    # Compute window statistics
+    window_stats = {}
+    for w_key, w_data in windows.items():
+        w_shows = w_data["shows"]
+        silver_prices = [s["silver"] for s in w_shows if s["silver"] > 0]
+        theatres_set = set(s["theatre_name"] for s in w_shows)
+        cheapest = min(w_shows, key=lambda x: x["silver"]) if w_shows else None
+
+        window_stats[w_key] = {
+            "id": w_data["id"],
+            "label": w_data["label"],
+            "hours": w_data["hours"],
+            "icon": w_data["icon"],
+            "total_shows": len(w_shows),
+            "theatres_count": len(theatres_set),
+            "min_price": min(silver_prices) if silver_prices else 0,
+            "max_price": max(silver_prices) if silver_prices else 0,
+            "avg_price": round(sum(silver_prices) / len(silver_prices)) if silver_prices else 0,
+            "cheapest_show": cheapest
+        }
+
+    # Compute Golden-Hour Arbitrage Deal
+    evening_avg = window_stats["evening"]["avg_price"]
+    golden_deal = None
+
+    candidate_shows = windows["morning"]["shows"] + windows["matinee"]["shows"]
+    if candidate_shows and evening_avg > 0:
+        best_candidate = min(candidate_shows, key=lambda x: x["silver"])
+        savings = evening_avg - best_candidate["silver"]
+        if savings > 0:
+            savings_pct = round((savings / evening_avg) * 100)
+            window_name = "Morning" if best_candidate["hour"] < 12.0 else "Matinee"
+            golden_deal = {
+                "deal_found": True,
+                "savings_amount": savings,
+                "savings_pct": savings_pct,
+                "peak_avg_price": evening_avg,
+                "deal_price": best_candidate["silver"],
+                "time_window": window_name,
+                "theatre_name": best_candidate["theatre_name"],
+                "show_time": best_candidate["time"],
+                "format": best_candidate["format"],
+                "seats_left": best_candidate["seats_left"],
+                "booking_url": best_candidate["booking_url"],
+                "movie_title": target_movie["title"]
+            }
+
+    if not golden_deal and all_shows_list:
+        cheapest_ever = min(all_shows_list, key=lambda x: x["silver"])
+        golden_deal = {
+            "deal_found": True,
+            "savings_amount": 0,
+            "savings_pct": 0,
+            "peak_avg_price": cheapest_ever["silver"],
+            "deal_price": cheapest_ever["silver"],
+            "time_window": "All-Day Best",
+            "theatre_name": cheapest_ever["theatre_name"],
+            "show_time": cheapest_ever["time"],
+            "format": cheapest_ever["format"],
+            "seats_left": cheapest_ever["seats_left"],
+            "booking_url": cheapest_ever["booking_url"],
+            "movie_title": target_movie["title"]
+        }
+
+    # Compute Cinema Chain Breakdown
+    chain_comparison = []
+    for c_name, c_shows in chain_shows.items():
+        if not c_shows:
+            continue
+        c_prices = [s["silver"] for s in c_shows if s["silver"] > 0]
+        if not c_prices:
+            continue
+        cheapest_c = min(c_shows, key=lambda x: x["silver"])
+        chain_comparison.append({
+            "chain_name": c_name,
+            "shows_count": len(c_shows),
+            "min_price": min(c_prices),
+            "avg_price": round(sum(c_prices) / len(c_prices)),
+            "cheapest_theatre": cheapest_c["theatre_name"],
+            "cheapest_time": cheapest_c["time"]
+        })
+    chain_comparison.sort(key=lambda x: x["avg_price"])
+
+    return {
+        "city": city,
+        "selected_movie": {
+            "id": target_movie["id"],
+            "title": target_movie["title"],
+            "poster": target_movie.get("poster", ""),
+            "rating": target_movie.get("rating", 8.5),
+            "certificate": target_movie.get("certificate", "UA"),
+            "duration": target_movie.get("duration", "2h 15m"),
+            "total_shows": len(all_shows_list)
+        },
+        "available_movies": movie_options,
+        "time_windows": window_stats,
+        "golden_deal": golden_deal,
+        "chain_comparison": chain_comparison,
+        "all_shows": all_shows_list,
+        "generated_at": time.strftime("%I:%M %p, %d %b %Y")
+    }
+

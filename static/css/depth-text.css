@@ -100,6 +100,7 @@
 }
 
 @media (max-width: 900px) {
+
   .depth-block-wrapper.align-right,
   .depth-block-wrapper.align-left {
     align-items: center;

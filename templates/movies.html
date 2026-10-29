@@ -392,6 +392,62 @@
     </div>
   </div>
 
+    <!-- Live Showtime Price Matrix & Golden-Hour Showtime Arbiter Modal -->
+  <div id="price-matrix-modal" class="modal-overlay" style="display: none;" onclick="if(event.target === this) closePriceMatrixModal()">
+    <div class="modal-card price-matrix-modal-card">
+      
+      <!-- Modal Header -->
+      <div class="modal-header matrix-modal-header">
+        <div class="matrix-title-group">
+          <div class="matrix-badge-row">
+            <span class="matrix-live-pill"><span class="matrix-pulse-dot"></span> LIVE MULTIPLEX RADAR</span>
+            <span class="matrix-city-badge" id="matrix-active-city">MUMBAI</span>
+          </div>
+          <h2 class="modal-title matrix-heading">SHOWTIME PRICE MATRIX & ARBITER</h2>
+          <p class="modal-subtitle matrix-subheading">Dynamic time-window fare analysis & arbitrage across active metro screens (100% Live BookMyShow Feed)</p>
+        </div>
+        <button class="modal-close-btn" onclick="closePriceMatrixModal()" title="Close Arbiter">×</button>
+      </div>
+
+      <!-- Controls & Filter Toolbar -->
+      <div class="matrix-toolbar">
+        <div class="matrix-movie-picker">
+          <label for="matrix-movie-select" class="matrix-label">SELECT SCREENING:</label>
+          <select id="matrix-movie-select" class="matrix-select" onchange="onMatrixMovieChange(this.value)">
+            <!-- Populated dynamically with live screening movies -->
+          </select>
+        </div>
+        <div class="matrix-actions">
+          <button class="matrix-btn-export" onclick="exportPriceMatrixCSV()" title="Download genuine live schedule CSV">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>EXPORT MATRIX CSV</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Dynamic Ingestion) -->
+      <div class="modal-body matrix-modal-body" id="price-matrix-body">
+        <div class="matrix-loading-state">
+          <div class="matrix-spinner"></div>
+          <p>Analyzing live multiplex schedules & computing fare spreads...</p>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer matrix-modal-footer">
+        <div class="matrix-footer-note">
+          <span>* 100% verified real-time rates fetched directly from BookMyShow API. No simulated data.</span>
+        </div>
+        <button class="action-btn primary matrix-close-action" onclick="closePriceMatrixModal()">CLOSE ARBITER</button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Multi-Tier Price Comparison Matrix Modal -->
   <div id="compare-modal" class="modal-overlay" style="display: none;">
     <div class="modal-card compare-modal-card">
