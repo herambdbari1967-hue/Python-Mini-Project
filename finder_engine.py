@@ -85,6 +85,13 @@ THEATRES = {
 
 # Verified Curated YouTube Official Trailer IDs
 CURATED_TRAILER_IDS = {
+    # Namit Malhotra's Epic Ramayana (Official Trailer - Rocking Star Yash / JioHotstar)
+    "namit malhotra's ramayana": "Yw0oLfyeOXM",
+    "namit malhotra": "Yw0oLfyeOXM",
+    "ramayana": "Yw0oLfyeOXM",
+    "vision of ramayana": "BBNrQ6B_Hok",
+
+    # Blockbusters & Now Showing Hits
     "clayface": "OGO4Mqvo3jI",
     "pehla pyaar doosri baar": "PWuJ5-WiEgY",
     "rajini: the jailer 2": "PWuJ5-WiEgY",
@@ -94,8 +101,6 @@ CURATED_TRAILER_IDS = {
     "udta teer": "PWuJ5-WiEgY",
     "drishyam the conclusion": "BSZZwBaNQAA",
     "drishyam": "BSZZwBaNQAA",
-    "namit malhotra's ramayana": "1zip1rNaNYs",
-    "ramayana": "1zip1rNaNYs",
     "street fighter": "U6sbm1OaJb8",
     "verity": "xdPMKhjMSFs",
     "prahaar": "PWuJ5-WiEgY",
@@ -103,19 +108,31 @@ CURATED_TRAILER_IDS = {
     "hanuman ansh": "PWuJ5-WiEgY",
     "tu hai meri kiran": "PWuJ5-WiEgY",
     "bts world tour arirang in sao paulo: live viewing (delayed)": "PWuJ5-WiEgY",
-    "singgaramm": "gB45B3fB1k0",
-    "killer": "yWzQ68qV2wY",
-    "enemy of the smuggler": "gB45B3fB1k0",
-    "cult": "yWzQ68qV2wY",
+    "singgaramm": "qDRgmO0j57c",
+    "killer": "3x77q40hATw",
+    "enemy of the smuggler": "qDRgmO0j57c",
+    "cult": "3x77q40hATw",
     "mr lucky": "PWuJ5-WiEgY",
     "gaamini": "PWuJ5-WiEgY",
-    "chhaava": "r-S3HnU8i78",
-    "pushpa 2": "g3JUbgKWTC4",
-    "singham again": "0qKk8t96w38",
-    "bhool bhulaiyaa 3": "7_tN848Z1Hk",
+    "chhaava": "hs3w32RG8L8",
+    "pushpa 2": "mwF88W-1MN8",
+    "singham again": "MD7v0-igVIM",
+    "bhool bhulaiyaa 3": "Lj89imWb_Uc",
     "gladiator ii": "4rgYUipGJNo",
-    "avatar: fire and ash": "b1o4oJp2g4Y"
+    "avatar: fire and ash": "nb_fFj_0rq8"
 }
+
+def get_curated_trailer(title):
+    if not title:
+        return "Yw0oLfyeOXM"
+    t_lower = title.lower()
+    if t_lower in CURATED_TRAILER_IDS:
+        return CURATED_TRAILER_IDS[t_lower]
+    for k, v in CURATED_TRAILER_IDS.items():
+        if k in t_lower or t_lower in k:
+            return v
+    return "auto"
+
 
 _trailer_cache = dict(CURATED_TRAILER_IDS)
 
@@ -669,7 +686,7 @@ def get_movie_shows(city="Mumbai", search_query=None, selected_formats=None, max
                 "duration": mov.get("duration", "2h 15m"),
                 "languages": mov.get("languages", ["Hindi", "English"]),
                 "formats": list(all_formats) if all_formats else mov.get("formats", ["2D"]),
-                "trailer_id": CURATED_TRAILER_IDS.get(mov["title"].lower(), mov.get("trailer_id", "auto")),
+                "trailer_id": get_curated_trailer(mov["title"]) if get_curated_trailer(mov["title"]) != "auto" else mov.get("trailer_id", "auto"),
                 "cast": mov.get("cast", ["Ensemble"]),
                 "director": mov.get("director", "Director"),
                 "poster": mov["poster"],
