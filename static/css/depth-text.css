@@ -56,10 +56,11 @@
 
 .depth-text__face {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   color: var(--depth-text-face-color, #141414);
-  text-shadow: var(--depth-text-face-shadow, none);
-  transform: translateZ(0.6px);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  transform: translateZ(1.2px);
+  filter: drop-shadow(0px 1px 1px rgba(255, 255, 255, 0.2));
 }
 
 /* Alignment wrapper helpers for CinePlus Hero */

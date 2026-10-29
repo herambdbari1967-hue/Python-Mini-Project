@@ -16,10 +16,10 @@
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
   const getLayerColor = (faceColor, depthColor, index, total) => {
+    // Keep extrusion luminous and vibrant: front layer stays 98% pure depthColor, back layer softly deepens
     const progress = total <= 1 ? 1 : index / total;
-    const eased = progress * progress;
-    const faceMix = Math.round((1 - eased) * 72 + 4);
-    return `color-mix(in srgb, color-mix(in srgb, ${faceColor} ${faceMix}%, ${depthColor}) 92%, black)`;
+    const shadePercent = Math.round(progress * 35);
+    return `color-mix(in srgb, ${depthColor} ${100 - shadePercent}%, #1a0802)`;
   };
 
   const getFadeColor = (depthColor, index, total, outline) => {
@@ -89,7 +89,7 @@
     root.style.setProperty(
       '--depth-text-shadow',
       shadow && !gradientDepth
-        ? `0 0.18em 0.32em color-mix(in srgb, ${depthColor} 30%, rgba(0, 0, 0, 0.42))`
+        ? `0 0.10em 0.22em color-mix(in srgb, ${depthColor} 45%, rgba(20, 10, 5, 0.22))`
         : 'none'
     );
     root.style.setProperty('--depth-text-face-shadow', shadow ? '0 0.035em 0.07em rgba(0, 0, 0, 0.28)' : 'none');
