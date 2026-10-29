@@ -1008,6 +1008,42 @@ def generate_multiplatform_booking_links(movie_title, theatre_name, city, show_t
     }
 
 
+def format_matches(show_fmt: str, req_fmt: str) -> bool:
+    """
+    Smart matcher comparing a screening's format against user-selected category/filter.
+    Handles variations like 'IMAX 2D' vs 'IMAX 3D', 'Dolby Atmos', '4DX', '3D', and '2D'.
+    """
+    if not show_fmt or not req_fmt:
+        return False
+    s = show_fmt.strip().upper()
+    r = req_fmt.strip().upper()
+    
+    if s == r:
+        return True
+        
+    # IMAX category pill / filter: matches all IMAX screenings (IMAX 2D, IMAX 3D, IMAX)
+    if 'IMAX' in r:
+        return 'IMAX' in s
+        
+    # 4DX category pill / filter: matches all 4DX screenings (4DX, 4DX 3D, 4DX 2D)
+    if '4DX' in r:
+        return '4DX' in s
+        
+    # Dolby Atmos: matches any Dolby Atmos screenings
+    if 'ATMOS' in r or 'DOLBY' in r:
+        return 'ATMOS' in s or 'DOLBY' in s
+        
+    # 3D: matches 3D experiences (not regular 2D)
+    if r == '3D' or '3D' in r:
+        return '3D' in s and '2D' not in s
+        
+    # 2D: matches standard 2D screenings (excluding premium IMAX/4DX)
+    if r == '2D' or '2D' in r:
+        return '2D' in s and 'IMAX' not in s and '4DX' not in s
+        
+    return r in s or s in r
+
+
 def get_movie_shows(city="Mumbai", search_query=None, selected_formats=None, max_price=None, theatre_chain=None, sort_by="cheapest", language="All"):
     """
     Core function that aggregates live movie shows, real multiplex schedules, and prices.
@@ -1088,8 +1124,9 @@ def get_movie_shows(city="Mumbai", search_query=None, selected_formats=None, max
                 fmt = s["format"]
                 all_formats.add(fmt)
 
-                if selected_formats and len(selected_formats) > 0 and fmt not in selected_formats:
-                    continue
+                if selected_formats and len(selected_formats) > 0:
+                    if not any(format_matches(fmt, sel) for sel in selected_formats):
+                        continue
 
                 if max_price and s["silver"] > max_price:
                     continue

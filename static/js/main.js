@@ -573,6 +573,20 @@ function selectCategoryPill(btn, cat) {
   document.querySelectorAll('.cat-item').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   activeCategory = cat;
+
+  // Sync sidebar controls with selected category pill
+  if (cat === 'all') {
+    document.querySelectorAll('input[name="format_filter"]').forEach(cb => cb.checked = false);
+    const allPriceRadio = document.querySelector('input[name="price_filter"][value="1000"]');
+    if (allPriceRadio) allPriceRadio.checked = true;
+  } else if (cat === 'budget') {
+    document.querySelectorAll('input[name="format_filter"]').forEach(cb => cb.checked = false);
+  } else {
+    document.querySelectorAll('input[name="format_filter"]').forEach(cb => {
+      cb.checked = (cb.value === cat);
+    });
+  }
+
   currentPage = 1;
   loadMovies();
 }
@@ -603,6 +617,27 @@ function onSearchInput(val) {
 }
 
 function applyFilters() {
+  const formatCheckboxes = document.querySelectorAll('input[name="format_filter"]:checked');
+  if (formatCheckboxes.length === 1) {
+    const val = formatCheckboxes[0].value;
+    activeCategory = val;
+    document.querySelectorAll('.cat-item').forEach(b => {
+      const oc = b.getAttribute('onclick') || '';
+      if (oc.includes(`'${val}'`)) b.classList.add('active');
+      else b.classList.remove('active');
+    });
+  } else if (formatCheckboxes.length === 0) {
+    if (activeCategory !== 'budget') {
+      activeCategory = 'all';
+      document.querySelectorAll('.cat-item').forEach(b => {
+        const oc = b.getAttribute('onclick') || '';
+        if (oc.includes("'all'")) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+    }
+  } else {
+    document.querySelectorAll('.cat-item').forEach(b => b.classList.remove('active'));
+  }
   loadMovies();
 }
 
@@ -895,7 +930,8 @@ function parseUrlParameters() {
     if (cb) cb.checked = true;
     activeCategory = format;
     document.querySelectorAll('.cat-item').forEach(b => {
-      if (b.innerText.toLowerCase().includes(format.toLowerCase())) {
+      const oc = b.getAttribute('onclick') || '';
+      if (oc.includes(`'${format}'`)) {
         b.classList.add('active');
       } else {
         b.classList.remove('active');
