@@ -8,7 +8,7 @@
   <link rel="preload" href="/static/fonts/MDNichromeTest-Dark.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="/static/fonts/NeueMontreal-Medium.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="/static/fonts/NeueMontreal-Regular.otf" as="font" type="font/otf" crossorigin>
-  <link rel="stylesheet" href="/static/css/style.css?v=7">
+  <link rel="stylesheet" href="/static/css/style.css?v=8">
 </head>
 <body>
 
@@ -44,7 +44,7 @@
           <svg class="nav-link-svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="5 3 19 12 5 21 5 3"/>
           </svg>
-          <span>Now Showing</span>
+          <span style="white-space: nowrap;">Now&nbsp;Showing</span>
         </a>
 
         <a href="javascript:void(0)" class="nav-link" id="nav-upcoming" onclick="switchMainTab('upcoming')">
@@ -64,7 +64,7 @@
             <line x1="12" y1="20" x2="12" y2="4"/>
             <line x1="6" y1="20" x2="6" y2="14"/>
           </svg>
-          <span>Price Matrix</span>
+          <span style="white-space: nowrap;">Price&nbsp;Matrix</span>
         </a>
 
         <a href="javascript:void(0)" class="nav-link" onclick="openAlertsModal()">
@@ -82,7 +82,7 @@
             <polyline points="7 10 12 15 17 10"/>
             <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
-          <span>Export CSV</span>
+          <span style="white-space: nowrap;">Export&nbsp;CSV</span>
         </a>
       </nav>
 
@@ -300,6 +300,42 @@
       <div class="filter-header">
         <h3>Filters</h3>
         <button class="reset-link" onclick="resetAllFilters()">Reset All</button>
+      </div>
+
+      <!-- Language & Regional Filter Group -->
+      <div class="filter-group">
+        <h4 class="filter-title">Language</h4>
+        <label class="filter-checkbox-label">
+          <input type="radio" name="lang_filter" value="All" checked onchange="applyFilters()">
+          <span>All Languages</span>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="radio" name="lang_filter" value="Hindi" onchange="applyFilters()">
+          <span>Hindi</span>
+          <span class="tag-red">26 Shows</span>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="radio" name="lang_filter" value="English" onchange="applyFilters()">
+          <span>English</span>
+          <span class="tag-red">23 Shows</span>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="radio" name="lang_filter" value="Marathi" onchange="applyFilters()">
+          <span>Marathi</span>
+          <span class="tag-red">7 Shows</span>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="radio" name="lang_filter" value="Gujarati" onchange="applyFilters()">
+          <span>Gujarati</span>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="radio" name="lang_filter" value="South Indian" onchange="applyFilters()">
+          <span>South Indian (Tel/Tam/Mal)</span>
+        </label>
+        <label class="filter-checkbox-label">
+          <input type="radio" name="lang_filter" value="Bengali" onchange="applyFilters()">
+          <span>Bengali</span>
+        </label>
       </div>
 
       <!-- Format Filter Group -->

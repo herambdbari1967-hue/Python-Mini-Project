@@ -41,6 +41,7 @@ def api_movies():
     max_price = request.args.get('max_price', type=int)
     chain = request.args.get('chain', 'All')
     sort_by = request.args.get('sort_by', 'cheapest')
+    language = request.args.get('language', 'All')
     
     shows = get_movie_shows(
         city=city, 
@@ -48,7 +49,8 @@ def api_movies():
         selected_formats=formats if formats else None,
         max_price=max_price,
         theatre_chain=chain,
-        sort_by=sort_by
+        sort_by=sort_by,
+        language=language
     )
     return jsonify({
         "status": "success",

@@ -90,7 +90,11 @@ async function loadMovies() {
   const chainRadio = document.querySelector('input[name="chain_filter"]:checked');
   const chain = chainRadio ? chainRadio.value : 'All';
 
+  const langRadio = document.querySelector('input[name="lang_filter"]:checked');
+  const lang = langRadio ? langRadio.value : 'All';
+
   let url = `/api/movies?city=${encodeURIComponent(city)}&sort_by=${sortBy}&chain=${encodeURIComponent(chain)}`;
+  if (lang && lang !== 'All') url += `&language=${encodeURIComponent(lang)}`;
   if (searchQuery) url += `&search=${encodeURIComponent(searchQuery)}`;
   if (maxPrice) url += `&max_price=${maxPrice}`;
   formats.forEach(f => { url += `&format=${encodeURIComponent(f)}`; });
@@ -534,6 +538,8 @@ function applyFilters() {
 }
 
 function resetAllFilters() {
+  const defaultLang = document.querySelector('input[name="lang_filter"][value="All"]');
+  if (defaultLang) defaultLang.checked = true;
   document.querySelectorAll('input[name="format_filter"]').forEach(cb => cb.checked = false);
   document.querySelector('input[name="price_filter"][value="1000"]').checked = true;
   document.querySelector('input[name="chain_filter"][value="All"]').checked = true;
