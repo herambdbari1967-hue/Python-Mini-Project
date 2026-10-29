@@ -659,7 +659,11 @@ function renderComparisonModal(comp) {
         <td><strong>₹${row.silver_price}</strong></td>
         <td>₹${row.gold_price}</td>
         <td>₹${row.recliner_price}</td>
-        <td><span style="color: ${row.seats_left < 10 ? 'var(--color-deep-olive)' : '#27ae60'}; font-weight: 600;">${row.seats_left} seats</span></td>
+        <td>
+          <span style="display: inline-block; padding: 3px 8px; border-radius: 4px; font-weight: 600; font-size: 11px; ${row.seats_left < 10 ? 'background: #fee2e2; color: #991b1b;' : (row.seats_left < 30 ? 'background: #fef3c7; color: #92400e;' : 'background: #dcfce7; color: #166534;')}">
+            ${row.seats_left > 0 ? `${row.seats_left} seats • ${row.availability || (row.seats_left < 10 ? 'Almost Full' : (row.seats_left < 30 ? 'Filling Fast' : 'Available'))}` : 'Sold Out'}
+          </span>
+        </td>
         <td>
           <button class="action-btn primary" style="padding: 4px 10px; font-size: 11px;" onclick="openBookingPortalModal('${comp.cheapest_option ? currentMovieForCompare : ''}', '${escapeHtml(row.theatre)}', '${row.time}', '${row.format}')">
             Book &rarr;

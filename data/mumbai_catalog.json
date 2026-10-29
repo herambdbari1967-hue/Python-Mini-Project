@@ -3,20 +3,19 @@
     "id": "ET00517731",
     "title": "Pehla Pyaar Doosri Baar",
     "slug": "pehla-pyaar-doosri-baar",
-    "genre": "Hindi / Romance / Comedy",
+    "genre": "Comedy / Romantic",
     "certificate": "A",
     "rating": 9.0,
     "votes": "2.5K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 22m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "fNIgVJooVUw",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -25,7 +24,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS8xMCAgMi41SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@pt-v1.png,t-false,lfo-top_right,lx-N5,ly-0,w-160,l-end/et00517731-ljxgjxyrcz-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS8xMCAgMi41SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@pt-v1.png,t-false,lfo-top_right,lx-N5,ly-0,w-160,l-end/et00517731-ljxgjxyrcz-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Pehla Pyaar Doosri Baar streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/pehla-pyaar-doosri-baar/ET00517731",
@@ -33,26 +32,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/pehla-pyaar-doosri-baar-mumbai/movie-mumbai-ET00517731-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00513250",
     "title": "Nayyi Navelli",
     "slug": "nayyi-navelli",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Comedy / Family / Entertainment",
+    "certificate": "UA16+",
     "rating": 7.3,
     "votes": "12.2K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 18m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "NPkMecGOxDc",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -61,7 +60,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny4zLzEwICAxMi4ySysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00513250-xumygqhejb-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny4zLzEwICAxMi4ySysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00513250-xumygqhejb-portrait.jpg",
     "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Nayyi Navelli streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/nayyi-navelli/ET00513250",
@@ -69,26 +68,31 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/nayyi-navelli-mumbai/movie-mumbai-ET00513250-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "16 Oct, 2026"
   },
   {
     "id": "ET00496545",
     "title": "Clayface",
     "slug": "clayface",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Action / Horror / Psychological / Thriller",
     "certificate": "A",
     "rating": 8.7,
     "votes": "5.2K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 49m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "MX4D",
+      "2D SCREEN X",
+      "4DX",
+      "ICE",
+      "DOLBY CINEMA 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "pJt96whxunA",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -97,7 +101,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICA1LjJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00496545-wuksbwcunr-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICA1LjJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00496545-wuksbwcunr-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Clayface streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/clayface/ET00496545",
@@ -105,28 +109,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/clayface-mumbai/movie-mumbai-ET00496545-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00520789",
     "title": "The Influencer Project",
     "slug": "the-influencer-project",
-    "genre": "Action / Sci-Fi / Drama",
+    "genre": "Horror / Thriller",
     "certificate": "A",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "1h 43m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "M9HQ3ECRrak",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -135,7 +137,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MS40SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520789-bfdesndpxh-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MS40SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520789-bfdesndpxh-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch The Influencer Project streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-influencer-project/ET00520789",
@@ -143,26 +145,33 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/the-influencer-project-mumbai/movie-mumbai-ET00520789-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   },
   {
     "id": "ET00498183",
     "title": "Resident Evil",
     "slug": "resident-evil",
-    "genre": "Hindi / Horror / Thriller",
+    "genre": "Action / Horror / Sci-Fi / Thriller",
     "certificate": "A",
     "rating": 8.5,
     "votes": "27.3K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 34m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "DOLBY CINEMA 2D",
+      "MX4D",
+      "ICE",
+      "4DX",
+      "2D SCREEN X",
+      "EPIQ",
+      "IMAX 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "mNd1gb19A-c",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -171,7 +180,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICAyNy4zSysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00498183-khvmtgwrwt-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICAyNy4zSysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00498183-khvmtgwrwt-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Resident Evil streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/resident-evil/ET00498183",
@@ -179,28 +188,28 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/resident-evil-mumbai/movie-mumbai-ET00498183-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "18 Sep, 2026"
   },
   {
     "id": "ET00480914",
     "title": "Obsession",
     "slug": "obsession",
-    "genre": "Action / Sci-Fi / Drama",
+    "genre": "Horror / Thriller",
     "certificate": "A",
     "rating": 8.6,
     "votes": "107K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 50m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
       "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "EPIQ",
+      "DOLBY CINEMA 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "3-sJed7iv84",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -209,7 +218,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC42LzEwICAxMDdLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00480914-luezcqbrmx-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC42LzEwICAxMDdLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00480914-luezcqbrmx-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Obsession streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/obsession/ET00480914",
@@ -217,26 +226,39 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/obsession-mumbai/movie-mumbai-ET00480914-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "29 May, 2026"
   },
   {
     "id": "ET00451914",
     "title": "Namit Malhotra's Ramayana",
     "slug": "namit-malhotras-ramayana",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Action / Adventure / Drama / Mythological",
     "certificate": "U",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "3h 15m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "DOLBY CINEMA 3D",
+      "MX4D 3D",
+      "4DX 3D",
+      "3D",
+      "HDR By Barco",
+      "ICE 3D",
+      "4DX",
+      "IMAX 3D",
+      "3D SCREEN X",
+      "EPIQ 3D",
+      "2D SCREEN X",
+      "DOLBY CINEMA 2D",
+      "IMAX 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "1zip1rNaNYs",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -245,7 +267,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NDg5SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00451914-znvcyrkyzf-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NDg5SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00451914-znvcyrkyzf-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Namit Malhotra's Ramayana streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/namit-malhotras-ramayana/ET00451914",
@@ -259,20 +281,24 @@
     "id": "ET00518674",
     "title": "Jailer 2",
     "slug": "jailer-2",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Action / Thriller",
+    "certificate": "UA16+",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "2h 45m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "HDR By Barco",
+      "EPIQ",
+      "4DX",
+      "DOLBY CINEMA 2D",
+      "IMAX 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "-mYAvoEvX7I",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -281,7 +307,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MzkwSysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00518674-jlgknxcxef-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MzkwSysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00518674-jlgknxcxef-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Jailer 2 streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/jailer-2/ET00518674",
@@ -289,26 +315,27 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/jailer-2-mumbai/movie-mumbai-ET00518674-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "15 Oct, 2026"
   },
   {
     "id": "ET00495822",
     "title": "Udta Teer",
     "slug": "udta-teer",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Action / Comedy",
+    "certificate": "UA13+",
     "rating": 8.2,
     "votes": "11.1K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 17m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "ICE"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "hN_ZUElLH44",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -317,7 +344,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC4yLzEwICAxMS4xSysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00495822-amerlhgeja-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC4yLzEwICAxMS4xSysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00495822-amerlhgeja-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Udta Teer streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/udta-teer/ET00495822",
@@ -325,26 +352,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/udta-teer-mumbai/movie-mumbai-ET00495822-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00502504",
     "title": "Prahaar",
     "slug": "prahaar",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Biography / Drama",
+    "certificate": "UA16+",
     "rating": 9.0,
     "votes": "15.3K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 21m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "qGbvEhKhaWA",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -353,7 +380,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS8xMCAgMTUuM0srIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00502504-edgjfybpzk-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS8xMCAgMTUuM0srIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00502504-edgjfybpzk-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Prahaar streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/prahaar/ET00502504",
@@ -361,26 +388,29 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/prahaar-mumbai/movie-mumbai-ET00502504-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "16 Oct, 2026"
   },
   {
     "id": "ET00477911",
     "title": "Drishyam The Conclusion",
     "slug": "drishyam-the-conclusion",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Drama / Mystery / Thriller",
+    "certificate": "UA16+",
     "rating": 8.7,
     "votes": "155K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 30m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "DOLBY CINEMA 2D",
+      "IMAX 2D",
+      "EPIQ"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "fneuVQ7uO_w",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -389,7 +419,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICAxNTVLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00477911-leqzyrmedu-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICAxNTVLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00477911-leqzyrmedu-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Drishyam The Conclusion streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/drishyam-the-conclusion/ET00477911",
@@ -397,26 +427,27 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/drishyam-the-conclusion-mumbai/movie-mumbai-ET00477911-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "2 Oct, 2026"
   },
   {
     "id": "ET00429213",
     "title": "Rajini: The Jailer 2",
     "slug": "rajini-the-jailer-2",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Action / Thriller",
+    "certificate": "UA16+",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "2h 45m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "DOLBY CINEMA 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "PWuJ5-WiEgY",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -425,7 +456,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MjA3SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00429213-tywdfnqvfy-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MjA3SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00429213-tywdfnqvfy-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Rajini: The Jailer 2 streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/rajini-the-jailer-2/ET00429213",
@@ -433,26 +464,27 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/rajini-the-jailer-2-mumbai/movie-mumbai-ET00429213-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "15 Oct, 2026"
   },
   {
     "id": "ET00507738",
     "title": "Hanuman Ansh",
     "slug": "hanuman-ansh",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Biography / Devotional / Drama",
     "certificate": "U",
     "rating": 9.6,
     "votes": "299K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 30m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "EPIQ"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "PXUuh3VJvWY",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -461,7 +493,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS42LzEwICAyOTlLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00507738-kfbeunsutt-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS42LzEwICAyOTlLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00507738-kfbeunsutt-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Hanuman Ansh streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/hanuman-ansh/ET00507738",
@@ -469,26 +501,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/hanuman-ansh-mumbai/movie-mumbai-ET00507738-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "7 Aug, 2026"
   },
   {
     "id": "ET00506305",
     "title": "Mitrata",
     "slug": "mitrata",
-    "genre": "Gujarati / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Comedy / Drama",
+    "certificate": "UA16+",
     "rating": 9.5,
     "votes": "2.5K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 56m",
     "languages": [
       "Gujarati",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "Q1OlVVOnbOU",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -497,7 +529,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICAyLjVLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506305-pqllhdesll-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICAyLjVLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506305-pqllhdesll-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Mitrata streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/mitrata/ET00506305",
@@ -505,26 +537,29 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/mitrata-mumbai/movie-mumbai-ET00506305-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "25 Sep, 2026"
   },
   {
     "id": "ET00507337",
     "title": "Doraemon: Castle of the Undersea Devil",
     "slug": "doraemon-castle-of-the-undersea-devil",
-    "genre": "Hindi / Animation / Family",
+    "genre": "Adventure / Animation / Comedy / Family / Fantasy",
     "certificate": "U",
     "rating": 9.0,
     "votes": "20.7K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 41m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "4DX",
+      "EPIQ",
+      "MX4D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "tKdIRLkFs2E",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -533,7 +568,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS8xMCAgMjAuN0srIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00507337-uhvekqvrcs-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS8xMCAgMjAuN0srIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00507337-uhvekqvrcs-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Doraemon: Castle of the Undersea Devil streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/doraemon-castle-of-the-undersea-devil/ET00507337",
@@ -541,26 +576,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/doraemon-castle-of-the-undersea-devil-mumbai/movie-mumbai-ET00507337-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "2 Oct, 2026"
   },
   {
     "id": "ET00517730",
     "title": "BTS World Tour Arirang in Sao Paulo: Live Viewing (Delayed)",
     "slug": "bts-world-tour-arirang-in-sao-paulo-live-viewing-delayed",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Musical",
+    "certificate": "UA13+",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "3h 15m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "DmJLy3nunzM",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -569,7 +604,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MTcuN0srIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00517730-mxnrxbwzhu-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MTcuN0srIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00517730-mxnrxbwzhu-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch BTS World Tour Arirang in Sao Paulo: Live Viewing (Delayed) streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/bts-world-tour-arirang-in-sao-paulo-live-viewing-delayed/ET00517730",
@@ -583,22 +618,22 @@
     "id": "ET00497246",
     "title": "Verity",
     "slug": "verity",
-    "genre": "Action / Sci-Fi / Drama",
+    "genre": "Drama / Mystery / Psychological / Romantic / Thriller",
     "certificate": "A",
     "rating": 8.5,
     "votes": "8.6K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 59m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
       "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "4DX",
+      "DOLBY CINEMA 2D",
+      "ICE"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "DDOxbPUfpMw",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -607,7 +642,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICA4LjZLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00497246-qqckeccehs-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICA4LjZLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00497246-qqckeccehs-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Verity streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/verity/ET00497246",
@@ -615,26 +650,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/verity-mumbai/movie-mumbai-ET00497246-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "2 Oct, 2026"
   },
   {
     "id": "ET00517992",
     "title": "Tum Mere Ho",
     "slug": "tum-mere-ho",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Drama / Romantic",
+    "certificate": "UA16+",
     "rating": 8.6,
     "votes": "Popular",
-    "duration": "2h 15m",
+    "duration": "2h 14m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "K3wqtAWeveU",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -643,7 +678,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC42LzEwICA0MDArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00517992-nanelwfhpr-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC42LzEwICA0MDArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00517992-nanelwfhpr-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Tum Mere Ho streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/tum-mere-ho/ET00517992",
@@ -651,26 +686,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/tum-mere-ho-mumbai/movie-mumbai-ET00517992-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00520681",
     "title": "Kapuskoonda",
     "slug": "kapuskoonda",
-    "genre": "Marathi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Comedy / Drama / Family",
+    "certificate": "UA 7+",
     "rating": 9.7,
     "votes": "Popular",
-    "duration": "2h 15m",
+    "duration": "2h 10m",
     "languages": [
       "Marathi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "NHw8Vh20RPU",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -679,7 +714,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS43LzEwICAxOTArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520681-xhhtxfyqxg-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS43LzEwICAxOTArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520681-xhhtxfyqxg-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Kapuskoonda streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/kapuskoonda/ET00520681",
@@ -687,26 +722,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/kapuskoonda-mumbai/movie-mumbai-ET00520681-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00519811",
     "title": "Pyre",
     "slug": "pyre",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Drama / Romantic",
     "certificate": "U",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "1h 55m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "ETmBXE66Xv4",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -715,7 +750,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MjEuNUsrIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00519811-yqyplljynw-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MjEuNUsrIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00519811-yqyplljynw-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Pyre streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/pyre/ET00519811",
@@ -723,26 +758,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/pyre-mumbai/movie-mumbai-ET00519811-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   },
   {
     "id": "ET00520976",
     "title": "Hope",
     "slug": "hope",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Action / Sci-Fi / Thriller",
     "certificate": "A",
     "rating": 7.9,
     "votes": "Popular",
-    "duration": "2h 15m",
+    "duration": "2h 36m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "OFaJzL83y0Q",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -751,7 +786,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny45LzEwICA5MjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520976-ztuhrmvwrc-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny45LzEwICA5MjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520976-ztuhrmvwrc-portrait.jpg",
     "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Hope streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/hope/ET00520976",
@@ -759,28 +794,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/hope-mumbai/movie-mumbai-ET00520976-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00512213",
     "title": "Wicker",
     "slug": "wicker",
-    "genre": "Action / Sci-Fi / Drama",
+    "genre": "Comedy / Fantasy / Romantic / Sci-Fi",
     "certificate": "A",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "1h 45m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "4VG0vmrc1C0",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -789,7 +822,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NS43SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00512213-mkeycmkxts-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NS43SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00512213-mkeycmkxts-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Wicker streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/wicker/ET00512213",
@@ -797,28 +830,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/wicker-mumbai/movie-mumbai-ET00512213-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   },
   {
     "id": "ET00507314",
     "title": "Sense and Sensibility",
     "slug": "sense-and-sensibility",
-    "genre": "Action / Sci-Fi / Drama",
-    "certificate": "UA",
+    "genre": "Comedy / Drama / Period / Romantic",
+    "certificate": "UA16+",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "2h 13m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "QPmmn_dsdVo",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -827,7 +858,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-OC43SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00507314-ybucjzqsnt-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-OC43SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00507314-ybucjzqsnt-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Sense and Sensibility streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/sense-and-sensibility/ET00507314",
@@ -835,26 +866,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/sense-and-sensibility-mumbai/movie-mumbai-ET00507314-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   },
   {
     "id": "ET00403215",
     "title": "Nakhrewaalii",
     "slug": "nakhrewaalii",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Comedy / Drama / Romantic",
     "certificate": "A",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "2h 9m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "Gw5_UTgjVgY",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -863,7 +894,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-Mi41SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00403215-susbwcslzg-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-Mi41SysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00403215-susbwcslzg-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Nakhrewaalii streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/nakhrewaalii/ET00403215",
@@ -871,26 +902,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/nakhrewaalii-mumbai/movie-mumbai-ET00403215-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   },
   {
     "id": "ET00114750",
     "title": "Doosra",
     "slug": "doosra",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Drama / Sports",
     "certificate": "A",
-    "rating": 8.4,
+    "rating": 7.3,
     "votes": "Popular",
-    "duration": "2h 15m",
+    "duration": "1h 18m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "sSVxFVIjSN4",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -899,7 +930,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICBFYXJseSBSYXRpbmdz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00114750-lugrmqnnuy-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICBFYXJseSBSYXRpbmdz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00114750-lugrmqnnuy-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Doosra streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/doosra/ET00114750",
@@ -907,26 +938,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/doosra-mumbai/movie-mumbai-ET00114750-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00444235",
     "title": "The Vvaan - Force of the Forrest",
     "slug": "the-vvaan-force-of-the-forrest",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Action / Adventure / Fantasy / Mystery / Thriller",
+    "certificate": "UA16+",
     "rating": 8.5,
     "votes": "46.7K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 17m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "ed6E9UFv7jQ",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -935,7 +966,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICA0Ni43SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00444235-yvkhlkxbfl-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICA0Ni43SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00444235-yvkhlkxbfl-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch The Vvaan - Force of the Forrest streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-vvaan-force-of-the-forrest/ET00444235",
@@ -943,26 +974,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/the-vvaan-force-of-the-forrest-mumbai/movie-mumbai-ET00444235-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "25 Sep, 2026"
   },
   {
     "id": "ET00520774",
     "title": "Little Thomas",
     "slug": "little-thomas",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
-    "rating": 8.9,
+    "genre": "Comedy / Drama / Family",
+    "certificate": "UA 7+",
+    "rating": 9.0,
     "votes": "Popular",
-    "duration": "2h 15m",
+    "duration": "2h 7m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "7tATDxW4ugw",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -971,7 +1002,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC45LzEwICBFYXJseSBSYXRpbmdz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520774-naptflhjla-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC45LzEwICBFYXJseSBSYXRpbmdz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520774-naptflhjla-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Little Thomas streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/little-thomas/ET00520774",
@@ -979,26 +1010,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/little-thomas-mumbai/movie-mumbai-ET00520774-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00000652",
     "title": "Dilwale Dulhania Le Jayenge",
     "slug": "dilwale-dulhania-le-jayenge",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Classic / Drama / Romantic",
     "certificate": "U",
     "rating": 9.3,
     "votes": "33.2K+ Votes",
-    "duration": "2h 15m",
+    "duration": "3h 6m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "c25GKl5VNeY",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1007,7 +1038,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4zLzEwICAzMy4ySysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00000652-asmhpwdwzy-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4zLzEwICAzMy4ySysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00000652-asmhpwdwzy-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Dilwale Dulhania Le Jayenge streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/dilwale-dulhania-le-jayenge/ET00000652",
@@ -1015,26 +1046,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/dilwale-dulhania-le-jayenge-mumbai/movie-mumbai-ET00000652-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "20 Oct, 1995"
   },
   {
     "id": "ET00506465",
     "title": "VIBE",
     "slug": "vibe",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Action / Comedy",
     "certificate": "A",
     "rating": 8.7,
     "votes": "16.6K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 26m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "EXzKshGKWD8",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1043,7 +1074,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICAxNi42SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506465-crrzjhmany-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICAxNi42SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506465-crrzjhmany-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch VIBE streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/vibe/ET00506465",
@@ -1051,26 +1082,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/vibe-mumbai/movie-mumbai-ET00506465-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "18 Sep, 2026"
   },
   {
     "id": "ET00522527",
     "title": "Love Story Abhimanyu Ki",
     "slug": "love-story-abhimanyu-ki",
-    "genre": "Hindi / Drama / Thriller",
+    "genre": "Drama / Romantic",
     "certificate": "A",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "2h 2m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "8g0aezVT5pE",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1079,7 +1110,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NC4xSysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00522527-janvkaejxr-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NC4xSysgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00522527-janvkaejxr-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Love Story Abhimanyu Ki streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/love-story-abhimanyu-ki/ET00522527",
@@ -1087,28 +1118,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/love-story-abhimanyu-ki-mumbai/movie-mumbai-ET00522527-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   },
   {
     "id": "ET00522401",
     "title": "The Fix",
     "slug": "the-fix",
-    "genre": "Action / Sci-Fi / Drama",
+    "genre": "Action / Adventure / Thriller",
     "certificate": "A",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "2h 23m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "MCV02cQiAJw",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1117,7 +1146,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NzgwKyBMaWtlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00522401-grnlhjxjtc-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NzgwKyBMaWtlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00522401-grnlhjxjtc-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch The Fix streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-fix/ET00522401",
@@ -1125,26 +1154,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/the-fix-mumbai/movie-mumbai-ET00522401-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   },
   {
     "id": "ET00518916",
     "title": "Tom and Jerry: Forbidden Compass",
     "slug": "tom-and-jerry-forbidden-compass",
-    "genre": "English / Animation / Family",
-    "certificate": "UA",
+    "genre": "Action / Adventure / Animation / Comedy / Family",
+    "certificate": "UA13+",
     "rating": 6.6,
     "votes": "Popular",
-    "duration": "2h 15m",
+    "duration": "1h 40m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "QCMMZrfDOEs",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1153,7 +1182,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ni42LzEwICAyNjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00518916-bvrpypbdyr-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ni42LzEwICAyNjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00518916-bvrpypbdyr-portrait.jpg",
     "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Tom and Jerry: Forbidden Compass streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/tom-and-jerry-forbidden-compass/ET00518916",
@@ -1161,28 +1190,29 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/tom-and-jerry-forbidden-compass-mumbai/movie-mumbai-ET00518916-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00504928",
     "title": "Heart of the Beast",
     "slug": "heart-of-the-beast",
-    "genre": "Action / Sci-Fi / Drama",
-    "certificate": "UA",
+    "genre": "Action / Adventure / Drama / Thriller",
+    "certificate": "UA16+",
     "rating": 9.2,
     "votes": "24.4K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 45m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
       "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "MX4D",
+      "DOLBY CINEMA 2D",
+      "4DX"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "A1O-gE_5KtA",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1191,7 +1221,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4yLzEwICAyNC40SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00504928-czrdercpkf-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4yLzEwICAyNC40SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00504928-czrdercpkf-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Heart of the Beast streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/heart-of-the-beast/ET00504928",
@@ -1199,28 +1229,39 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/heart-of-the-beast-mumbai/movie-mumbai-ET00504928-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "25 Sep, 2026"
   },
   {
     "id": "ET00447840",
     "title": "Spider-Man: Brand New Day",
     "slug": "spiderman-brand-new-day",
-    "genre": "Hindi / Action / Adventure",
-    "certificate": "UA",
+    "genre": "Action / Adventure / Sci-Fi",
+    "certificate": "UA13+",
     "rating": 8.9,
     "votes": "362K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 25m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
       "2D",
+      "ICE 3D",
       "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "3D SCREEN X",
+      "DOLBY CINEMA 2D",
+      "MX4D 3D",
+      "HDR By Barco",
+      "EPIQ 3D",
+      "4DX",
+      "4DX 3D",
+      "DOLBY CINEMA 3D",
+      "EPIQ",
+      "2D SCREEN X",
+      "ICE"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "U6DAfelycl8",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1229,7 +1270,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC45LzEwICAzNjJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00447840-ndwtxvvgcd-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC45LzEwICAzNjJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00447840-ndwtxvvgcd-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Spider-Man: Brand New Day streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/spiderman-brand-new-day/ET00447840",
@@ -1237,28 +1278,29 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/spiderman-brand-new-day-mumbai/movie-mumbai-ET00447840-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Jul, 2026"
   },
   {
     "id": "ET00477243",
     "title": "Digger",
     "slug": "digger",
-    "genre": "Action / Sci-Fi / Drama",
+    "genre": "Comedy / Drama",
     "certificate": "A",
     "rating": 8.4,
     "votes": "4.2K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 11m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
       "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "MX4D",
+      "ICE",
+      "IMAX 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "MZurRmCVZ90",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1267,7 +1309,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICA0LjJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00477243-dspdpsyvpp-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICA0LjJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00477243-dspdpsyvpp-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Digger streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/digger/ET00477243",
@@ -1275,28 +1317,27 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/digger-mumbai/movie-mumbai-ET00477243-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "2 Oct, 2026"
   },
   {
     "id": "ET00506449",
     "title": "The Social Reckoning",
     "slug": "the-social-reckoning",
-    "genre": "Action / Sci-Fi / Drama",
+    "genre": "Biography / Drama / Thriller",
     "certificate": "A",
     "rating": 9.2,
     "votes": "1.8K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 55m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
       "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "DOLBY CINEMA 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "gM4LkaXwGuY",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1305,7 +1346,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4yLzEwICAxLjhLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506449-xyfvkhanfs-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4yLzEwICAxLjhLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506449-xyfvkhanfs-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch The Social Reckoning streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-social-reckoning/ET00506449",
@@ -1313,28 +1354,27 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/the-social-reckoning-mumbai/movie-mumbai-ET00506449-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "9 Oct, 2026"
   },
   {
     "id": "ET00065343",
     "title": "A Quiet Place",
     "slug": "a-quiet-place",
-    "genre": "Action / Sci-Fi / Drama",
-    "certificate": "UA",
+    "genre": "Drama / Horror / Thriller",
+    "certificate": "13+",
     "rating": 8.6,
     "votes": "1.1K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 30m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
       "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "4DX"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "WR7cc5t7tv8",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1343,7 +1383,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC42LzEwICAxLjFLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00065343-wsptramgbe-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC42LzEwICAxLjFLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00065343-wsptramgbe-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch A Quiet Place streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/a-quiet-place/ET00065343",
@@ -1351,26 +1391,24 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/a-quiet-place-mumbai/movie-mumbai-ET00065343-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "6 Apr, 2018"
   },
   {
     "id": "ET00001060",
     "title": "Rosemary`s Baby",
     "slug": "rosemarys-baby",
-    "genre": "Action / Sci-Fi / Drama",
+    "genre": "Horror / Musical",
     "certificate": "A",
     "rating": 8.5,
     "votes": "Popular",
-    "duration": "2h 15m",
+    "duration": "2h 16m",
     "languages": [
       "English",
       "Hindi"
     ],
     "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
+      "2D"
     ],
     "trailer_id": "auto",
     "cast": [
@@ -1381,7 +1419,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICAyIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00001060-uawxqnuzad-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICAyIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00001060-uawxqnuzad-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Rosemary`s Baby streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/rosemarys-baby/ET00001060",
@@ -1389,26 +1427,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/rosemarys-baby-mumbai/movie-mumbai-ET00001060-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "19 Mar, 1968"
   },
   {
     "id": "ET00505232",
     "title": "Jayanti 2",
     "slug": "jayanti-2",
-    "genre": "Marathi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Drama",
+    "certificate": "UA16+",
     "rating": 9.6,
     "votes": "4.8K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 33m",
     "languages": [
       "Marathi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "VhkedgVKfZU",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1417,7 +1455,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS42LzEwICA0LjhLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00505232-usakpjnkxm-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS42LzEwICA0LjhLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00505232-usakpjnkxm-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Jayanti 2 streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/jayanti-2/ET00505232",
@@ -1425,26 +1463,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/jayanti-2-mumbai/movie-mumbai-ET00505232-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "11 Sep, 2026"
   },
   {
     "id": "ET00516078",
     "title": "Mrutyuchakra",
     "slug": "mrutyuchakra",
-    "genre": "Marathi / Drama / Thriller",
-    "certificate": "UA",
-    "rating": 10.0,
+    "genre": "Crime / Mystery / Supernatural / Thriller",
+    "certificate": "UA16+",
+    "rating": 9.9,
     "votes": "Popular",
-    "duration": "2h 15m",
+    "duration": "2h 4m",
     "languages": [
       "Marathi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "pUzgtE0iwvs",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1453,7 +1491,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-MTAvMTAgIDUwKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00516078-ffucjpwgsr-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-MTAvMTAgIDUwKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00516078-ffucjpwgsr-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Mrutyuchakra streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/mrutyuchakra/ET00516078",
@@ -1461,26 +1499,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/mrutyuchakra-mumbai/movie-mumbai-ET00516078-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00374968",
     "title": "Ole Aale",
     "slug": "ole-aale",
-    "genre": "Marathi / Drama / Thriller",
+    "genre": "Adventure / Drama / Family",
     "certificate": "U",
     "rating": 9.3,
     "votes": "13.6K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 22m",
     "languages": [
       "Marathi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "wUIyCcKeG1Q",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1489,7 +1527,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4zLzEwICAxMy42SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00374968-bpsqupjdju-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4zLzEwICAxMy42SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00374968-bpsqupjdju-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Ole Aale streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/ole-aale/ET00374968",
@@ -1497,26 +1535,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/ole-aale-mumbai/movie-mumbai-ET00374968-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "5 Jan, 2024"
   },
   {
     "id": "ET00523956",
     "title": "Rajarshi",
     "slug": "rajarshi",
-    "genre": "Marathi / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Drama / Social",
+    "certificate": "UA13+",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "1h 48m",
     "languages": [
       "Marathi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "aTkem_EuDtc",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1525,7 +1563,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MzArIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00523956-phazrbfthd-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MzArIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00523956-phazrbfthd-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Rajarshi streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/rajarshi/ET00523956",
@@ -1533,26 +1571,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/rajarshi-mumbai/movie-mumbai-ET00523956-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   },
   {
     "id": "ET00506275",
     "title": "Damru",
     "slug": "damru",
-    "genre": "Gujarati / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Comedy / Drama",
+    "certificate": "UA13+",
     "rating": 9.6,
     "votes": "Popular",
-    "duration": "2h 15m",
+    "duration": "2h 40m",
     "languages": [
       "Gujarati",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "bQp61ZTZbSM",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1561,7 +1599,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS42LzEwICA2MjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506275-bxmgnsqywy-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS42LzEwICA2MjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506275-bxmgnsqywy-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Damru streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/damru/ET00506275",
@@ -1569,26 +1607,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/damru-mumbai/movie-mumbai-ET00506275-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "23 Oct, 2026"
   },
   {
     "id": "ET00093811",
     "title": "Chaal Jeevi Laiye",
     "slug": "chaal-jeevi-laiye",
-    "genre": "Gujarati / Drama / Thriller",
+    "genre": "Comedy / Drama",
     "certificate": "U",
     "rating": 9.4,
     "votes": "41.6K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 17m",
     "languages": [
       "Gujarati",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "y1NoFZPVTr0",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1597,7 +1635,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS40LzEwICA0MS42SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00093811-jpgyfqgpqy-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS40LzEwICA0MS42SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00093811-jpgyfqgpqy-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Chaal Jeevi Laiye streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/chaal-jeevi-laiye/ET00093811",
@@ -1605,26 +1643,28 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/chaal-jeevi-laiye-mumbai/movie-mumbai-ET00093811-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "1 Feb, 2019"
   },
   {
     "id": "ET00475942",
     "title": "Aadarsha Kutumbam House No: 47 (AK 47)",
     "slug": "aadarsha-kutumbam-house-no-47-ak-47",
-    "genre": "Telugu / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Action / Comedy / Family / Thriller",
+    "certificate": "UA13+",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "2h 29m",
     "languages": [
       "Telugu",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "EPIQ",
+      "DOLBY CINEMA 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "u0yUYgZ0s30",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1633,7 +1673,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NjAuMUsrIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00475942-jrlgmjfnjp-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NjAuMUsrIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00475942-jrlgmjfnjp-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Aadarsha Kutumbam House No: 47 (AK 47) streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/aadarsha-kutumbam-house-no-47-ak-47/ET00475942",
@@ -1641,26 +1681,27 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/aadarsha-kutumbam-house-no-47-ak-47-mumbai/movie-mumbai-ET00475942-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   },
   {
     "id": "ET00412717",
     "title": "Premada Oorali",
     "slug": "premada-oorali",
-    "genre": "Kannada / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Drama / Romantic",
+    "certificate": "UA16+",
     "rating": 9.5,
     "votes": "130K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 35m",
     "languages": [
       "Kannada",
       "English"
     ],
     "formats": [
       "2D",
-      "Dolby Atmos"
+      "DOLBY CINEMA 2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "o07DNCo6N1g",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1669,7 +1710,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICAxMzBLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00412717-wvjrzytadp-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICAxMzBLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00412717-wvjrzytadp-portrait.jpg",
     "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Premada Oorali streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/premada-oorali/ET00412717",
@@ -1677,26 +1718,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/premada-oorali-mumbai/movie-mumbai-ET00412717-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "25 Sep, 2026"
   },
   {
     "id": "ET00487673",
     "title": "Bohurupi: The Golden Daku",
     "slug": "bohurupi-the-golden-daku",
-    "genre": "Bengali / Drama / Thriller",
-    "certificate": "UA",
+    "genre": "Action / Drama / Thriller",
+    "certificate": "UA16+",
     "rating": 8.7,
     "votes": "8.1K+ Votes",
-    "duration": "2h 15m",
+    "duration": "2h 48m",
     "languages": [
       "Bengali",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "n5OrjzyXWkk",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1705,7 +1746,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICA4LjFLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00487673-evryvuxdmg-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICA4LjFLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00487673-evryvuxdmg-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch Bohurupi: The Golden Daku streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/bohurupi-the-golden-daku/ET00487673",
@@ -1713,26 +1754,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/bohurupi-the-golden-daku-mumbai/movie-mumbai-ET00487673-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "15 Oct, 2026"
   },
   {
     "id": "ET00511431",
     "title": "The Eken: Kerala-e-Kurukshetra",
     "slug": "the-eken-keralaekurukshetra",
-    "genre": "Bengali / Drama / Thriller",
+    "genre": "Comedy / Mystery / Thriller",
     "certificate": "U",
     "rating": 8.1,
     "votes": "6.8K+ Votes",
-    "duration": "2h 15m",
+    "duration": "1h 59m",
     "languages": [
       "Bengali",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "VOJ_2oHLD-k",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1741,7 +1782,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC4xLzEwICA2LjhLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00511431-jkddzrlbjg-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC4xLzEwICA2LjhLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00511431-jkddzrlbjg-portrait.jpg",
     "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch The Eken: Kerala-e-Kurukshetra streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-eken-keralaekurukshetra/ET00511431",
@@ -1749,26 +1790,26 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/the-eken-keralaekurukshetra-mumbai/movie-mumbai-ET00511431-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "15 Oct, 2026"
   },
   {
     "id": "ET00524296",
     "title": "5 Centimetres Per Second",
     "slug": "5-centimetres-per-second",
-    "genre": "Hindi / Animation / Family",
-    "certificate": "UA",
+    "genre": "Drama / Romantic",
+    "certificate": "UA13+",
     "rating": 8.5,
     "votes": "Likes",
-    "duration": "2h 15m",
+    "duration": "2h 4m",
     "languages": [
       "Hindi",
       "English"
     ],
     "formats": [
-      "2D",
-      "Dolby Atmos"
+      "2D"
     ],
-    "trailer_id": "auto",
+    "trailer_id": "ddJO66YyDqs",
     "cast": [
       "Leading Cast",
       "Ensemble"
@@ -1777,7 +1818,7 @@
     "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NTcwKyBMaWtlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00524296-twzlpbzwkk-portrait.jpg",
     "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-NTcwKyBMaWtlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00524296-twzlpbzwkk-portrait.jpg",
     "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
+    "discount_tag": "Deals from ₹160 in Mumbai",
     "description": "Catch 5 Centimetres Per Second streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
     "cta_url": "https://in.bookmyshow.com/movies/mumbai/5-centimetres-per-second/ET00524296",
@@ -1785,6 +1826,7 @@
     "direct_booking_links": {
       "BookMyShow": "https://in.bookmyshow.com/buytickets/5-centimetres-per-second-mumbai/movie-mumbai-ET00524296-MT/20261030"
     },
-    "bms_verified": true
+    "bms_verified": true,
+    "release_date": "30 Oct, 2026"
   }
 ]
