@@ -2343,16 +2343,71 @@ button, input, select {
 /* Toolbar */
 .matrix-toolbar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  flex-direction: column;
+  gap: 12px;
   background-color: #fff;
   border: 2px solid var(--brand-black);
   border-radius: 14px;
-  padding: 12px 18px;
+  padding: 14px 18px;
   margin-bottom: 24px;
   box-shadow: 3px 3px 0px var(--brand-black);
+}
+
+.matrix-toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   flex-wrap: wrap;
+  width: 100%;
+}
+
+.matrix-toolbar-loc-row {
+  border-top: 1px dashed var(--color-border-subtle, #e5e0d8);
+  padding-top: 10px;
+}
+
+.matrix-loc-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.matrix-btn-compare-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-secondary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background-color: var(--brand-cream, #F8F3ED);
+  color: var(--brand-black);
+  border: 1.5px solid var(--brand-black);
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--brand-black);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.matrix-btn-compare-switch:hover {
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.slot-dist-sub {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--brand-black);
+  background-color: rgba(0,0,0,0.05);
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
 }
 
 .matrix-movie-picker {

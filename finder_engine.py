@@ -1754,11 +1754,11 @@ def parse_showtime_hour(time_str):
     return None
 
 
-def get_price_matrix(city="Mumbai", movie_id=None):
+def get_price_matrix(city="Mumbai", movie_id=None, user_lat=None, user_lng=None):
     """
     Automates real-time price discovery across 4 time windows (Morning, Matinee, Evening, Night)
     and cinema chains, calculating true minimum, average, and maximum fares and surfacing the
-    Golden-Hour Arbitrage Deal with zero mock data.
+    Golden-Hour Arbitrage Deal with zero mock data and real geolocation proximity.
     """
     all_movies = get_movie_shows(city=city)
     if not all_movies:
@@ -1785,12 +1785,28 @@ def get_price_matrix(city="Mumbai", movie_id=None):
         target_movie = next((m for m in all_movies if m["id"] == movie_id), None)
 
     if not target_movie and movie_options:
-        # Default to the movie with the highest show count
         top_id = movie_options[0]["id"]
         target_movie = next((m for m in all_movies if m["id"] == top_id), None)
 
     if not target_movie:
         return None
+
+    # Resolve active user coordinates
+    hubs = CITY_HUBS.get(city, CITY_HUBS.get("Mumbai", []))
+    default_hub = next((h for h in hubs if h.get("is_default")), hubs[0] if hubs else None)
+
+    if user_lat is not None and user_lng is not None:
+        active_lat = float(user_lat)
+        active_lng = float(user_lng)
+        matched_hub = next((h for h in hubs if abs(h["lat"] - active_lat) < 0.02 and abs(h["lng"] - active_lng) < 0.02), None)
+        active_loc_name = matched_hub["name"] if matched_hub else "Custom / GPS Location"
+    elif default_hub:
+        active_lat = default_hub["lat"]
+        active_lng = default_hub["lng"]
+        active_loc_name = default_hub["name"]
+    else:
+        active_lat, active_lng = CITY_CENTERS.get(city, (19.0760, 72.8777))
+        active_loc_name = f"{city} Center"
 
     windows = {
         "morning": {"id": "morning", "label": "Morning", "hours": "Before 12:00 PM", "icon": "sunrise", "shows": []},
@@ -1812,6 +1828,8 @@ def get_price_matrix(city="Mumbai", movie_id=None):
         th_name = th.get("theatre_name", "Cinema")
         chain = th.get("chain", "Independent")
         th_location = th.get("location", city)
+        t_lat, t_lng = resolve_theatre_coordinates(th_name, th_location, city)
+        dist_km = haversine_distance_km(active_lat, active_lng, t_lat, t_lng)
 
         chain_key = "Single Screen"
         upper_name = th_name.upper()
@@ -1838,6 +1856,9 @@ def get_price_matrix(city="Mumbai", movie_id=None):
                 "theatre_name": th_name,
                 "chain": chain_key,
                 "location": th_location,
+                "theatre_lat": t_lat,
+                "theatre_lng": t_lng,
+                "distance_km": dist_km,
                 "time": time_val,
                 "hour": hour,
                 "format": s.get("format", "2D"),
@@ -1875,7 +1896,6 @@ def get_price_matrix(city="Mumbai", movie_id=None):
         cheapest = None
         if w_shows:
             sorted_shows = sorted(w_shows, key=lambda x: x["silver"])
-            # Prioritize distinct premier venues so all 4 slots don't repeat the same single multiplex
             cheapest = next((s for s in sorted_shows if s["theatre_name"] not in used_featured_theatres), None)
             if not cheapest:
                 cheapest = sorted_shows[0]
@@ -1913,6 +1933,8 @@ def get_price_matrix(city="Mumbai", movie_id=None):
                 "deal_price": best_candidate["silver"],
                 "time_window": window_name,
                 "theatre_name": best_candidate["theatre_name"],
+                "location": best_candidate.get("location", ""),
+                "distance_km": best_candidate.get("distance_km"),
                 "show_time": best_candidate["time"],
                 "format": best_candidate["format"],
                 "seats_left": best_candidate["seats_left"],
@@ -1930,6 +1952,8 @@ def get_price_matrix(city="Mumbai", movie_id=None):
             "deal_price": cheapest_ever["silver"],
             "time_window": "All-Day Best",
             "theatre_name": cheapest_ever["theatre_name"],
+            "location": cheapest_ever.get("location", ""),
+            "distance_km": cheapest_ever.get("distance_km"),
             "show_time": cheapest_ever["time"],
             "format": cheapest_ever["format"],
             "seats_left": cheapest_ever["seats_left"],
@@ -1958,6 +1982,12 @@ def get_price_matrix(city="Mumbai", movie_id=None):
 
     return {
         "city": city,
+        "user_location": {
+            "name": active_loc_name,
+            "lat": active_lat,
+            "lng": active_lng
+        },
+        "city_hubs": hubs,
         "selected_movie": {
             "id": target_movie["id"],
             "title": target_movie["title"],

@@ -360,21 +360,41 @@
 
       <!-- Controls & Filter Toolbar -->
       <div class="matrix-toolbar">
-        <div class="matrix-movie-picker">
-          <label for="matrix-movie-select" class="matrix-label">SELECT SCREENING:</label>
-          <select id="matrix-movie-select" class="matrix-select" onchange="onMatrixMovieChange(this.value)">
-            <!-- Populated dynamically with live screening movies -->
-          </select>
+        <div class="matrix-toolbar-row">
+          <div class="matrix-movie-picker">
+            <label for="matrix-movie-select" class="matrix-label">SELECT SCREENING:</label>
+            <select id="matrix-movie-select" class="matrix-select" onchange="onMatrixMovieChange(this.value)">
+              <!-- Populated dynamically with live screening movies -->
+            </select>
+          </div>
+          <div class="matrix-actions">
+            <button class="matrix-btn-compare-switch" onclick="openCompareModalFromMatrix()" title="Open multi-theatre price comparison table with Nearest & Best-Value sorting">
+              <span>🏷️ FULL PRICE COMPARISON &rarr;</span>
+            </button>
+            <button class="matrix-btn-export" onclick="exportPriceMatrixCSV()" title="Download genuine live schedule CSV">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span>EXPORT CSV</span>
+            </button>
+          </div>
         </div>
-        <div class="matrix-actions">
-          <button class="matrix-btn-export" onclick="exportPriceMatrixCSV()" title="Download genuine live schedule CSV">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-              <polyline points="7 10 12 15 17 10"/>
-              <line x1="12" y1="15" x2="12" y2="3"/>
-            </svg>
-            <span>EXPORT MATRIX CSV</span>
-          </button>
+
+        <div class="matrix-toolbar-row matrix-toolbar-loc-row">
+          <div class="matrix-loc-group">
+            <span class="matrix-label">YOUR LOCATION:</span>
+            <select id="matrix-hub-select" class="compare-hub-select" onchange="onMatrixHubSelected(this.value)">
+              <!-- Populated dynamically with city hubs -->
+            </select>
+            <button class="compare-gps-btn" id="matrix-gps-btn" onclick="detectUserGpsForMatrix()" title="Detect my current location">
+              <span>🎯</span> Use My GPS
+            </button>
+          </div>
+          <div class="compare-loc-status">
+            <span>📍</span> Showing proximity from <strong id="matrix-active-loc-name">Andheri (West / East)</strong>
+          </div>
         </div>
       </div>
 

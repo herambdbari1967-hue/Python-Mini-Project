@@ -1340,13 +1340,17 @@ async function openPriceMatrixModal(movieId = null) {
   modal.style.display = 'flex';
 
   try {
-    const url = `/api/price-matrix?city=${encodeURIComponent(currentCity)}${movieId ? `&movie_id=${movieId}` : ''}`;
+    let url = `/api/price-matrix?city=${encodeURIComponent(currentCity)}${movieId ? `&movie_id=${movieId}` : ''}`;
+    if (currentCompareUserCoords.lat && currentCompareUserCoords.lng) {
+      url += `&user_lat=${currentCompareUserCoords.lat}&user_lng=${currentCompareUserCoords.lng}`;
+    }
     const res = await fetch(url);
     const json = await res.json();
 
     if (json.status === 'success' && json.data) {
       currentMatrixData = json.data;
       populateMatrixMovieDropdown(currentMatrixData.available_movies, currentMatrixData.selected_movie.id);
+      populateMatrixHubDropdown(currentMatrixData.city_hubs, currentMatrixData.user_location);
       renderPriceMatrixContent(currentMatrixData);
     } else {
       if (body) {
@@ -1398,7 +1402,10 @@ async function onMatrixMovieChange(movieId) {
   }
 
   try {
-    const url = `/api/price-matrix?city=${encodeURIComponent(currentCity)}&movie_id=${movieId}`;
+    let url = `/api/price-matrix?city=${encodeURIComponent(currentCity)}&movie_id=${movieId}`;
+    if (currentCompareUserCoords.lat && currentCompareUserCoords.lng) {
+      url += `&user_lat=${currentCompareUserCoords.lat}&user_lng=${currentCompareUserCoords.lng}`;
+    }
     const res = await fetch(url);
     const json = await res.json();
     if (json.status === 'success' && json.data) {
@@ -1407,6 +1414,124 @@ async function onMatrixMovieChange(movieId) {
     }
   } catch (err) {
     console.error('Error reloading movie matrix:', err);
+  }
+}
+
+
+function populateMatrixHubDropdown(hubs, userLoc) {
+  const sel = document.getElementById('matrix-hub-select');
+  if (!sel || !hubs) return;
+
+  const activeLat = currentCompareUserCoords.lat || (userLoc ? userLoc.lat : null);
+  const activeLng = currentCompareUserCoords.lng || (userLoc ? userLoc.lng : null);
+  const activeName = currentCompareUserCoords.name || (userLoc ? userLoc.name : 'Central Hub');
+
+  let opts = hubs.map(h => {
+    const isSel = activeLat && Math.abs(h.lat - activeLat) < 0.02 && Math.abs(h.lng - activeLng) < 0.02;
+    return `<option value="${h.lat}|${h.lng}|${h.name}" ${isSel ? 'selected' : ''}>📍 ${h.name}</option>`;
+  }).join('');
+
+  if (currentCompareUserCoords.name && currentCompareUserCoords.name.includes('GPS')) {
+    opts = `<option value="gps:${currentCompareUserCoords.lat},${currentCompareUserCoords.lng}" selected>🎯 ${currentCompareUserCoords.name}</option>` + opts;
+  }
+
+  sel.innerHTML = opts;
+  const statusEl = document.getElementById('matrix-active-loc-name');
+  if (statusEl) statusEl.textContent = activeName;
+}
+
+function onMatrixHubSelected(val) {
+  if (val.startsWith('gps:')) {
+    const parts = val.replace('gps:', '').split(',');
+    currentCompareUserCoords = { lat: parseFloat(parts[0]), lng: parseFloat(parts[1]), name: 'Live GPS Location' };
+  } else {
+    const [lat, lng, name] = val.split('|');
+    currentCompareUserCoords = { lat: parseFloat(lat), lng: parseFloat(lng), name: name };
+  }
+  const statusEl = document.getElementById('matrix-active-loc-name');
+  if (statusEl) statusEl.textContent = currentCompareUserCoords.name;
+  recalculateMatrixDistances(currentCompareUserCoords.lat, currentCompareUserCoords.lng);
+}
+
+function detectUserGpsForMatrix() {
+  const btn = document.getElementById('matrix-gps-btn');
+  if (!navigator.geolocation) {
+    alert("Geolocation is not supported by your browser.");
+    return;
+  }
+  btn.classList.add('loading');
+  btn.innerHTML = '<span>⏳</span> Locating...';
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      btn.classList.remove('loading');
+      btn.classList.add('gps-active');
+      btn.innerHTML = '<span>✅</span> GPS Active';
+      const userLat = pos.coords.latitude;
+      const userLng = pos.coords.longitude;
+      const locLabel = `My Location (${userLat.toFixed(2)}°, ${userLng.toFixed(2)}°)`;
+
+      currentCompareUserCoords = { lat: userLat, lng: userLng, name: locLabel };
+
+      const sel = document.getElementById('matrix-hub-select');
+      if (sel) {
+        let gpsOpt = document.getElementById('matrix-hub-opt-gps');
+        if (!gpsOpt) {
+          gpsOpt = document.createElement('option');
+          gpsOpt.id = 'matrix-hub-opt-gps';
+          sel.prepend(gpsOpt);
+        }
+        gpsOpt.value = `gps:${userLat},${userLng}`;
+        gpsOpt.textContent = `🎯 ${locLabel}`;
+        sel.value = gpsOpt.value;
+      }
+
+      const statusEl = document.getElementById('matrix-active-loc-name');
+      if (statusEl) statusEl.textContent = locLabel;
+
+      recalculateMatrixDistances(userLat, userLng);
+    },
+    (err) => {
+      btn.classList.remove('loading');
+      btn.innerHTML = '<span>🎯</span> Use My GPS';
+      alert("Unable to fetch location: " + (err.message || "Permission denied"));
+    },
+    { timeout: 10000, enableHighAccuracy: true }
+  );
+}
+
+function recalculateMatrixDistances(lat, lng) {
+  if (!currentMatrixData || !currentMatrixData.all_shows) return;
+
+  currentMatrixData.all_shows.forEach(s => {
+    s.distance_km = calculateHaversineDistanceKm(lat, lng, s.theatre_lat, s.theatre_lng);
+  });
+
+  ['morning', 'matinee', 'evening', 'night'].forEach(wKey => {
+    const w = currentMatrixData.time_windows[wKey];
+    if (w && w.cheapest_show) {
+      w.cheapest_show.distance_km = calculateHaversineDistanceKm(lat, lng, w.cheapest_show.theatre_lat, w.cheapest_show.theatre_lng);
+    }
+  });
+
+  if (currentMatrixData.golden_deal) {
+    const match = currentMatrixData.all_shows.find(s => s.theatre_name === currentMatrixData.golden_deal.theatre_name);
+    if (match) {
+      currentMatrixData.golden_deal.distance_km = match.distance_km;
+    }
+  }
+
+  renderPriceMatrixContent(currentMatrixData);
+}
+
+function openCompareModalFromMatrix() {
+  const sel = document.getElementById('matrix-movie-select');
+  const movieId = sel ? sel.value : (currentMatrixData ? currentMatrixData.selected_movie.id : null);
+  closePriceMatrixModal();
+  if (movieId) {
+    openCompareModal(movieId);
+  } else {
+    window.location.href = '/movies';
   }
 }
 
@@ -1430,7 +1555,7 @@ function renderPriceMatrixContent(data) {
               <span class="savings-pct">(${deal.savings_pct}% OFF PEAK EVENING)</span>
             </div>
             <p class="golden-deal-desc">
-              Book <strong>${escapeHtml(deal.movie_title)}</strong> at <strong>${escapeHtml(deal.theatre_name)}</strong> during the <strong>${deal.time_window} (${deal.show_time})</strong> for only <strong>₹${deal.deal_price}</strong> instead of the ₹${deal.peak_avg_price} prime evening average.
+              Book <strong>${escapeHtml(deal.movie_title)}</strong> at <strong>${escapeHtml(deal.theatre_name)}</strong> ${deal.distance_km != null ? `<span class="theatre-dist-badge">📍 ${deal.distance_km} km away</span>` : ''} during the <strong>${deal.time_window} (${deal.show_time})</strong> for only <strong>₹${deal.deal_price}</strong> instead of the ₹${deal.peak_avg_price} prime evening average.
             </p>
           </div>
           <div class="golden-deal-action">
@@ -1483,6 +1608,7 @@ function renderPriceMatrixContent(data) {
         <div class="cheapest-label">Cheapest in Slot:</div>
         <div class="cheapest-theatre" title="${escapeHtml(cheapest.theatre_name)}">${escapeHtml(cheapest.theatre_name)}</div>
         <div class="cheapest-meta">${cheapest.time} • ${cheapest.format}</div>
+        ${cheapest.distance_km != null ? `<div class="slot-dist-sub">📍 ${cheapest.distance_km} km away</div>` : ''}
         <a href="${cheapest.booking_url}" target="_blank" rel="noopener noreferrer" class="btn-book-slot">
           Book ₹${cheapest.silver} Show ↗
         </a>
