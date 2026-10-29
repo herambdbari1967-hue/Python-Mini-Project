@@ -4,72 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CinePlus - Movie Ticket Price & Show Finder Automation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="preload" href="/static/fonts/MDNichromeTest-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/static/fonts/MDNichromeTest-Dark.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/static/fonts/NeueMontreal-Medium.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="/static/fonts/NeueMontreal-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="/static/css/style.css?v=5">
 </head>
 <body>
 
   <!-- Top Announcement Bar -->
   <div class="announcement-bar">
     <div class="announcement-content">
-      <span>🔥 <strong>Live Ticket Aggregator:</strong> Compare prices across BookMyShow, PVR INOX & District to get the best deal!</span>
-      <a href="javascript:void(0)" onclick="openAlertsModal()">Set Price Drop Alert ➔</a>
+      <span><strong>Live Multiplex Feed Active:</strong> Real-time ticket pricing & showtimes synced live across BookMyShow, PVR INOX & Cinépolis!</span>
+      <a href="javascript:void(0)" onclick="openAlertsModal()">Set Price Drop Alert &rarr;</a>
     </div>
   </div>
 
-  <!-- Primary Navigation (OnePlus Brand Style) -->
+  <!-- Primary Navigation (Professional, Sleek, Monochrome SVGs) -->
   <header class="navbar">
     <div class="nav-container">
       <div class="nav-left">
-        <a href="/" class="brand-logo">
-          <span class="logo-box">1+</span>
+        <a href="/" class="brand-logo" aria-label="CinePlus Home">
+          <div class="brand-svg-mark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="18" rx="4"/>
+              <path d="M7 3v18"/>
+              <path d="M17 3v18"/>
+              <path d="M2 12h20"/>
+              <circle cx="12" cy="7.5" r="1.5" fill="currentColor"/>
+              <circle cx="12" cy="16.5" r="1.5" fill="currentColor"/>
+            </svg>
+          </div>
           <span class="brand-text">CINE<strong>PLUS</strong></span>
         </a>
       </div>
 
       <nav class="nav-center">
-        <a href="javascript:void(0)" class="nav-link active" id="nav-now-showing" onclick="switchMainTab('now_showing')">🎬 Now Showing</a>
-        <a href="javascript:void(0)" class="nav-link" id="nav-upcoming" onclick="switchMainTab('upcoming')">✨ Upcoming Movies <span class="nav-badge">New</span></a>
-        <a href="javascript:void(0)" class="nav-link" onclick="openQuickCompare()">📊 Price Matrix</a>
-        <a href="javascript:void(0)" class="nav-link" onclick="openAlertsModal()">🔔 Alerts <span class="nav-badge" id="alert-badge-count">0</span></a>
-        <a href="javascript:void(0)" class="nav-link" onclick="exportDataCSV()">📥 Export CSV</a>
+        <a href="javascript:void(0)" class="nav-link active" id="nav-now-showing" onclick="switchMainTab('now_showing')">
+          <svg class="nav-link-svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <span>Now Showing</span>
+        </a>
+
+        <a href="javascript:void(0)" class="nav-link" id="nav-upcoming" onclick="switchMainTab('upcoming')">
+          <svg class="nav-link-svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="3" ry="3"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <span>Upcoming</span>
+          <span class="nav-badge">NEW</span>
+        </a>
+
+        <a href="javascript:void(0)" class="nav-link" onclick="openQuickCompare()">
+          <svg class="nav-link-svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+          <span>Price Matrix</span>
+        </a>
+
+        <a href="javascript:void(0)" class="nav-link" onclick="openAlertsModal()">
+          <svg class="nav-link-svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span>Alerts</span>
+          <span class="nav-badge" id="alert-badge-count">0</span>
+        </a>
+
+        <a href="javascript:void(0)" class="nav-link" onclick="exportDataCSV()">
+          <svg class="nav-link-svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span>Export CSV</span>
+        </a>
       </nav>
 
       <div class="nav-right">
         <!-- City Selector -->
         <div class="city-selector-dropdown">
-          <svg class="nav-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-            <circle cx="12" cy="9" r="2.5"/>
+          <svg class="nav-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
           </svg>
           <select id="city-select" onchange="onCityChange()">
             {% for c in cities %}
             <option value="{{ c }}" {% if c == 'Mumbai' %}selected{% endif %}>{{ c }}</option>
             {% endfor %}
           </select>
+          <svg class="chevron-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
         </div>
 
         <!-- Search Input -->
         <div class="nav-search-box">
-          <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="11" cy="11" r="8"/>
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
-          <input type="text" id="nav-search-input" placeholder="Search movie, actor, format..." oninput="onSearchInput(this.value)">
+          <input type="text" id="nav-search-input" placeholder="Search movies, formats..." oninput="onSearchInput(this.value)">
         </div>
 
         <button class="icon-btn" title="Price Notifications" onclick="openAlertsModal()">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
             <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
           </svg>
           <span class="dot-indicator" id="notif-dot" style="display:none;"></span>
         </button>
 
-        <button class="icon-btn" title="Export to CSV" onclick="exportDataCSV()">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+        <button class="icon-btn" title="Export Dataset to CSV" onclick="exportDataCSV()">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <polyline points="7 10 12 15 17 10"/>
             <line x1="12" y1="15" x2="12" y2="3"/>
@@ -79,12 +131,95 @@
     </div>
   </header>
 
-  <!-- Horizontal Category Icon Row (OnePlus category bar) -->
+  <!-- Two26 Studio Hero Showcase: Split Typography Left & Right of Video -->
+  <section class="editorial-hero-showcase">
+    <!-- 3-Column Hero Grid: Left Text + Center 3D Video + Right Text -->
+    <div class="hero-split-container">
+      
+      <!-- Left Hand Side: Design for a calmer -->
+      <div class="hero-split-left">
+        <div class="hero-split-pill">
+          <span>CURATED SHOWTIMES</span>
+        </div>
+        <h2 class="hero-split-heading left-heading">
+          DESIGN FOR<br>A CALMER
+        </h2>
+      </div>
+
+      <!-- Center: 3D Video Loop (Two26 Studio) -->
+      <div class="hero-split-center">
+        <div class="hero-video-frame">
+          <video id="hero-bg-video" autoplay loop muted playsinline preload="auto" class="hero-split-video">
+            <source src="/static/videos/hero.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Right Hand Side: Cinema -->
+      <div class="hero-split-right">
+        <h1 class="hero-split-heading right-heading">
+          CINEMA
+        </h1>
+        <div class="hero-split-pill right-pill">
+          <span>LIVE FARES // 08 HUBS</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Alignment Bar -->
+    <div class="hero-bottom-bar">
+      <div class="hero-pagination">01 — 08</div>
+      <a href="#category-bar" class="hero-scroll-btn" title="Explore Shows Below" onclick="document.getElementById('category-bar').scrollIntoView({behavior: 'smooth'})">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <polyline points="19 12 12 19 5 12"/>
+        </svg>
+      </a>
+      <div class="hero-region-label">MUMBAI &bull; DELHI NCR &bull; BENGALURU &bull; HYDERABAD &bull; PUNE &bull; CHENNAI &bull; KOLKATA &bull; AHMEDABAD</div>
+    </div>
+  </section>
+
+  <!-- Two26 Marquee Ribbon / Infinite Ticker (Transition Strip) -->
+  <div class="two26-marquee-strip">
+    <div class="two26-marquee-track">
+      <div class="two26-marquee-content">
+        <span>LIVE MULTIPLEX RADAR</span>
+        <span class="bullet">★</span>
+        <span>LOWEST PRICE FIRST</span>
+        <span class="bullet">★</span>
+        <span>BOOK DIRECT ON BOOKMYSHOW & PVR INOX</span>
+        <span class="bullet">★</span>
+        <span>REAL-TIME PRICE DROP ALERTS</span>
+        <span class="bullet">★</span>
+        <span>ZERO HIDDEN SURCHARGES</span>
+        <span class="bullet">★</span>
+        <span>08 METRO HUBS</span>
+        <span class="bullet">★</span>
+      </div>
+      <div class="two26-marquee-content" aria-hidden="true">
+        <span>LIVE MULTIPLEX RADAR</span>
+        <span class="bullet">★</span>
+        <span>LOWEST PRICE FIRST</span>
+        <span class="bullet">★</span>
+        <span>BOOK DIRECT ON BOOKMYSHOW & PVR INOX</span>
+        <span class="bullet">★</span>
+        <span>REAL-TIME PRICE DROP ALERTS</span>
+        <span class="bullet">★</span>
+        <span>ZERO HIDDEN SURCHARGES</span>
+        <span class="bullet">★</span>
+        <span>08 METRO HUBS</span>
+        <span class="bullet">★</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Horizontal Category Icon Row -->
   <section class="category-icon-bar" id="category-bar">
     <div class="category-container">
       <button class="cat-item active" onclick="selectCategoryPill(this, 'all')">
         <div class="cat-icon">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
             <line x1="7" y1="2" x2="7" y2="22"/>
             <line x1="17" y1="2" x2="17" y2="22"/>
@@ -96,9 +231,9 @@
 
       <button class="cat-item" onclick="selectCategoryPill(this, 'IMAX 3D')">
         <div class="cat-icon">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <text x="5" y="15" font-size="7" font-weight="bold" fill="currentColor">IMAX</text>
+            <text x="3" y="15" font-size="7" font-weight="bold" fill="currentColor">IMAX</text>
           </svg>
         </div>
         <span>IMAX 3D</span>
@@ -106,7 +241,7 @@
 
       <button class="cat-item" onclick="selectCategoryPill(this, '4DX')">
         <div class="cat-icon">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M4 18v3h16v-3"/>
             <path d="M7 14l3-8 4 8"/>
             <line x1="8.5" y1="10" x2="12.5" y2="10"/>
@@ -117,7 +252,7 @@
 
       <button class="cat-item" onclick="selectCategoryPill(this, 'Dolby Atmos')">
         <div class="cat-icon">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
           </svg>
@@ -127,7 +262,7 @@
 
       <button class="cat-item" onclick="selectCategoryPill(this, '2D')">
         <div class="cat-icon">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="3" y="3" width="18" height="18" rx="2"/>
             <circle cx="8.5" cy="8.5" r="1.5"/>
             <polyline points="21 15 16 10 5 21"/>
@@ -138,7 +273,7 @@
 
       <button class="cat-item" onclick="selectCategoryPill(this, '3D')">
         <div class="cat-icon">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
           </svg>
         </div>
@@ -147,7 +282,7 @@
 
       <button class="cat-item" onclick="selectCategoryPill(this, 'budget')">
         <div class="cat-icon">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
             <line x1="7" y1="7" x2="7.01" y2="7"/>
           </svg>
@@ -219,7 +354,7 @@
 
       <!-- Theatre Chain Filter Group -->
       <div class="filter-group">
-        <h4 class="filter-title">Multiplex Partners</h4>
+        <h4 class="filter-title">Multiplex Chain</h4>
         <label class="filter-checkbox-label">
           <input type="radio" name="chain_filter" value="All" checked onchange="applyFilters()">
           <span>All Multiplexes</span>
@@ -235,7 +370,6 @@
         <label class="filter-checkbox-label">
           <input type="radio" name="chain_filter" value="MovieMax" onchange="applyFilters()">
           <span>MovieMax</span>
-          <span class="tag-red">Budget</span>
         </label>
         <label class="filter-checkbox-label">
           <input type="radio" name="chain_filter" value="Miraj" onchange="applyFilters()">
@@ -243,110 +377,104 @@
         </label>
       </div>
 
-      <!-- Booking Portals Direct -->
-      <div class="filter-group quick-actions-card">
-        <h4 class="filter-title">Direct Portals</h4>
-        <div class="portal-link-pills">
-          <a href="https://in.bookmyshow.com" target="_blank" class="portal-pill bms-pill">🔴 BookMyShow</a>
-          <a href="https://www.pvrcinemas.com" target="_blank" class="portal-pill pvr-pill">🎬 PVR INOX</a>
-          <a href="https://district.in" target="_blank" class="portal-pill district-pill">⚡ District</a>
-          <a href="https://cinepolisindia.com" target="_blank" class="portal-pill cinepolis-pill">🎟️ Cinépolis</a>
-        </div>
+      <!-- Quick Action Utilities -->
+      <div class="quick-actions-card">
+        <h4 class="filter-title" style="margin-bottom: 8px;">Automations</h4>
+        <p style="font-size: 12px; color: var(--color-olive-muted); margin-bottom: 14px; line-height: 1.5;">
+          Background daemon polls for fare drops every 30s. Export CSV matrices anytime.
+        </p>
+        <button class="action-btn secondary full-width" style="margin-bottom: 8px;" onclick="openAlertsModal()">
+          Set Price Watcher
+        </button>
+        <button class="action-btn secondary full-width" onclick="exportDataCSV()">
+          Export Data to CSV
+        </button>
       </div>
     </aside>
 
-    <!-- Main Showcase / Gallery Grid -->
+    <!-- Main Products Showcase Section -->
     <main class="products-showcase">
-      
-      <!-- Top Control Bar (Showing count + Rank By Dropdown) -->
+      <!-- Showcase Top Header Controls -->
       <div class="showcase-top-bar">
-        <div class="results-count">
-          <span id="results-count-text">Loading live shows...</span>
+        <div class="results-count" id="results-count-text">
+          Loading live multiplex catalog...
         </div>
 
         <div class="rank-by-wrapper" id="rank-by-box">
-          <span class="rank-label">Sort by</span>
-          <select id="sort-select" onchange="applyFilters()">
-            <option value="cheapest">Lowest Price ⌄</option>
-            <option value="highest_rated">Highest Rated (IMDb / BMS) ⌄</option>
-            <option value="theatre_count">Most Theatres ⌄</option>
+          <span class="rank-label">Sort:</span>
+          <select id="sort-select" onchange="loadMovies()">
+            <option value="cheapest">Lowest Price First</option>
+            <option value="highest_rated">Highest User Rating</option>
+            <option value="theatre_count">Most Multiplexes</option>
           </select>
         </div>
       </div>
 
-      <!-- Movie Cards Grid -->
+      <!-- Dynamic Movie Grid (Injected via JS) -->
       <div class="movie-cards-grid" id="movie-grid">
-        <!-- Injected dynamically via JS -->
+        <!-- Rendered by main.js -->
       </div>
     </main>
   </div>
 
-  <!-- Multi-Platform Live Booking Modal (Direct Popup launcher for BMS, PVR, District) -->
-  <div class="modal-overlay" id="booking-portal-modal" style="display:none;">
+  <!-- Multi-Platform Direct Booking Portal Modal -->
+  <div id="booking-portal-modal" class="modal-overlay" style="display: none;">
     <div class="modal-card booking-modal-card">
       <div class="modal-header">
         <div>
-          <h2 class="modal-title" id="booking-modal-title">Select Booking Platform</h2>
-          <p class="modal-subtitle" id="booking-modal-subtitle">Choose your preferred ticketing portal for direct 1-click booking</p>
+          <h2 class="modal-title">Select Booking Gateway</h2>
+          <p class="modal-subtitle">Choose your preferred ticketing provider with verified live coupons.</p>
         </div>
-        <button class="modal-close-btn" onclick="closeBookingPortalModal()">&times;</button>
+        <button class="modal-close-btn" onclick="closeBookingPortalModal()">×</button>
       </div>
-
       <div class="modal-body" id="booking-modal-body">
-        <!-- Injected dynamically -->
+        <!-- Dynamically injected platform choices -->
       </div>
     </div>
   </div>
 
-  <!-- Official HD Trailer Player Modal -->
-  <div class="modal-overlay" id="trailer-modal" style="display:none;">
-    <div class="modal-card trailer-modal-card">
-      <div class="modal-header">
-        <div>
-          <h2 class="modal-title" id="trailer-modal-title">Official Movie Trailer</h2>
-          <p class="modal-subtitle">High Definition 4K Teaser & Trailer</p>
-        </div>
-        <button class="modal-close-btn" onclick="closeTrailerModal()">&times;</button>
-      </div>
-      <div class="modal-body trailer-modal-body">
-        <div class="video-container" id="trailer-video-wrapper">
-          <!-- Injected dynamically via iframe -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Price Comparison Matrix Modal -->
-  <div class="modal-overlay" id="compare-modal" style="display:none;">
+  <!-- Multi-Tier Price Comparison Matrix Modal -->
+  <div id="compare-modal" class="modal-overlay" style="display: none;">
     <div class="modal-card compare-modal-card">
       <div class="modal-header">
         <div>
-          <h2 class="modal-title" id="compare-movie-title">Price Comparison</h2>
-          <p class="modal-subtitle" id="compare-movie-city">Comparing across all theatres in town</p>
+          <h2 class="modal-title" id="compare-movie-title">Seat Tier Price Matrix</h2>
+          <p class="modal-subtitle" id="compare-movie-city">Comparing Silver, Gold & Recliner tiers across multiplexes</p>
         </div>
-        <button class="modal-close-btn" onclick="closeCompareModal()">&times;</button>
+        <button class="modal-close-btn" onclick="closeCompareModal()">×</button>
       </div>
-
       <div class="modal-body" id="compare-modal-body">
-        <!-- Injected dynamically -->
+        <!-- Injected via JS -->
       </div>
-      
       <div class="modal-footer">
-        <button class="action-btn secondary" onclick="exportComparisonCSV()">Export Comparison (CSV)</button>
-        <button class="action-btn primary" onclick="closeCompareModal()">Done</button>
+        <button class="action-btn secondary" onclick="exportComparisonCSV()">Export Matrix CSV</button>
+        <button class="action-btn primary" onclick="closeCompareModal()">Close Matrix</button>
       </div>
     </div>
   </div>
 
-  <!-- Price Alert / Notification Modal -->
-  <div class="modal-overlay" id="alert-modal" style="display:none;">
-    <div class="modal-card alert-modal-card">
+  <!-- Official HD Trailer Video Modal Player -->
+  <div id="trailer-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card" style="max-width: 860px; padding: 0; overflow: hidden; background: #000;">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; background: var(--color-deep-olive); color: var(--color-soft-white);">
+        <span id="trailer-modal-title" style="font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;">Official Trailer</span>
+        <button onclick="closeTrailerModal()" style="background: none; border: none; color: #fff; font-size: 24px; cursor: pointer;">×</button>
+      </div>
+      <div id="trailer-video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0;">
+        <!-- YouTube iframe injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Price Drop Alert & Trigger Notifications Modal -->
+  <div id="alerts-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card" style="max-width: 640px;">
       <div class="modal-header">
         <div>
-          <h2 class="modal-title">🔔 Automated Price Tracker & Alert</h2>
-          <p class="modal-subtitle">Get instant alerts in background when ticket prices drop within your budget</p>
+          <h2 class="modal-title">Price Drop Automation</h2>
+          <p class="modal-subtitle">Background daemon continuously watches prices and notifies you when tickets drop.</p>
         </div>
-        <button class="modal-close-btn" onclick="closeAlertsModal()">&times;</button>
+        <button class="modal-close-btn" onclick="closeAlertsModal()">×</button>
       </div>
 
       <div class="modal-body">
@@ -385,19 +513,19 @@
               </div>
             </div>
 
-            <button type="submit" class="action-btn primary full-width">⚡ Start Watching Prices</button>
+            <button type="submit" class="action-btn primary full-width">Start Watching Prices</button>
           </form>
         </div>
 
         <div class="active-alerts-section">
-          <h3>Active Watchers (<span id="active-alerts-count">0</span>)</h3>
+          <h3 style="font-family: var(--font-display); font-size: 14px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-deep-olive); margin-bottom: 12px;">Active Watchers (<span id="active-alerts-count">0</span>)</h3>
           <div id="active-alerts-list" class="alerts-list">
             <!-- Injected via JS -->
           </div>
         </div>
 
-        <div class="notif-history-section">
-          <h3>Recent Price Drop Triggers (<span id="notif-count">0</span>)</h3>
+        <div class="notif-history-section" style="margin-top: 10px;">
+          <h3 style="font-family: var(--font-display); font-size: 14px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-deep-olive); margin-bottom: 12px;">Recent Price Drop Triggers (<span id="notif-count">0</span>)</h3>
           <div id="notif-history-list" class="notif-list">
             <!-- Injected via JS -->
           </div>
@@ -409,6 +537,6 @@
   <!-- Toast Notification Container -->
   <div id="toast-container" class="toast-container"></div>
 
-  <script src="/static/js/main.js"></script>
+  <script src="/static/js/main.js?v=3"></script>
 </body>
 </html>

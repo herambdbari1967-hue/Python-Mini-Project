@@ -18,6 +18,9 @@ from price_tracker import alert_manager
 from data_exporter import export_shows_to_csv, export_comparison_to_csv
 
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.jinja_env.auto_reload = True
 
 @app.route('/')
 def index():

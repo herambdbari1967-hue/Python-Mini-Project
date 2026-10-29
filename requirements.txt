@@ -1,0 +1,7 @@
+flask
+pandas
+schedule
+requests
+beautifulsoup4
+selenium
+

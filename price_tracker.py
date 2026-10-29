@@ -68,7 +68,7 @@ class PriceAlertManager:
                     alert["status"] = "TRIGGERED"
                     notif = {
                         "id": f"notif-{int(time.time() * 1000)}",
-                        "title": f"🎉 Price Drop Alert: {alert['movie_title']}",
+                        "title": f"Price Drop Alert: {alert['movie_title']}",
                         "message": f"Tickets for {alert['movie_title']} in {alert['city']} are now available for ₹{current_min} (Target: ₹{alert['target_price']})!",
                         "movie_title": alert["movie_title"],
                         "city": alert["city"],

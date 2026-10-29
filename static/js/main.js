@@ -13,6 +13,19 @@ let currentMovieForCompare = null;
 let currentActiveTab = 'now_showing'; // 'now_showing' | 'upcoming'
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Ensure Hero background video autoplays smoothly
+  const heroVid = document.getElementById('hero-bg-video');
+  if (heroVid) {
+    heroVid.muted = true;
+    const playPromise = heroVid.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        window.addEventListener('click', () => heroVid.play(), { once: true });
+        window.addEventListener('scroll', () => heroVid.play(), { once: true });
+      });
+    }
+  }
+
   loadMovies();
   loadAlerts();
   // Poll notifications every 15 seconds
@@ -120,7 +133,7 @@ function renderMovieGrid(movies) {
     grid.innerHTML = `
       <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
         <h3 style="font-size: 18px; margin-bottom: 8px;">No movie shows match your filters</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 20px;">Try adjusting your format or price filters.</p>
+        <p style="color: var(--color-olive-muted); margin-bottom: 20px;">Try adjusting your format or price filters.</p>
         <button class="action-btn secondary" onclick="resetAllFilters()">Reset All Filters</button>
       </div>
     `;
@@ -159,7 +172,7 @@ function renderMovieGrid(movies) {
       </div>
       <div class="card-info">
         <div class="card-meta">
-          <span class="meta-rating">⭐ ${mov.rating}/10</span>
+          <span class="meta-rating">Rating: ${mov.rating}/10</span>
           <span>•</span>
           <span>${escapeHtml(mov.genre)}</span>
           <span>•</span>
@@ -172,25 +185,25 @@ function renderMovieGrid(movies) {
         <div class="card-price-row">
           <span class="price-label">Starts at</span>
           <span class="price-val">₹${mov.min_price}</span>
-          <span style="font-size: 11px; color: var(--text-secondary); margin-left: 4px;">in ${escapeHtml(mov.theatre_count)} multiplexes</span>
+          <span style="font-size: 11px; color: var(--color-olive-muted); margin-left: 4px;">in ${escapeHtml(mov.theatre_count)} multiplexes</span>
         </div>
 
         ${showtimesHtml}
 
         <div class="card-actions">
           <button class="action-btn secondary" onclick="openCompareModal('${mov.id}')">
-            📊 Compare Prices
+            Compare Prices
           </button>
           <button class="action-btn primary" onclick="openBookingPortalModal('${mov.id}')">
-            🎟️ Book Now ➔
+            Book Now &rarr;
           </button>
           ${mov.trailer_id ? `
             <button class="action-btn trailer-btn" onclick="openTrailerModal('${mov.trailer_id}', '${escapeHtml(mov.title)}')">
-              🎬 Watch Trailer
+              Watch Trailer
             </button>
           ` : ''}
           <button class="action-btn track-btn" onclick="openAlertForMovie('${mov.id}', '${escapeHtml(mov.title)}', ${mov.min_price})">
-            🔔 Set Price Drop Watcher
+            Set Price Drop Watcher
           </button>
         </div>
       </div>
@@ -209,7 +222,7 @@ function renderUpcomingGrid(upcoming) {
     grid.innerHTML = `
       <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
         <h3 style="font-size: 18px;">No upcoming movies found</h3>
-        <p style="color: var(--text-secondary);">Try clearing your search keyword.</p>
+        <p style="color: var(--color-olive-muted);">Try clearing your search keyword.</p>
       </div>
     `;
     return;
@@ -220,13 +233,13 @@ function renderUpcomingGrid(upcoming) {
     card.className = 'movie-card';
 
     card.innerHTML = `
-      <div class="upcoming-release-badge">🗓️ ${escapeHtml(mov.release_date)}</div>
-      <div class="card-badge" style="background-color: #0284c7;">${escapeHtml(mov.badge)}</div>
+      <div class="upcoming-release-badge">Release: ${escapeHtml(mov.release_date)}</div>
+      <div class="card-badge" style="background-color: var(--color-deep-olive);">${escapeHtml(mov.badge)}</div>
       <div class="card-poster-container">
         <img src="${mov.poster}" alt="${escapeHtml(mov.title)}" class="card-poster" loading="lazy">
       </div>
       <div class="card-info">
-        <div class="hype-badge">🔥 ${escapeHtml(mov.hype_score)}</div>
+        <div class="hype-badge">${escapeHtml(mov.hype_score)}</div>
         <div class="card-meta">
           <span>${escapeHtml(mov.certificate)}</span>
           <span>•</span>
@@ -234,21 +247,21 @@ function renderUpcomingGrid(upcoming) {
         </div>
 
         <h3 class="card-title">${escapeHtml(mov.title)}</h3>
-        <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 12px;">
+        <p style="font-size: 12px; color: var(--color-olive-muted); line-height: 1.4; margin-bottom: 12px;">
           ${escapeHtml(mov.synopsis)}
         </p>
 
-        <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 12px;">
+        <div style="font-size: 11px; color: var(--color-olive-muted); margin-bottom: 12px;">
           <strong>Starring:</strong> ${mov.cast ? mov.cast.join(', ') : 'All-Star Cast'}<br>
           <strong>Director:</strong> ${escapeHtml(mov.director)}
         </div>
 
         <div class="card-actions">
           <button class="action-btn trailer-btn" style="width: 100%; margin-bottom: 6px;" onclick="openTrailerModal('${mov.trailer_id}', '${escapeHtml(mov.title)}')">
-            ▶️ Watch Official Trailer
+            Watch Official Trailer
           </button>
           <button class="action-btn primary" style="width: 100%;" onclick="openAlertForMovie('${mov.id}', '${escapeHtml(mov.title)}', 250)">
-            🔔 Notify on Ticket Opening
+            Notify on Ticket Opening
           </button>
         </div>
       </div>
@@ -285,15 +298,15 @@ async function openBookingPortalModal(movieId, theatreName = null, showTime = nu
       const selectedTheatre = theatreName || d.theatre_name;
 
       modalBody.innerHTML = `
-        <div style="display: flex; gap: 16px; align-items: center; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+        <div style="display: flex; gap: 16px; align-items: center; border-bottom: 1px solid var(--color-border-grid); padding-bottom: 16px;">
           <img src="${movie.poster}" alt="${escapeHtml(movie.title)}" style="width: 70px; height: 100px; object-fit: cover; border-radius: var(--radius-sm);">
           <div>
             <h3 style="font-size: 18px; font-weight: 700;">${escapeHtml(movie.title)}</h3>
-            <p style="font-size: 13px; color: var(--text-secondary); margin: 3px 0;">
-              ${escapeHtml(movie.genre)} • ⭐ ${movie.rating}/10 (${movie.votes || 'Popular'})
+            <p style="font-size: 13px; color: var(--color-olive-muted); margin: 3px 0;">
+              ${escapeHtml(movie.genre)} • Rating: ${movie.rating}/10 (${movie.votes || 'Popular'})
             </p>
-            <p style="font-size: 12px; color: var(--brand-red); font-weight: 600;">
-              📍 ${escapeHtml(selectedTheatre)} ${showTime ? `• ⏰ ${showTime} (${format})` : ''}
+            <p style="font-size: 12px; color: var(--color-deep-olive); font-weight: 600;">
+              ${escapeHtml(selectedTheatre)} ${showTime ? `• ${showTime} (${format})` : ''}
             </p>
           </div>
         </div>
@@ -302,63 +315,63 @@ async function openBookingPortalModal(movieId, theatreName = null, showTime = nu
           <!-- BookMyShow -->
           <div class="platform-choice-card">
             <div class="platform-card-header">
-              <span class="platform-name" style="color: #eb0028;">🔴 BookMyShow</span>
+              <span class="platform-name" style="color: #eb0028;">BookMyShow</span>
               <span class="platform-tag" style="background: #fff0f2; color: #eb0028;">Official API</span>
             </div>
             <p class="platform-desc">Instant seat reservation, M-Ticket on WhatsApp & food pre-orders.</p>
             <a href="${links.bookmyshow}" target="_blank" class="platform-launch-btn btn-bms" onclick="trackBookingClick('BookMyShow', '${escapeHtml(movie.title)}')">
-              Launch BookMyShow ➔
+              Launch BookMyShow &rarr;
             </a>
           </div>
 
           <!-- PVR INOX -->
           <div class="platform-choice-card">
             <div class="platform-card-header">
-              <span class="platform-name" style="color: #d97706;">🎬 PVR INOX Cinemas</span>
+              <span class="platform-name" style="color: #d97706;">PVR INOX Cinemas</span>
               <span class="platform-tag" style="background: #fffbf0; color: #d97706;">Direct Multiplex</span>
             </div>
             <p class="platform-desc">Zero convenience fee on Passport subscribers & luxury recliner deals.</p>
             <a href="${links.pvr_inox}" target="_blank" class="platform-launch-btn btn-pvr" onclick="trackBookingClick('PVR INOX', '${escapeHtml(movie.title)}')">
-              Launch PVR INOX ➔
+              Launch PVR INOX &rarr;
             </a>
           </div>
 
           <!-- District by Zomato -->
           <div class="platform-choice-card">
             <div class="platform-card-header">
-              <span class="platform-name" style="color: #7c3aed;">⚡ District (by Zomato)</span>
+              <span class="platform-name" style="color: #7c3aed;">District (by Zomato)</span>
               <span class="platform-tag" style="background: #f3f0ff; color: #7c3aed;">Fast Checkout</span>
             </div>
             <p class="platform-desc">Zomato Gold dining combos & instant cashback on movie tickets.</p>
             <a href="${links.district}" target="_blank" class="platform-launch-btn btn-district" onclick="trackBookingClick('District', '${escapeHtml(movie.title)}')">
-              Launch District ➔
+              Launch District &rarr;
             </a>
           </div>
 
           <!-- Cinépolis India -->
           <div class="platform-choice-card">
             <div class="platform-card-header">
-              <span class="platform-name" style="color: #0284c7;">🎟️ Cinépolis India</span>
+              <span class="platform-name" style="color: #0284c7;">Cinépolis India</span>
               <span class="platform-tag" style="background: #f0f7ff; color: #0284c7;">Club Cinépolis</span>
             </div>
             <p class="platform-desc">Earn Club Cinepolis points & exclusive Wednesday saver discounts.</p>
             <a href="${links.cinepolis}" target="_blank" class="platform-launch-btn btn-cinepolis" onclick="trackBookingClick('Cinépolis', '${escapeHtml(movie.title)}')">
-              Launch Cinépolis ➔
+              Launch Cinépolis &rarr;
             </a>
           </div>
         </div>
 
         <!-- Promo Section -->
         <div class="promo-section-box">
-          <strong style="font-size: 13px;">🎁 Verified Discount Coupons (Click to Copy):</strong>
+          <strong style="font-size: 13px;">Verified Discount Coupons (Click to Copy):</strong>
           <div class="promo-grid">
             ${d.promos.map(p => `
               <div class="promo-chip" onclick="copyPromoCode('${p.code}')" title="Click to copy coupon code">
                 <div>
                   <span class="promo-code-text">${p.code}</span>
-                  <div style="font-size: 10px; color: var(--text-secondary);">${p.desc}</div>
+                  <div style="font-size: 10px; color: var(--color-olive-muted);">${p.desc}</div>
                 </div>
-                <span style="font-size: 10px; color: var(--brand-red); font-weight: 700;">COPY</span>
+                <span style="font-size: 10px; color: var(--color-deep-olive); font-weight: 700;">COPY</span>
               </div>
             `).join('')}
           </div>
@@ -375,12 +388,12 @@ function closeBookingPortalModal() {
 }
 
 function trackBookingClick(platform, movieTitle) {
-  showToast(`🚀 Opening ${platform} for ${movieTitle}...`);
+  showToast(`Opening ${platform} for ${movieTitle}...`);
 }
 
 function copyPromoCode(code) {
   navigator.clipboard.writeText(code).then(() => {
-    showToast(`✅ Coupon code ${code} copied to clipboard!`);
+    showToast(`Coupon code ${code} copied to clipboard!`);
   }).catch(() => {
     showToast(`Coupon: ${code}`);
   });
@@ -393,8 +406,12 @@ function openTrailerModal(trailerId, movieTitle) {
   const wrapper = document.getElementById('trailer-video-wrapper');
 
   titleEl.textContent = `${movieTitle} - Official Trailer (HD)`;
+  let videoSrc = `https://www.youtube.com/embed/${trailerId}?autoplay=1&rel=0&modestbranding=1`;
+  if (!trailerId || trailerId === 'auto' || trailerId.startsWith('search:') || trailerId.length < 5) {
+    videoSrc = `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(movieTitle + ' official trailer')}&autoplay=1&rel=0`;
+  }
   wrapper.innerHTML = `
-    <iframe src="https://www.youtube.com/embed/${trailerId}?autoplay=1&rel=0&modestbranding=1" 
+    <iframe src="${videoSrc}" 
             title="${escapeHtml(movieTitle)}" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
@@ -491,17 +508,17 @@ function renderComparisonModal(comp) {
         <td>
           <strong>${escapeHtml(row.theatre)}</strong>
           ${isCheapest ? '<span class="badge-cheapest">Lowest Price</span>' : ''}
-          <div style="font-size: 11px; color: var(--text-secondary);">${row.chain} • ⭐ ${row.theatre_rating} • ${row.location}</div>
+          <div style="font-size: 11px; color: var(--color-olive-muted);">${row.chain} • Rating: ${row.theatre_rating} • ${row.location}</div>
         </td>
         <td><strong>${row.time}</strong></td>
         <td><span style="font-weight: 600;">${row.format}</span></td>
         <td><strong>₹${row.silver_price}</strong></td>
         <td>₹${row.gold_price}</td>
         <td>₹${row.recliner_price}</td>
-        <td><span style="color: ${row.seats_left < 10 ? 'var(--brand-red)' : '#27ae60'}; font-weight: 600;">${row.seats_left} seats</span></td>
+        <td><span style="color: ${row.seats_left < 10 ? 'var(--color-deep-olive)' : '#27ae60'}; font-weight: 600;">${row.seats_left} seats</span></td>
         <td>
           <button class="action-btn primary" style="padding: 4px 10px; font-size: 11px;" onclick="openBookingPortalModal('${comp.cheapest_option ? currentMovieForCompare : ''}', '${escapeHtml(row.theatre)}', '${row.time}', '${row.format}')">
-            Book ➔
+            Book &rarr;
           </button>
         </td>
       </tr>
@@ -509,9 +526,9 @@ function renderComparisonModal(comp) {
   }).join('');
 
   modalBody.innerHTML = `
-    <div style="background-color: var(--brand-red-light); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid #ffd1d8; display: flex; align-items: center; justify-content: space-between;">
+    <div style="background-color: var(--color-sage-light); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid var(--color-sage-border); display: flex; align-items: center; justify-content: space-between;">
       <div>
-        <strong>🏆 Best Deal Found:</strong> ${escapeHtml(cheapest.theatre)} (${cheapest.format}) at <strong>₹${cheapest.silver_price}</strong>
+        <strong>Best Deal Found:</strong> ${escapeHtml(cheapest.theatre)} (${cheapest.format}) at <strong>₹${cheapest.silver_price}</strong>
       </div>
       <button class="action-btn primary" style="font-size: 12px; padding: 6px 12px;" onclick="openBookingPortalModal('${currentMovieForCompare}', '${escapeHtml(cheapest.theatre)}', '${cheapest.time}', '${cheapest.format}')">
         Book Lowest Price
@@ -576,7 +593,7 @@ async function loadAlerts() {
 function renderAlertsList(alerts) {
   const container = document.getElementById('active-alerts-list');
   if (!alerts || alerts.length === 0) {
-    container.innerHTML = '<p style="color: var(--text-secondary); font-size: 12px;">No active price alerts. Add one above!</p>';
+    container.innerHTML = '<p style="color: var(--color-olive-muted); font-size: 12px;">No active price alerts. Add one above!</p>';
     return;
   }
 
@@ -584,11 +601,11 @@ function renderAlertsList(alerts) {
     <div class="alert-item-card">
       <div>
         <strong>${escapeHtml(a.movie_title)}</strong> in ${escapeHtml(a.city)}
-        <div style="font-size: 11px; color: var(--text-secondary);">
+        <div style="font-size: 11px; color: var(--color-olive-muted);">
           Target: ₹${a.target_price} | Current: ₹${a.last_price_found || 'Scanning...'} | Format: ${a.format_type}
         </div>
       </div>
-      <button class="reset-link" style="color: var(--brand-red); font-size: 12px;" onclick="deleteAlert('${a.id}')">Delete</button>
+      <button class="reset-link" style="color: var(--color-deep-olive); font-size: 12px;" onclick="deleteAlert('${a.id}')">Delete</button>
     </div>
   `).join('');
 }
@@ -596,7 +613,7 @@ function renderAlertsList(alerts) {
 function renderNotificationsList(notifs) {
   const container = document.getElementById('notif-history-list');
   if (!notifs || notifs.length === 0) {
-    container.innerHTML = '<p style="color: var(--text-secondary); font-size: 12px;">No price drop triggers yet.</p>';
+    container.innerHTML = '<p style="color: var(--color-olive-muted); font-size: 12px;">No price drop triggers yet.</p>';
     return;
   }
 
@@ -604,8 +621,8 @@ function renderNotificationsList(notifs) {
     <div class="notif-item-card">
       <div>
         <strong>${escapeHtml(n.title)}</strong>
-        <div style="font-size: 12px; color: var(--text-primary);">${escapeHtml(n.message)}</div>
-        <div style="font-size: 10px; color: var(--text-secondary); margin-top: 2px;">${n.timestamp}</div>
+        <div style="font-size: 12px; color: var(--color-deep-olive);">${escapeHtml(n.message)}</div>
+        <div style="font-size: 10px; color: var(--color-olive-muted); margin-top: 2px;">${n.timestamp}</div>
       </div>
     </div>
   `).join('');
@@ -626,12 +643,12 @@ function openAlertForMovie(movieId, title, currentMin) {
 }
 
 function openAlertsModal() {
-  document.getElementById('alert-modal').style.display = 'flex';
+  const am = document.getElementById('alerts-modal') || document.getElementById('alert-modal'); if (am) am.style.display = 'flex';
   loadAlerts();
 }
 
 function closeAlertsModal() {
-  document.getElementById('alert-modal').style.display = 'none';
+  const am = document.getElementById('alerts-modal') || document.getElementById('alert-modal'); if (am) am.style.display = 'none';
 }
 
 async function submitNewAlert(e) {
@@ -657,7 +674,7 @@ async function submitNewAlert(e) {
     });
     const data = await res.json();
     if (data.status === 'success') {
-      showToast(`⚡ Price alert activated for ${movieTitle} under ₹${targetPrice}!`);
+      showToast(`Price alert activated for ${movieTitle} under ₹${targetPrice}!`);
       loadAlerts();
     }
   } catch (err) {
@@ -680,13 +697,13 @@ function exportDataCSV() {
   const city = document.getElementById('city-select').value;
   const search = document.getElementById('nav-search-input').value;
   window.location.href = `/api/export/shows?city=${encodeURIComponent(city)}&search=${encodeURIComponent(search)}`;
-  showToast('📥 Exporting movie shows dataset via Pandas (CSV)...');
+  showToast('Exporting movie shows dataset via Pandas (CSV)...');
 }
 
 function exportComparisonCSV() {
   if (currentMovieForCompare) {
     window.location.href = `/api/export/comparison?movie_id=${currentMovieForCompare}&city=${encodeURIComponent(currentCity)}`;
-    showToast('📥 Exporting price comparison report (CSV)...');
+    showToast('Exporting price comparison report (CSV)...');
   }
 }
 
