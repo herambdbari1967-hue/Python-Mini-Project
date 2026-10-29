@@ -91,11 +91,21 @@ def api_booking_details():
     movie_id = request.args.get('movie_id')
     city = request.args.get('city', 'Mumbai')
     theatre_id = request.args.get('theatre_id')
+    theatre_name = request.args.get('theatre') or request.args.get('theatre_name')
+    show_time = request.args.get('show_time') or request.args.get('time')
+    show_format = request.args.get('format')
     
     if not movie_id:
         return jsonify({"status": "error", "message": "movie_id is required"}), 400
         
-    data = get_booking_details(movie_id, theatre_id=theatre_id, city=city)
+    data = get_booking_details(
+        movie_id,
+        theatre_id=theatre_id,
+        city=city,
+        theatre_name=theatre_name,
+        show_time=show_time,
+        show_format=show_format
+    )
     if not data:
         return jsonify({"status": "error", "message": "Movie not found"}), 404
         

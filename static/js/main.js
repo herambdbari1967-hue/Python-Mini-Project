@@ -228,7 +228,7 @@ function renderMovieGrid(movies) {
           </div>
           <div class="timing-chips">
             ${firstTheatre.shows.slice(0, 3).map(s => `
-              <button class="timing-chip" onclick="openBookingPortalModal('${mov.id}', '${escapeHtml(firstTheatre.theatre_name)}', '${s.time}', '${s.format}')" title="Click to book: ${s.format} - Silver ₹${s.silver}">
+              <button class="timing-chip" onclick="openBookingPortalModal('${mov.id}', '${escapeHtml(firstTheatre.theatre_name)}', '${s.time}', '${s.format}', '${s.booking_url || ''}')" title="Click to book: ${s.format} - Silver ₹${s.silver}">
                 <span>${s.time}</span>
                 <span class="chip-price">₹${s.silver}</span>
               </button>
@@ -356,7 +356,7 @@ function updateResultsCount(count, city, type) {
 }
 
 // Multi-Platform Live Booking Modal Launcher
-async function openBookingPortalModal(movieId, theatreName = null, showTime = null, format = null) {
+async function openBookingPortalModal(movieId, theatreName = null, showTime = null, format = null, directBookingUrl = null) {
   const modal = document.getElementById('booking-portal-modal');
   const modalBody = document.getElementById('booking-modal-body');
   
@@ -364,13 +364,28 @@ async function openBookingPortalModal(movieId, theatreName = null, showTime = nu
   modal.style.display = 'flex';
 
   try {
-    const res = await fetch(`/api/booking-details?movie_id=${movieId}&city=${encodeURIComponent(currentCity)}`);
+    const params = new URLSearchParams({
+      movie_id: movieId,
+      city: currentCity
+    });
+    if (theatreName) params.set('theatre', theatreName);
+    if (showTime) params.set('show_time', showTime);
+    if (format) params.set('format', format);
+
+    const res = await fetch(`/api/booking-details?${params.toString()}`);
     const data = await res.json();
     if (data.status === 'success') {
       const d = data.data;
       const movie = d.movie;
       const links = d.platform_links;
+      if (directBookingUrl) {
+        links.bookmyshow = directBookingUrl;
+        links.BookMyShow = directBookingUrl;
+        links.default = directBookingUrl;
+      }
       const selectedTheatre = theatreName || d.theatre_name;
+      const selectedTime = showTime || d.show_time;
+      const selectedFormat = format || d.format;
 
       modalBody.innerHTML = `
         <div style="display: flex; gap: 16px; align-items: center; border-bottom: 1px solid var(--color-border-grid); padding-bottom: 16px;">
@@ -714,7 +729,7 @@ function renderComparisonModal(comp) {
           </span>
         </td>
         <td>
-          <button class="action-btn primary" style="padding: 4px 10px; font-size: 11px;" onclick="openBookingPortalModal('${comp.cheapest_option ? currentMovieForCompare : ''}', '${escapeHtml(row.theatre)}', '${row.time}', '${row.format}')">
+          <button class="action-btn primary" style="padding: 4px 10px; font-size: 11px;" onclick="openBookingPortalModal('${currentMovieForCompare}', '${escapeHtml(row.theatre)}', '${row.time}', '${row.format}', '${row.booking_url || ''}')">
             Book &rarr;
           </button>
         </td>
@@ -727,7 +742,7 @@ function renderComparisonModal(comp) {
       <div>
         <strong>Best Deal Found:</strong> ${escapeHtml(cheapest.theatre)} (${cheapest.format}) at <strong>₹${cheapest.silver_price}</strong>
       </div>
-      <button class="action-btn primary" style="font-size: 12px; padding: 6px 12px;" onclick="openBookingPortalModal('${currentMovieForCompare}', '${escapeHtml(cheapest.theatre)}', '${cheapest.time}', '${cheapest.format}')">
+      <button class="action-btn primary" style="font-size: 12px; padding: 6px 12px;" onclick="openBookingPortalModal('${currentMovieForCompare}', '${escapeHtml(cheapest.theatre)}', '${cheapest.time}', '${cheapest.format}', '${cheapest.booking_url || ''}')">
         Book Lowest Price
       </button>
     </div>

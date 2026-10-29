@@ -1323,21 +1323,102 @@ def get_price_comparison(movie_id, city="Mumbai"):
     }
 
 
-def get_booking_details(movie_id, theatre_id=None, city="Mumbai"):
+def get_booking_details(movie_id, theatre_id=None, city="Mumbai", theatre_name=None, show_time=None, show_format=None):
     """
     Returns platform booking links, active discount coupons, and seat pricing for a selected movie.
+    Prioritizes real BookMyShow direct seat-selection URLs (https://in.bookmyshow.com/booktickets/{venue}/{session})
+    for the selected theatre and screening time.
     """
     shows = get_movie_shows(city=city)
     target = next((m for m in shows if m["id"] == movie_id), None)
     if not target:
+        target = next((m for m in shows if movie_id.lower() in m["title"].lower()), None)
+    if not target:
         return None
 
-    theatre_name = target["theatre_shows"][0]["theatre_name"] if target["theatre_shows"] else f"Cinema, {city}"
-    platform_links = generate_multiplatform_booking_links(target["title"], theatre_name, city, "Any", "2D")
+    clean_city = CITY_SLUGS.get(city, city.lower().replace(" ", "-"))
+    today = datetime.now().strftime('%Y%m%d')
+    movie_slug = target.get("slug") or target["title"].lower().replace(" ", "-")
+
+    # 1. Resolve target theatre
+    theatre_shows = target.get("theatre_shows", [])
+    selected_theatre = None
+    if theatre_name:
+        t_clean = theatre_name.strip().lower()
+        selected_theatre = next((t for t in theatre_shows if t_clean in t["theatre_name"].lower() or t["theatre_name"].lower() in t_clean), None)
+    
+    if not selected_theatre and theatre_id:
+        selected_theatre = next((t for t in theatre_shows if str(t.get("theatre_id")) == str(theatre_id)), None)
+
+    if not selected_theatre and theatre_shows:
+        selected_theatre = theatre_shows[0]
+
+    resolved_theatre_name = selected_theatre["theatre_name"] if selected_theatre else (theatre_name or f"Cinema, {city}")
+
+    # 2. Resolve target show within selected theatre
+    selected_show = None
+    if selected_theatre and selected_theatre.get("shows"):
+        th_shows = selected_theatre["shows"]
+        if show_time:
+            st_clean = show_time.strip().upper()
+            selected_show = next((s for s in th_shows if s["time"].strip().upper() == st_clean), None)
+        if not selected_show and show_format:
+            fmt_clean = show_format.strip().upper()
+            selected_show = next((s for s in th_shows if format_matches(s["format"], fmt_clean)), None)
+        if not selected_show:
+            selected_show = th_shows[0]
+
+    # 3. Build direct seat-selection booking URL
+    direct_bms_link = None
+    if selected_show and selected_show.get("booking_url") and "/booktickets/" in selected_show["booking_url"]:
+        direct_bms_link = selected_show["booking_url"]
+    elif selected_theatre and selected_theatre.get("shows"):
+        for s in selected_theatre["shows"]:
+            if s.get("booking_url") and "/booktickets/" in s["booking_url"]:
+                direct_bms_link = s["booking_url"]
+                break
+
+    # If no show in this theatre had /booktickets/, check any show across all theatres for this movie
+    if not direct_bms_link and theatre_shows:
+        for t in theatre_shows:
+            for s in t.get("shows", []):
+                if s.get("booking_url") and "/booktickets/" in s["booking_url"]:
+                    direct_bms_link = s["booking_url"]
+                    break
+            if direct_bms_link:
+                break
+
+    # Fallback: direct buy-tickets movie page on BMS
+    if not direct_bms_link:
+        if target.get("id") and target["id"].startswith("ET"):
+            direct_bms_link = f"https://in.bookmyshow.com/buytickets/{movie_slug}-{clean_city}/movie-{clean_city}-{target['id']}-MT/{today}"
+        else:
+            direct_bms_link = f"https://in.bookmyshow.com/explore/movies-{clean_city}?search={urllib.parse.quote(target['title'].lower().strip())}"
+
+    # Build platform links
+    chosen_time = selected_show["time"] if selected_show else (show_time or "Any")
+    chosen_fmt = selected_show["format"] if selected_show else (show_format or "2D")
+
+    platform_links = generate_multiplatform_booking_links(
+        target["title"],
+        resolved_theatre_name,
+        city,
+        chosen_time,
+        chosen_fmt,
+        movie_slug=movie_slug,
+        event_code=target.get("id")
+    )
+    # Direct seat-selection BookMyShow link
+    platform_links["bookmyshow"] = direct_bms_link
+    platform_links["BookMyShow"] = direct_bms_link
+    platform_links["default"] = direct_bms_link
 
     return {
         "movie": target,
-        "theatre_name": theatre_name,
+        "theatre_name": resolved_theatre_name,
+        "show_time": chosen_time,
+        "format": chosen_fmt,
+        "selected_show": selected_show,
         "city": city,
         "platform_links": platform_links,
         "promos": PROMO_CODES
