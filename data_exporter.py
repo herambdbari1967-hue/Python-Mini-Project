@@ -1,11 +1,19 @@
 """
 data_exporter.py
-Pandas-powered data export utility for Movie Ticket Price & Show Finder.
-Exports show listings, theatre price comparisons, and alerts to CSV/Excel formats.
+High-performance data export utility for Movie Ticket Price & Show Finder.
+Exports show listings, theatre price comparisons, and alerts to CSV formats.
+Compatible with standard csv module and pandas.
 """
 
 import io
-import pandas as pd
+import csv
+
+try:
+    import pandas as pd
+    HAS_PANDAS = True
+except ImportError:
+    HAS_PANDAS = False
+
 from finder_engine import get_movie_shows, get_price_comparison
 
 def export_shows_to_csv(city="Mumbai", search_query=None):
@@ -25,17 +33,27 @@ def export_shows_to_csv(city="Mumbai", search_query=None):
                     "Chain": t["chain"],
                     "Show Time": s["time"],
                     "Format": s["format"],
-                    "Silver Price (₹)": s["silver"],
-                    "Gold Price (₹)": s["gold"],
-                    "Recliner Price (₹)": s["recliner"],
+                    "Silver Price (Rs)": s["silver"],
+                    "Gold Price (Rs)": s["gold"],
+                    "Recliner Price (Rs)": s["recliner"],
                     "Seats Available": s["seats_left"],
                     "Booking URL": s["booking_url"]
                 })
                 
-    df = pd.DataFrame(rows)
-    output = io.StringIO()
-    df.to_csv(output, index=False)
-    return output.getvalue()
+    if not rows:
+        return ""
+
+    if HAS_PANDAS:
+        df = pd.DataFrame(rows)
+        output = io.StringIO()
+        df.to_csv(output, index=False)
+        return output.getvalue()
+    else:
+        output = io.StringIO()
+        writer = csv.DictWriter(output, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+        return output.getvalue()
 
 def export_comparison_to_csv(movie_id, city="Mumbai"):
     """Exports price comparison breakdown for a single movie"""
@@ -53,13 +71,23 @@ def export_comparison_to_csv(movie_id, city="Mumbai"):
             "Rating": r["theatre_rating"],
             "Show Time": r["time"],
             "Format": r["format"],
-            "Silver (₹)": r["silver_price"],
-            "Gold (₹)": r["gold_price"],
-            "Recliner (₹)": r["recliner_price"],
+            "Silver (Rs)": r["silver_price"],
+            "Gold (Rs)": r["gold_price"],
+            "Recliner (Rs)": r["recliner_price"],
             "Seats Left": r["seats_left"]
         })
         
-    df = pd.DataFrame(rows)
-    output = io.StringIO()
-    df.to_csv(output, index=False)
-    return output.getvalue()
+    if not rows:
+        return ""
+
+    if HAS_PANDAS:
+        df = pd.DataFrame(rows)
+        output = io.StringIO()
+        df.to_csv(output, index=False)
+        return output.getvalue()
+    else:
+        output = io.StringIO()
+        writer = csv.DictWriter(output, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+        return output.getvalue()
