@@ -16,11 +16,15 @@
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
   const getLayerColor = (faceColor, depthColor, index, total) => {
-    // High-depth 3D gradient: starts at bright vibrant depthColor at the front face,
-    // smoothly shading into rich warm bronze-amber at the deepest layers
-    const progress = total <= 1 ? 1 : index / total;
-    const shade = Math.round(Math.pow(progress, 1.2) * 50);
-    return `color-mix(in srgb, ${depthColor} ${100 - shade}%, #1a0600)`;
+    // High-fidelity 3D extrusion gradient:
+    // index goes from total (deepest back layer) down to 1 (layer right behind front face)
+    // Near face (index 1): intense deep CinePlus vermilion (#E64500)
+    // Furthest back (index total): luminous radiant amber (#FFA000)
+    const factor = total <= 1 ? 0 : (index - 1) / (total - 1);
+    const r = 255;
+    const g = Math.round(68 + factor * 88); // 68 -> 156
+    const b = Math.round(factor * 10);
+    return `rgb(${r}, ${g}, ${b})`;
   };
 
   const getFadeColor = (depthColor, index, total, outline) => {
@@ -46,12 +50,14 @@
 
     const {
       text = 'CINEMA',
-      layers = 24,
-      depth = 2.2,
-      faceColor = '#141414',
+      layers = 26,
+      depth = 2.0,
+      faceColor = '#111111',
       depthColor = '#FF5500',
       gradientDepth = false,
-      tilt = 7.0,
+      tilt = 8.0,
+      tiltX = undefined,
+      tiltY = undefined,
       pointerTracking = true,
       smoothing = 0.14,
       perspective = 900,
@@ -70,14 +76,18 @@
 
     const safeLayers = clamp(Math.round(Number(layers) || 1), 2, MAX_LAYERS);
     const safeDepth = clamp(Number(depth) || 0, 0, 12);
-    const safeTilt = clamp(Number(tilt) || 0, 0, 12);
+    const safeTilt = clamp(Number(tilt) || 0, 0, 15);
     const safeSmoothing = clamp(Number(smoothing) || 0.14, 0.02, 0.35);
     const safePerspective = clamp(Number(perspective) || 900, 300, 2000);
     const safeOrbitSpeed = clamp(Number(orbitSpeed) || 0, 0, 2);
     const safePush = clamp(Number(hoverPush) || 0, 0, 1);
     const extent = safeLayers * safeDepth;
 
-    const baseRotation = { x: -safeTilt * 0.32, y: safeTilt * 0.42 };
+    // Resting 3D angle: customizable per element (e.g. inward facing towards center video)
+    const baseRotation = {
+      x: tiltX !== undefined ? Number(tiltX) : -safeTilt * 0.42,
+      y: tiltY !== undefined ? Number(tiltY) : safeTilt * 0.65
+    };
 
     // DOM Setup
     const root = document.createElement('span');
@@ -90,10 +100,10 @@
     root.style.setProperty(
       '--depth-text-shadow',
       shadow && !gradientDepth
-        ? `0 0.18em 0.38em color-mix(in srgb, ${depthColor} 38%, rgba(20, 10, 5, 0.38))`
+        ? '0 8px 18px rgba(255, 85, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.08)'
         : 'none'
     );
-    root.style.setProperty('--depth-text-face-shadow', shadow ? '0 0.035em 0.07em rgba(0, 0, 0, 0.28)' : 'none');
+    root.style.setProperty('--depth-text-face-shadow', shadow ? '0 1px 2px rgba(0, 0, 0, 0.25)' : 'none');
 
     Object.assign(root.style, style);
 
@@ -125,7 +135,7 @@
 
     root.appendChild(stage);
 
-    // CRITICAL FIX: Wipe existing plain text inside container so it does not duplicate
+    // CRITICAL: Wipe existing plain text inside container so it never duplicates
     container.innerHTML = '';
     container.appendChild(root);
 
@@ -190,7 +200,7 @@
       if ((!canTrackPointer || !activePointer) && autoOrbit) {
         const elapsed = (now - startTime) / 1000;
         const orbit = elapsed * safeOrbitSpeed * Math.PI * 2;
-        const fallbackAmount = canTrackPointer ? 0.18 : 0.55;
+        const fallbackAmount = canTrackPointer ? 0.28 : 0.65;
         target.x = baseRotation.x + Math.sin(orbit) * safeTilt * fallbackAmount;
         target.y = baseRotation.y + Math.cos(orbit * 0.85) * safeTilt * fallbackAmount;
       }
@@ -345,12 +355,14 @@
       const text = mount.dataset.depthText || mount.textContent.trim();
       if (!text) return;
 
-      const faceColor = mount.dataset.faceColor || '#141414';
+      const faceColor = mount.dataset.faceColor || '#111111';
       const depthColor = mount.dataset.depthColor || '#FF5500';
       const fontSize = mount.dataset.fontSize || 'clamp(3rem, 6vw, 6rem)';
-      const tilt = parseFloat(mount.dataset.tilt) || 7.0;
-      const layers = parseInt(mount.dataset.layers, 10) || 24;
-      const depth = parseFloat(mount.dataset.depth) || 2.2;
+      const tilt = parseFloat(mount.dataset.tilt) || 8.0;
+      const tiltX = mount.dataset.tiltX ? parseFloat(mount.dataset.tiltX) : undefined;
+      const tiltY = mount.dataset.tiltY ? parseFloat(mount.dataset.tiltY) : undefined;
+      const layers = parseInt(mount.dataset.layers, 10) || 26;
+      const depth = parseFloat(mount.dataset.depth) || 2.0;
 
       // Ensure mount is wiped cleanly before building 3D depth text
       mount.innerHTML = '';
@@ -361,6 +373,8 @@
         depthColor,
         fontSize,
         tilt,
+        tiltX,
+        tiltY,
         layers,
         depth,
         autoOrbit: true,
