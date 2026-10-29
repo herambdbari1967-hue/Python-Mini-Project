@@ -224,12 +224,12 @@ button, input, select {
 .nav-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 24px;
   height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 12px;
 }
 
 /* Brand Wordmark with Two26 Display Font & Orange Spark */
@@ -275,30 +275,39 @@ button, input, select {
   margin-left: 2px;
 }
 
-/* Nav Center Links - Two26 Capsule Pill Buttons */
+/* Nav Center Links - Two26 Capsule Pill Buttons (Strict Single Line) */
 .nav-center {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
+  gap: 6px;
+  padding: 6px 13px;
   border-radius: var(--radius-pill);
   border: 1.5px solid transparent;
   background-color: transparent;
   color: var(--brand-black);
   font-family: var(--font-secondary);
-  font-size: 0.875rem;
+  font-size: 0.82rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   transition: var(--transition);
   position: relative;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-link span {
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .nav-link:hover {
@@ -341,7 +350,8 @@ button, input, select {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 /* Two26 Capsule City Selector */
@@ -400,12 +410,12 @@ button, input, select {
   border-radius: var(--radius-pill);
   padding: 0 16px 0 14px;
   height: 38px;
-  width: 220px;
+  width: 185px;
   transition: var(--transition);
 }
 
 .nav-search-box:focus-within {
-  width: 270px;
+  width: 230px;
   border-color: var(--brand-primary);
   box-shadow: 2px 2px 0px var(--brand-black);
 }
