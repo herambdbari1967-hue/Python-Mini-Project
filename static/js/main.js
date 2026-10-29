@@ -11,6 +11,9 @@ let currentCity = 'Mumbai';
 let activeCategory = 'all';
 let currentMovieForCompare = null;
 let currentActiveTab = 'now_showing'; // 'now_showing' | 'upcoming'
+let currentPage = 1;
+const MOVIES_PER_PAGE = 16;
+let showAllMovies = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   // Ensure Hero background video autoplays smoothly
@@ -26,7 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  loadMovies();
+  const searchInput = document.getElementById('nav-search-input');
+  if (searchInput && !document.getElementById('movie-grid')) {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && searchInput.value.trim()) {
+        window.location.href = `/movies?search=${encodeURIComponent(searchInput.value.trim())}`;
+      }
+    });
+  }
+
+  // Only load movies if on movies page (/movies)
+  if (document.getElementById('movie-grid')) {
+    parseUrlParameters();
+    loadMovies();
+  }
+  
   loadAlerts();
   // Poll notifications every 15 seconds
   setInterval(loadAlerts, 15000);
@@ -141,10 +158,20 @@ function renderMovieGrid(movies) {
         <button class="action-btn secondary" onclick="resetAllFilters()">Reset All Filters</button>
       </div>
     `;
+    const pag = document.getElementById('pagination-controls');
+    if (pag) pag.style.display = 'none';
     return;
   }
 
-  movies.forEach(mov => {
+  const total = movies.length;
+  const totalPages = Math.ceil(total / MOVIES_PER_PAGE) || 1;
+  if (currentPage > totalPages) currentPage = 1;
+
+  const displayMovies = showAllMovies 
+    ? movies 
+    : movies.slice((currentPage - 1) * MOVIES_PER_PAGE, currentPage * MOVIES_PER_PAGE);
+
+  displayMovies.forEach(mov => {
     const card = document.createElement('div');
     card.className = 'movie-card';
 
@@ -215,6 +242,7 @@ function renderMovieGrid(movies) {
 
     grid.appendChild(card);
   });
+  renderPagination(total, totalPages);
 }
 
 // Render Upcoming Movies Grid
@@ -273,6 +301,7 @@ function renderUpcomingGrid(upcoming) {
 
     grid.appendChild(card);
   });
+  renderPagination(total, totalPages);
 }
 
 function updateResultsCount(count, city, type) {
@@ -502,9 +531,21 @@ function closeTrailerModal() {
 
 // Category Pill Bar
 function selectCategoryPill(btn, cat) {
+  if (!document.getElementById('movie-grid')) {
+    // We are on landing page: navigate to /movies with the filter selected
+    if (cat === 'all') {
+      window.location.href = '/movies';
+    } else if (cat === 'budget') {
+      window.location.href = '/movies?category=budget';
+    } else {
+      window.location.href = `/movies?format=${encodeURIComponent(cat)}`;
+    }
+    return;
+  }
   document.querySelectorAll('.cat-item').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   activeCategory = cat;
+  currentPage = 1;
   loadMovies();
 }
 
@@ -803,4 +844,95 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+
+// Parse query parameters when loading /movies directly from landing links
+function parseUrlParameters() {
+  const urlParams = new URLSearchParams(window.location.search);
+  
+  const tab = urlParams.get('tab');
+  if (tab === 'upcoming') {
+    switchMainTab('upcoming');
+    return;
+  }
+
+  const format = urlParams.get('format');
+  if (format) {
+    const cb = document.querySelector(`input[name="format_filter"][value="${format}"]`);
+    if (cb) cb.checked = true;
+    activeCategory = format;
+    document.querySelectorAll('.cat-item').forEach(b => {
+      if (b.innerText.toLowerCase().includes(format.toLowerCase())) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+  }
+
+  const category = urlParams.get('category');
+  if (category === 'budget') {
+    activeCategory = 'budget';
+    const priceRadio = document.querySelector('input[name="price_filter"][value="150"]') || document.querySelector('input[name="price_filter"][value="250"]');
+    if (priceRadio) priceRadio.checked = true;
+    const budgetBtn = document.querySelector('.cat-item[onclick*="budget"]');
+    if (budgetBtn) {
+      document.querySelectorAll('.cat-item').forEach(b => b.classList.remove('active'));
+      budgetBtn.classList.add('active');
+    }
+  }
+
+  const lang = urlParams.get('language');
+  if (lang) {
+    const langRadio = document.querySelector(`input[name="lang_filter"][value="${lang}"]`);
+    if (langRadio) langRadio.checked = true;
+  }
+
+  const search = urlParams.get('search');
+  if (search) {
+    const searchInput = document.getElementById('nav-search-input');
+    if (searchInput) searchInput.value = search;
+  }
+}
+
+function renderPagination(total, totalPages) {
+  const pag = document.getElementById('pagination-controls');
+  if (!pag) return;
+  if (total <= MOVIES_PER_PAGE) {
+    pag.style.display = 'none';
+    return;
+  }
+
+  pag.style.display = 'flex';
+  let html = '';
+
+  html += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="goToPage(${currentPage - 1})">&larr; Prev</button>`;
+
+  for (let p = 1; p <= totalPages; p++) {
+    html += `<button class="page-btn ${p === currentPage ? 'active' : ''}" onclick="goToPage(${p})">${p}</button>`;
+  }
+
+  html += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="goToPage(${currentPage + 1})">Next &rarr;</button>`;
+
+  if (showAllMovies) {
+    html += `<button class="page-btn" onclick="toggleShowAll(false)">Show Pages</button>`;
+  } else {
+    html += `<button class="page-btn" onclick="toggleShowAll(true)">View All (${total})</button>`;
+  }
+
+  pag.innerHTML = html;
+}
+
+function goToPage(page) {
+  currentPage = page;
+  showAllMovies = false;
+  renderMovieGrid(currentMovies);
+  const topAnchor = document.getElementById('results-count-text');
+  if (topAnchor) topAnchor.scrollIntoView({ behavior: 'smooth' });
+}
+
+function toggleShowAll(flag) {
+  showAllMovies = flag;
+  renderMovieGrid(currentMovies);
 }

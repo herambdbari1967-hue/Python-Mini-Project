@@ -33,6 +33,10 @@ app.jinja_env.auto_reload = True
 def index():
     return render_template('index.html', cities=CITIES)
 
+@app.route('/movies')
+def movies_page():
+    return render_template('movies.html', cities=CITIES)
+
 @app.route('/api/movies', methods=['GET'])
 def api_movies():
     city = request.args.get('city', 'Mumbai')

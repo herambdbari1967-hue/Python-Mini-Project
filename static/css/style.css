@@ -1980,3 +1980,189 @@ button, input, select {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* --------------------------------------------------------------------------
+   Landing Page Explore CTA Card (Two26 Studio System)
+   -------------------------------------------------------------------------- */
+.landing-explore-cta {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 32px 48px;
+}
+
+.landing-cta-card {
+  background-color: var(--brand-white);
+  border: 1.5px solid var(--brand-black);
+  border-radius: var(--radius-card);
+  padding: 32px 40px;
+  box-shadow: 4px 4px 0px var(--brand-black);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+.landing-cta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--brand-black);
+  color: var(--brand-accent);
+  font-family: var(--font-secondary);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+}
+
+.landing-cta-heading {
+  font-family: var(--font-primary-dark);
+  font-size: clamp(1.4rem, 2vw, 2.1rem);
+  color: var(--brand-black);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+
+.landing-cta-subtext {
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  color: var(--color-olive-muted);
+  max-width: 680px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.landing-cta-stats {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.cta-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-stat-item .stat-number {
+  font-family: var(--font-primary-dark);
+  font-size: 1.6rem;
+  color: var(--brand-primary);
+  line-height: 1;
+}
+
+.cta-stat-item .stat-label {
+  font-family: var(--font-secondary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--brand-black);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.landing-cta-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.landing-cta-main-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  padding: 16px 32px;
+  border: 2px solid var(--brand-black);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-primary-dark);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 4px 4px 0px var(--brand-black);
+  transition: var(--transition-bounce);
+  white-space: nowrap;
+}
+
+.landing-cta-main-btn:hover {
+  background-color: var(--brand-black);
+  color: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--brand-primary);
+}
+
+.landing-cta-hint {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  color: var(--color-olive-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Pagination Controls (Two26 Capsule Pill Controls)
+   -------------------------------------------------------------------------- */
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 36px 0 20px;
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--brand-black);
+  background-color: var(--brand-white);
+  color: var(--brand-black);
+  font-family: var(--font-secondary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px var(--brand-black);
+  transition: var(--transition);
+}
+
+.page-btn:hover:not(:disabled) {
+  background-color: var(--brand-secondary);
+  transform: translateY(-2px);
+}
+
+.page-btn.active {
+  background-color: var(--brand-black);
+  color: var(--brand-white);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .landing-cta-card {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+  }
+  .landing-cta-action {
+    align-items: stretch;
+  }
+  .landing-cta-main-btn {
+    justify-content: center;
+  }
+}
