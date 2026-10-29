@@ -58,9 +58,9 @@
   position: relative;
   z-index: 2;
   color: var(--depth-text-face-color, #141414);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
-  transform: translateZ(1.2px);
-  filter: drop-shadow(0px 1px 1px rgba(255, 255, 255, 0.2));
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  transform: translateZ(1.5px);
+  -webkit-text-stroke: 0.8px rgba(255, 255, 255, 0.3);
 }
 
 /* Alignment wrapper helpers for CinePlus Hero */
