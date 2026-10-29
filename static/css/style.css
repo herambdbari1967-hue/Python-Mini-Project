@@ -64,6 +64,8 @@
   --brand-primary: #ff5400;
   --brand-primary-hover: #e04a00;
   --brand-primary-rgb: 255, 84, 0;
+  --brand-orange: #ff5400;
+  --brand-orange-hover: #e04a00;
   --brand-black: #000000;
   --brand-white: #fdf8f5;
   --brand-secondary: #f8eee8;
@@ -2384,7 +2386,7 @@ button, input, select {
 }
 
 .matrix-select:focus {
-  border-color: var(--brand-orange);
+  border-color: var(--brand-primary);
 }
 
 .matrix-btn-export {
@@ -2402,11 +2404,11 @@ button, input, select {
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: all 0.15s ease;
-  box-shadow: 2px 2px 0px var(--brand-orange);
+  box-shadow: 2px 2px 0px var(--brand-primary);
 }
 
 .matrix-btn-export:hover {
-  background-color: var(--brand-orange);
+  background-color: var(--brand-primary);
   color: #fff;
   transform: translateY(-1px);
 }
@@ -2419,7 +2421,7 @@ button, input, select {
   border-radius: 16px;
   padding: 22px 26px;
   margin-bottom: 24px;
-  box-shadow: 4px 4px 0px var(--brand-orange);
+  box-shadow: 4px 4px 0px var(--brand-primary);
   position: relative;
   overflow: hidden;
 }
@@ -2428,7 +2430,7 @@ button, input, select {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--brand-orange);
+  background-color: var(--brand-primary);
   color: #fff;
   font-family: var(--font-secondary);
   font-size: 0.74rem;
@@ -2496,7 +2498,7 @@ button, input, select {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--brand-orange);
+  background-color: var(--brand-primary);
   color: #fff;
   text-decoration: none;
   font-family: var(--font-secondary);
@@ -2643,7 +2645,7 @@ button, input, select {
 }
 
 .fare-val.avg-fare {
-  color: var(--brand-orange);
+  color: var(--brand-primary);
 }
 
 .window-cheapest-box {
@@ -2684,19 +2686,30 @@ button, input, select {
   display: block;
   text-align: center;
   background-color: var(--brand-black);
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-family: var(--font-secondary);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  padding: 7px 12px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--brand-black);
+  box-shadow: 2px 2px 0px var(--brand-black);
   transition: all 0.15s ease;
+  cursor: pointer;
 }
 
 .btn-book-slot:hover {
-  background-color: var(--brand-orange);
-  color: #fff;
+  background-color: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-black);
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0px var(--brand-black);
+}
+
+.btn-book-slot:active {
+  transform: translateY(0);
+  box-shadow: 1px 1px 0px var(--brand-black);
 }
 
 /* Chain Comparison */
@@ -2760,7 +2773,7 @@ button, input, select {
   width: 36px;
   height: 36px;
   border: 3px solid rgba(0,0,0,0.1);
-  border-top-color: var(--brand-orange);
+  border-top-color: var(--brand-primary);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   margin: 40px auto 16px auto;
@@ -2806,6 +2819,6 @@ button, input, select {
 }
 
 .matrix-close-action:hover {
-  background-color: var(--brand-orange);
+  background-color: var(--brand-primary);
 }
 
