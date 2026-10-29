@@ -28,7 +28,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Pehla Pyaar Doosri Baar streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/pehla-pyaar-doosri-baar/ET00517731"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/pehla-pyaar-doosri-baar/ET00517731",
+    "theatre_count": 43,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/pehla-pyaar-doosri-baar-mumbai/movie-mumbai-ET00517731-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00513250",
@@ -59,7 +64,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Nayyi Navelli streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/nayyi-navelli/ET00513250"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/nayyi-navelli/ET00513250",
+    "theatre_count": 43,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/nayyi-navelli-mumbai/movie-mumbai-ET00513250-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00496545",
@@ -90,7 +100,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Clayface streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/clayface/ET00496545"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/clayface/ET00496545",
+    "theatre_count": 19,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/clayface-mumbai/movie-mumbai-ET00496545-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00520789",
@@ -123,38 +138,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch The Influencer Project streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-influencer-project/ET00520789"
-  },
-  {
-    "id": "ET00509047",
-    "title": "418",
-    "slug": "418",
-    "genre": "Hindi / Horror / Thriller",
-    "certificate": "A",
-    "rating": 8.0,
-    "votes": "13.3K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC8xMCAgMTMuM0srIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00509047-mjftsqypsj-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC8xMCAgMTMuM0srIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00509047-mjftsqypsj-portrait.jpg",
-    "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch 418 streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/418/ET00509047"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-influencer-project/ET00520789",
+    "theatre_count": 31,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/the-influencer-project-mumbai/movie-mumbai-ET00520789-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00498183",
@@ -185,7 +174,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Resident Evil streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/resident-evil/ET00498183"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/resident-evil/ET00498183",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/resident-evil-mumbai/movie-mumbai-ET00498183-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00480914",
@@ -218,7 +212,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Obsession streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/obsession/ET00480914"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/obsession/ET00480914",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/obsession-mumbai/movie-mumbai-ET00480914-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00451914",
@@ -249,7 +248,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Namit Malhotra's Ramayana streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/namit-malhotras-ramayana/ET00451914"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/namit-malhotras-ramayana/ET00451914",
+    "theatre_count": 36,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/namit-malhotras-ramayana-mumbai/movie-mumbai-ET00451914-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00518674",
@@ -280,7 +284,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Jailer 2 streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/jailer-2/ET00518674"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/jailer-2/ET00518674",
+    "theatre_count": 13,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/jailer-2-mumbai/movie-mumbai-ET00518674-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00495822",
@@ -311,7 +320,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Udta Teer streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/udta-teer/ET00495822"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/udta-teer/ET00495822",
+    "theatre_count": 91,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/udta-teer-mumbai/movie-mumbai-ET00495822-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00502504",
@@ -342,7 +356,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Prahaar streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/prahaar/ET00502504"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/prahaar/ET00502504",
+    "theatre_count": 76,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/prahaar-mumbai/movie-mumbai-ET00502504-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00477911",
@@ -373,7 +392,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Drishyam The Conclusion streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/drishyam-the-conclusion/ET00477911"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/drishyam-the-conclusion/ET00477911",
+    "theatre_count": 72,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/drishyam-the-conclusion-mumbai/movie-mumbai-ET00477911-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00429213",
@@ -404,7 +428,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Rajini: The Jailer 2 streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/rajini-the-jailer-2/ET00429213"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/rajini-the-jailer-2/ET00429213",
+    "theatre_count": 50,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/rajini-the-jailer-2-mumbai/movie-mumbai-ET00429213-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00507738",
@@ -435,7 +464,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Hanuman Ansh streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/hanuman-ansh/ET00507738"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/hanuman-ansh/ET00507738",
+    "theatre_count": 15,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/hanuman-ansh-mumbai/movie-mumbai-ET00507738-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00506305",
@@ -466,7 +500,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Mitrata streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/mitrata/ET00506305"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/mitrata/ET00506305",
+    "theatre_count": 11,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/mitrata-mumbai/movie-mumbai-ET00506305-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00507337",
@@ -497,7 +536,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Doraemon: Castle of the Undersea Devil streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/doraemon-castle-of-the-undersea-devil/ET00507337"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/doraemon-castle-of-the-undersea-devil/ET00507337",
+    "theatre_count": 20,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/doraemon-castle-of-the-undersea-devil-mumbai/movie-mumbai-ET00507337-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00517730",
@@ -528,38 +572,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch BTS World Tour Arirang in Sao Paulo: Live Viewing (Delayed) streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/bts-world-tour-arirang-in-sao-paulo-live-viewing-delayed/ET00517730"
-  },
-  {
-    "id": "ET00520164",
-    "title": "Tu Hai Meri Kiran",
-    "slug": "tu-hai-meri-kiran",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
-    "rating": 9.5,
-    "votes": "Popular",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICAxNTArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520164-nuzvnkbmhn-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICAxNTArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520164-nuzvnkbmhn-portrait.jpg",
-    "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Tu Hai Meri Kiran streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/tu-hai-meri-kiran/ET00520164"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/bts-world-tour-arirang-in-sao-paulo-live-viewing-delayed/ET00517730",
+    "theatre_count": 22,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/bts-world-tour-arirang-in-sao-paulo-live-viewing-delayed-mumbai/movie-mumbai-ET00517730-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00497246",
@@ -592,73 +610,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Verity streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/verity/ET00497246"
-  },
-  {
-    "id": "ET00481645",
-    "title": "Street Fighter",
-    "slug": "street-fighter",
-    "genre": "Hindi / Action / Adventure",
-    "certificate": "UA",
-    "rating": 7.3,
-    "votes": "5.5K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny4zLzEwICA1LjVLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00481645-vbnhgsbepa-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny4zLzEwICA1LjVLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00481645-vbnhgsbepa-portrait.jpg",
-    "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Street Fighter streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/street-fighter/ET00481645"
-  },
-  {
-    "id": "ET00514163",
-    "title": "Avengers Endgame: Encore",
-    "slug": "avengers-endgame-encore",
-    "genre": "Hindi / Action / Adventure",
-    "certificate": "UA",
-    "rating": 9.5,
-    "votes": "46.6K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICA0Ni42SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00514163-bgayrwttwp-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICA0Ni42SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00514163-bgayrwttwp-portrait.jpg",
-    "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Avengers Endgame: Encore streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/avengers-endgame-encore/ET00514163"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/verity/ET00497246",
+    "theatre_count": 8,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/verity-mumbai/movie-mumbai-ET00497246-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00517992",
@@ -689,7 +646,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Tum Mere Ho streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/tum-mere-ho/ET00517992"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/tum-mere-ho/ET00517992",
+    "theatre_count": 2,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/tum-mere-ho-mumbai/movie-mumbai-ET00517992-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00520681",
@@ -720,7 +682,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Kapuskoonda streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/kapuskoonda/ET00520681"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/kapuskoonda/ET00520681",
+    "theatre_count": 9,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/kapuskoonda-mumbai/movie-mumbai-ET00520681-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00519811",
@@ -751,7 +718,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Pyre streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/pyre/ET00519811"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/pyre/ET00519811",
+    "theatre_count": 7,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/pyre-mumbai/movie-mumbai-ET00519811-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00520976",
@@ -782,38 +754,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Hope streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/hope/ET00520976"
-  },
-  {
-    "id": "ET00518466",
-    "title": "Dhood",
-    "slug": "dhood",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
-    "rating": 9.8,
-    "votes": "Popular",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS44LzEwICAxMDArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00518466-tgmhfcvwal-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS44LzEwICAxMDArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00518466-tgmhfcvwal-portrait.jpg",
-    "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Dhood streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/dhood/ET00518466"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/hope/ET00520976",
+    "theatre_count": 2,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/hope-mumbai/movie-mumbai-ET00520976-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00512213",
@@ -846,7 +792,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Wicker streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/wicker/ET00512213"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/wicker/ET00512213",
+    "theatre_count": 15,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/wicker-mumbai/movie-mumbai-ET00512213-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00507314",
@@ -879,7 +830,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Sense and Sensibility streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/sense-and-sensibility/ET00507314"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/sense-and-sensibility/ET00507314",
+    "theatre_count": 18,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/sense-and-sensibility-mumbai/movie-mumbai-ET00507314-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00403215",
@@ -910,7 +866,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Nakhrewaalii streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/nakhrewaalii/ET00403215"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/nakhrewaalii/ET00403215",
+    "theatre_count": 24,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/nakhrewaalii-mumbai/movie-mumbai-ET00403215-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00114750",
@@ -941,7 +902,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Doosra streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/doosra/ET00114750"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/doosra/ET00114750",
+    "theatre_count": 10,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/doosra-mumbai/movie-mumbai-ET00114750-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00444235",
@@ -972,7 +938,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch The Vvaan - Force of the Forrest streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-vvaan-force-of-the-forrest/ET00444235"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-vvaan-force-of-the-forrest/ET00444235",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/the-vvaan-force-of-the-forrest-mumbai/movie-mumbai-ET00444235-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00520774",
@@ -1003,38 +974,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Little Thomas streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/little-thomas/ET00520774"
-  },
-  {
-    "id": "ET00010687",
-    "title": "Raaz 3",
-    "slug": "raaz-3",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "A",
-    "rating": 7.2,
-    "votes": "Popular",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny4yLzEwICAyNDArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00010687-nznqwlqflx-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny4yLzEwICAyNDArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00010687-nznqwlqflx-portrait.jpg",
-    "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Raaz 3 streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/raaz-3/ET00010687"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/little-thomas/ET00520774",
+    "theatre_count": 5,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/little-thomas-mumbai/movie-mumbai-ET00520774-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00000652",
@@ -1065,7 +1010,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Dilwale Dulhania Le Jayenge streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/dilwale-dulhania-le-jayenge/ET00000652"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/dilwale-dulhania-le-jayenge/ET00000652",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/dilwale-dulhania-le-jayenge-mumbai/movie-mumbai-ET00000652-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00506465",
@@ -1096,38 +1046,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch VIBE streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/vibe/ET00506465"
-  },
-  {
-    "id": "ET00478378",
-    "title": "Jan Neta",
-    "slug": "jan-neta",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "A",
-    "rating": 8.7,
-    "votes": "11.8K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICAxMS44SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00478378-ltaagygkmw-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICAxMS44SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00478378-ltaagygkmw-portrait.jpg",
-    "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Jan Neta streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/jan-neta/ET00478378"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/vibe/ET00506465",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/vibe-mumbai/movie-mumbai-ET00506465-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00522527",
@@ -1158,38 +1082,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Love Story Abhimanyu Ki streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/love-story-abhimanyu-ki/ET00522527"
-  },
-  {
-    "id": "ET00099475",
-    "title": "Sabse Bada Mawali",
-    "slug": "sabse-bada-mawali",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
-    "rating": 8.0,
-    "votes": "Popular",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC8xMCAgMTEgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00099475-nldwgdjqrl-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC8xMCAgMTEgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00099475-nldwgdjqrl-portrait.jpg",
-    "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Sabse Bada Mawali streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/sabse-bada-mawali/ET00099475"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/love-story-abhimanyu-ki/ET00522527",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/love-story-abhimanyu-ki-mumbai/movie-mumbai-ET00522527-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00522401",
@@ -1222,7 +1120,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch The Fix streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-fix/ET00522401"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-fix/ET00522401",
+    "theatre_count": 14,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/the-fix-mumbai/movie-mumbai-ET00522401-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00518916",
@@ -1253,7 +1156,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Tom and Jerry: Forbidden Compass streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/tom-and-jerry-forbidden-compass/ET00518916"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/tom-and-jerry-forbidden-compass/ET00518916",
+    "theatre_count": 8,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/tom-and-jerry-forbidden-compass-mumbai/movie-mumbai-ET00518916-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00504928",
@@ -1286,7 +1194,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Heart of the Beast streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/heart-of-the-beast/ET00504928"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/heart-of-the-beast/ET00504928",
+    "theatre_count": 5,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/heart-of-the-beast-mumbai/movie-mumbai-ET00504928-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00447840",
@@ -1319,40 +1232,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Spider-Man: Brand New Day streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/spiderman-brand-new-day/ET00447840"
-  },
-  {
-    "id": "ET00524517",
-    "title": "Queen Budapest",
-    "slug": "queen-budapest",
-    "genre": "Action / Sci-Fi / Drama",
-    "certificate": "UA",
-    "rating": 8.5,
-    "votes": "Likes",
-    "duration": "2h 15m",
-    "languages": [
-      "English",
-      "Hindi"
-    ],
-    "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MzUrIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00524517-zqvfkhhtvm-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MzUrIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00524517-zqvfkhhtvm-portrait.jpg",
-    "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Queen Budapest streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/queen-budapest/ET00524517"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/spiderman-brand-new-day/ET00447840",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/spiderman-brand-new-day-mumbai/movie-mumbai-ET00447840-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00477243",
@@ -1385,7 +1270,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Digger streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/digger/ET00477243"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/digger/ET00477243",
+    "theatre_count": 2,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/digger-mumbai/movie-mumbai-ET00477243-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00506449",
@@ -1418,230 +1308,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch The Social Reckoning streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-social-reckoning/ET00506449"
-  },
-  {
-    "id": "ET00396541",
-    "title": "Mufasa: The Lion King",
-    "slug": "mufasa-the-lion-king",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "U",
-    "rating": 8.4,
-    "votes": "80.2K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICA4MC4ySysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00396541-sddjcpeqhu-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICA4MC4ySysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00396541-sddjcpeqhu-portrait.jpg",
-    "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Mufasa: The Lion King streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/mufasa-the-lion-king/ET00396541"
-  },
-  {
-    "id": "ET00421831",
-    "title": "Lilo & Stitch",
-    "slug": "lilo-stitch",
-    "genre": "Hindi / Animation / Family",
-    "certificate": "U",
-    "rating": 8.9,
-    "votes": "5.7K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC45LzEwICA1LjdLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00421831-sxmhsrmpmn-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC45LzEwICA1LjdLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00421831-sxmhsrmpmn-portrait.jpg",
-    "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Lilo & Stitch streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/lilo-stitch/ET00421831"
-  },
-  {
-    "id": "ET00310790",
-    "title": "Spider-Man: No Way Home",
-    "slug": "spiderman-no-way-home",
-    "genre": "Hindi / Action / Adventure",
-    "certificate": "UA",
-    "rating": 9.1,
-    "votes": "472K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4xLzEwICA0NzJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00310790-hvytwbwpmh-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS4xLzEwICA0NzJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00310790-hvytwbwpmh-portrait.jpg",
-    "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Spider-Man: No Way Home streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/spiderman-no-way-home/ET00310790"
-  },
-  {
-    "id": "ET00506502",
-    "title": "Whalefall",
-    "slug": "whalefall",
-    "genre": "Action / Sci-Fi / Drama",
-    "certificate": "UA",
-    "rating": 8.2,
-    "votes": "1.3K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "English",
-      "Hindi"
-    ],
-    "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC4yLzEwICAxLjNLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506502-qjuahdcpnc-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC4yLzEwICAxLjNLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00506502-qjuahdcpnc-portrait.jpg",
-    "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Whalefall streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/whalefall/ET00506502"
-  },
-  {
-    "id": "ET00024245",
-    "title": "Jurassic World",
-    "slug": "jurassic-world",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
-    "rating": 7.6,
-    "votes": "75.4K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny42LzEwICA3NS40SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00024245-pcptjjmvlr-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny42LzEwICA3NS40SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00024245-pcptjjmvlr-portrait.jpg",
-    "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Jurassic World streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/jurassic-world/ET00024245"
-  },
-  {
-    "id": "ET00020475",
-    "title": "Fast & Furious 7",
-    "slug": "fast-furious-7",
-    "genre": "Hindi / Drama / Thriller",
-    "certificate": "UA",
-    "rating": 7.7,
-    "votes": "21.8K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Hindi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny43LzEwICAyMS44SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00020475-lptydwssng-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny43LzEwICAyMS44SysgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end:l-image,i-discovery-catalog@@icons@@re-release-tag.png,lx-N6,t-false,lfo-top_right,w-180,l-end/et00020475-lptydwssng-portrait.jpg",
-    "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Fast & Furious 7 streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/fast-furious-7/ET00020475"
-  },
-  {
-    "id": "ET00511400",
-    "title": "The Magic Faraway Tree",
-    "slug": "the-magic-faraway-tree",
-    "genre": "Action / Sci-Fi / Drama",
-    "certificate": "UA",
-    "rating": 8.4,
-    "votes": "Popular",
-    "duration": "2h 15m",
-    "languages": [
-      "English",
-      "Hindi"
-    ],
-    "formats": [
-      "2D",
-      "3D",
-      "IMAX 3D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICA4MjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00511400-rxypwggxss-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICA4MjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00511400-rxypwggxss-portrait.jpg",
-    "badge": "Trending",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch The Magic Faraway Tree streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-magic-faraway-tree/ET00511400"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-social-reckoning/ET00506449",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/the-social-reckoning-mumbai/movie-mumbai-ET00506449-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00065343",
@@ -1674,7 +1346,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch A Quiet Place streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/a-quiet-place/ET00065343"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/a-quiet-place/ET00065343",
+    "theatre_count": 5,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/a-quiet-place-mumbai/movie-mumbai-ET00065343-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00001060",
@@ -1707,38 +1384,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Rosemary`s Baby streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/rosemarys-baby/ET00001060"
-  },
-  {
-    "id": "ET00519784",
-    "title": "Dashami",
-    "slug": "dashami",
-    "genre": "Marathi / Drama / Thriller",
-    "certificate": "A",
-    "rating": 9.7,
-    "votes": "1.2K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Marathi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS43LzEwICAxLjJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00519784-raqetlsxrq-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS43LzEwICAxLjJLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00519784-raqetlsxrq-portrait.jpg",
-    "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Dashami streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/dashami/ET00519784"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/rosemarys-baby/ET00001060",
+    "theatre_count": 7,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/rosemarys-baby-mumbai/movie-mumbai-ET00001060-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00505232",
@@ -1769,7 +1420,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Jayanti 2 streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/jayanti-2/ET00505232"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/jayanti-2/ET00505232",
+    "theatre_count": 2,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/jayanti-2-mumbai/movie-mumbai-ET00505232-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00516078",
@@ -1800,38 +1456,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Mrutyuchakra streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/mrutyuchakra/ET00516078"
-  },
-  {
-    "id": "ET00520678",
-    "title": "Lagna Aani Barach Kahi",
-    "slug": "lagna-aani-barach-kahi",
-    "genre": "Marathi / Drama / Thriller",
-    "certificate": "UA",
-    "rating": 9.5,
-    "votes": "Popular",
-    "duration": "2h 15m",
-    "languages": [
-      "Marathi",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICAyNjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520678-skqzbvjwrm-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OS41LzEwICAyNjArIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00520678-skqzbvjwrm-portrait.jpg",
-    "badge": "Blockbuster",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Lagna Aani Barach Kahi streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/lagna-aani-barach-kahi/ET00520678"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/mrutyuchakra/ET00516078",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/mrutyuchakra-mumbai/movie-mumbai-ET00516078-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00374968",
@@ -1862,7 +1492,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Ole Aale streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/ole-aale/ET00374968"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/ole-aale/ET00374968",
+    "theatre_count": 18,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/ole-aale-mumbai/movie-mumbai-ET00374968-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00523956",
@@ -1893,7 +1528,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Rajarshi streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/rajarshi/ET00523956"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/rajarshi/ET00523956",
+    "theatre_count": 2,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/rajarshi-mumbai/movie-mumbai-ET00523956-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00506275",
@@ -1924,7 +1564,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Damru streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/damru/ET00506275"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/damru/ET00506275",
+    "theatre_count": 2,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/damru-mumbai/movie-mumbai-ET00506275-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00093811",
@@ -1955,7 +1600,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Chaal Jeevi Laiye streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/chaal-jeevi-laiye/ET00093811"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/chaal-jeevi-laiye/ET00093811",
+    "theatre_count": 2,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/chaal-jeevi-laiye-mumbai/movie-mumbai-ET00093811-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00475942",
@@ -1986,38 +1636,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Aadarsha Kutumbam House No: 47 (AK 47) streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/aadarsha-kutumbam-house-no-47-ak-47/ET00475942"
-  },
-  {
-    "id": "ET00519195",
-    "title": "Titans",
-    "slug": "titans",
-    "genre": "Malayalam / Drama / Thriller",
-    "certificate": "UA",
-    "rating": 7.8,
-    "votes": "2.9K+ Votes",
-    "duration": "2h 15m",
-    "languages": [
-      "Malayalam",
-      "English"
-    ],
-    "formats": [
-      "2D",
-      "Dolby Atmos"
-    ],
-    "trailer_id": "auto",
-    "cast": [
-      "Leading Cast",
-      "Ensemble"
-    ],
-    "director": "Acclaimed Director",
-    "poster": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny44LzEwICAyLjlLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00519195-xhnubyewzb-portrait.jpg",
-    "backdrop": "https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC,e-usm-2-2-0.5-0.008:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-Ny44LzEwICAyLjlLKyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00519195-xhnubyewzb-portrait.jpg",
-    "badge": "Screening",
-    "discount_tag": "Deals from \u20b9160 in Mumbai",
-    "description": "Catch Titans streaming on big screens across Mumbai multiplexes with real-time seat availability.",
-    "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/titans/ET00519195"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/aadarsha-kutumbam-house-no-47-ak-47/ET00475942",
+    "theatre_count": 24,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/aadarsha-kutumbam-house-no-47-ak-47-mumbai/movie-mumbai-ET00475942-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00412717",
@@ -2048,7 +1672,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Premada Oorali streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/premada-oorali/ET00412717"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/premada-oorali/ET00412717",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/premada-oorali-mumbai/movie-mumbai-ET00412717-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00487673",
@@ -2079,7 +1708,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch Bohurupi: The Golden Daku streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/bohurupi-the-golden-daku/ET00487673"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/bohurupi-the-golden-daku/ET00487673",
+    "theatre_count": 2,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/bohurupi-the-golden-daku-mumbai/movie-mumbai-ET00487673-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00511431",
@@ -2110,7 +1744,12 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch The Eken: Kerala-e-Kurukshetra streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-eken-keralaekurukshetra/ET00511431"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/the-eken-keralaekurukshetra/ET00511431",
+    "theatre_count": 1,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/the-eken-keralaekurukshetra-mumbai/movie-mumbai-ET00511431-MT/20261030"
+    },
+    "bms_verified": true
   },
   {
     "id": "ET00524296",
@@ -2141,6 +1780,11 @@
     "discount_tag": "Deals from \u20b9160 in Mumbai",
     "description": "Catch 5 Centimetres Per Second streaming on big screens across Mumbai multiplexes with real-time seat availability.",
     "city": "Mumbai",
-    "cta_url": "https://in.bookmyshow.com/movies/mumbai/5-centimetres-per-second/ET00524296"
+    "cta_url": "https://in.bookmyshow.com/movies/mumbai/5-centimetres-per-second/ET00524296",
+    "theatre_count": 9,
+    "direct_booking_links": {
+      "BookMyShow": "https://in.bookmyshow.com/buytickets/5-centimetres-per-second-mumbai/movie-mumbai-ET00524296-MT/20261030"
+    },
+    "bms_verified": true
   }
 ]
