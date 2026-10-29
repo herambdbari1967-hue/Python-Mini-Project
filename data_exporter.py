@@ -28,15 +28,18 @@ def export_shows_to_csv(city="Mumbai", search_query=None):
                     "Movie Title": m["title"],
                     "City": city,
                     "Genre": m["genre"],
+                    "Duration": m.get("duration", "N/A"),
                     "Rating": m["rating"],
                     "Theatre": t["theatre_name"],
                     "Chain": t["chain"],
+                    "Location": t.get("location", city),
                     "Show Time": s["time"],
                     "Format": s["format"],
                     "Silver Price (Rs)": s["silver"],
                     "Gold Price (Rs)": s["gold"],
                     "Recliner Price (Rs)": s["recliner"],
                     "Seats Available": s["seats_left"],
+                    "Availability Status": s.get("availability", "Available"),
                     "Booking URL": s["booking_url"]
                 })
                 
@@ -66,15 +69,19 @@ def export_comparison_to_csv(movie_id, city="Mumbai"):
         rows.append({
             "Movie": comparison["movie_title"],
             "City": city,
+            "Duration": comparison.get("duration", "N/A"),
+            "Certificate": comparison.get("certificate", "UA"),
             "Theatre": r["theatre"],
             "Chain": r["chain"],
+            "Location": r.get("location", city),
             "Rating": r["theatre_rating"],
             "Show Time": r["time"],
             "Format": r["format"],
             "Silver (Rs)": r["silver_price"],
             "Gold (Rs)": r["gold_price"],
             "Recliner (Rs)": r["recliner_price"],
-            "Seats Left": r["seats_left"]
+            "Seats Left": r["seats_left"],
+            "Availability Status": r.get("availability", "Available")
         })
         
     if not rows:

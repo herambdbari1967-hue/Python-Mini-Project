@@ -31,11 +31,11 @@ app.jinja_env.auto_reload = True
 
 @app.route('/')
 def index():
-    return render_template('index.html', cities=CITIES)
+    return render_template('index.html', cities=CITIES, movie_count=len(NOW_SHOWING_MOVIES))
 
 @app.route('/movies')
 def movies_page():
-    return render_template('movies.html', cities=CITIES)
+    return render_template('movies.html', cities=CITIES, movie_count=len(NOW_SHOWING_MOVIES))
 
 @app.route('/api/movies', methods=['GET'])
 def api_movies():

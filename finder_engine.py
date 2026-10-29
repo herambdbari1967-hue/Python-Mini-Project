@@ -1181,32 +1181,37 @@ def get_upcoming_movies(search_query=None):
                             listings = qv.get('data', {}).get('listings', [])
                             for sec in listings:
                                 for c in sec.get('cards', []):
-                                    title = None
-                                    rel_date = "Coming Soon"
+                                    texts = []
                                     for t in c.get('text', []):
                                         for comp in t.get('components', []):
-                                            if comp.get('type') == 'text':
-                                                if not title:
-                                                    title = comp.get('text')
-                                                elif any(m in comp.get('text', '') for m in ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]):
-                                                    rel_date = comp.get('text')
-                                    cta_url = c.get('ctaUrl', '')
-                                    img = c.get('image', {}).get('url', '')
-                                    if title and img:
-                                        extracted.append({
-                                            "id": f"up-{len(extracted)}",
-                                            "title": title,
-                                            "release_date": rel_date,
-                                            "certificate": "UA",
-                                            "genre": "Upcoming Action / Thriller",
-                                            "hype_score": "95% Anticipation",
-                                            "badge": "Upcoming Tentpole",
-                                            "poster": img,
-                                            "synopsis": f"One of the year's most awaited cinematic experiences, releasing in theatres on {rel_date}.",
-                                            "cast": ["All-Star Cast"],
-                                            "director": "Blockbuster Director",
-                                            "trailer_id": "auto"
-                                        })
+                                            if comp.get('type') == 'text' and comp.get('text'):
+                                                texts.append(comp.get('text').strip())
+                                    
+                                    if texts:
+                                        title = texts[0]
+                                        genre = texts[1].replace('/', ' / ') if len(texts) > 1 and '/' in texts[1] else "Action / Drama"
+                                        hype = next((t for t in texts if 'Like' in t or 'Hype' in t or '%' in t), "High Anticipation")
+                                        rel_date = next((t for t in texts if any(m in t for m in ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])), "Coming Soon")
+                                        cta_url = c.get('ctaUrl', '')
+                                        img = c.get('image', {}).get('url', '')
+                                        code_match = re.search(r'ET\d+', cta_url)
+                                        event_code = code_match.group(0) if code_match else f"up-{len(extracted)}"
+                                        
+                                        if title and img:
+                                            extracted.append({
+                                                "id": event_code,
+                                                "title": title,
+                                                "release_date": rel_date,
+                                                "certificate": "UA",
+                                                "genre": genre,
+                                                "hype_score": hype,
+                                                "badge": "Upcoming Anticipation",
+                                                "poster": img,
+                                                "synopsis": f"Catch {title} streaming exclusively in cinemas soon.",
+                                                "cast": ["Official Ensemble"],
+                                                "director": "Acclaimed Director",
+                                                "trailer_id": "auto"
+                                            })
             raw_upcoming = extracted if extracted else UPCOMING_MOVIES
             _upcoming_cache = (now, raw_upcoming)
         except Exception as e:

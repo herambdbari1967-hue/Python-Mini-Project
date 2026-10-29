@@ -300,17 +300,17 @@
       <div class="landing-cta-info">
         <div class="landing-cta-tag">
           <span class="live-pulse"></span>
-          <span>LIVE RADAR // 50 VERIFIED MOVIES SCREENING NOW</span>
+          <span>LIVE RADAR // {{ movie_count }} VERIFIED MOVIES SCREENING NOW</span>
         </div>
         <h2 class="landing-cta-heading">
           Explore All Real-Time Screenings & Compare Fares
         </h2>
         <p class="landing-cta-subtext">
-          Browse all 50 verified live movies screening across Mumbai multiplexes (PVR INOX, Cinépolis, MovieMax, Maratha Mandir) with live tiered pricing, seat counts, and direct booking links on the next page.
+          Browse all {{ movie_count }} verified live movies screening across Mumbai multiplexes (PVR INOX, Cinépolis, MovieMax, Maratha Mandir) with live tiered pricing, seat counts, and direct booking links on the next page.
         </p>
         <div class="landing-cta-stats">
           <div class="cta-stat-item">
-            <span class="stat-number">50</span>
+            <span class="stat-number">{{ movie_count }}</span>
             <span class="stat-label">Movies Showing</span>
           </div>
           <div class="cta-stat-item">
@@ -329,7 +329,7 @@
       </div>
       <div class="landing-cta-action">
         <a href="/movies" class="landing-cta-main-btn">
-          <span>View All 50 Live Movies &rarr;</span>
+          <span>View All {{ movie_count }} Live Movies &rarr;</span>
         </a>
         <span class="landing-cta-hint">Click any category pill above or the button to open full movies catalog</span>
       </div>
