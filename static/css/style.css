@@ -225,7 +225,7 @@ button, input, select {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 24px;
-  height: 68px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -483,7 +483,7 @@ button, input, select {
   background-color: var(--brand-hero-bg);
   background-image: var(--brand-hero-gradient);
   border-bottom: 1.5px solid var(--brand-black);
-  padding: 32px 32px 18px;
+  padding: clamp(10px, 1.6vh, 18px) 24px clamp(8px, 1.2vh, 12px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -497,11 +497,11 @@ button, input, select {
   max-width: 1440px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(130px, 1fr) auto minmax(130px, 1fr);
+  grid-template-columns: minmax(120px, 1fr) auto minmax(120px, 1fr);
   align-items: center;
   justify-content: center;
-  gap: clamp(16px, 2.5vw, 44px);
-  padding: 8px 12px 18px;
+  gap: clamp(12px, 2vw, 32px);
+  padding: 2px 12px clamp(4px, 0.8vh, 8px);
   position: relative;
   z-index: 5;
 }
@@ -551,8 +551,9 @@ button, input, select {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(520px, 58vw, 900px);
+  width: clamp(380px, 44vw, 640px);
   max-width: 100%;
+  max-height: min(340px, 40vh);
   aspect-ratio: 16 / 9;
   position: relative;
   flex-shrink: 0;
@@ -571,6 +572,7 @@ button, input, select {
 .hero-split-video {
   width: 100%;
   height: 100%;
+  max-height: 100%;
   object-fit: contain;
   display: block;
 }
@@ -609,7 +611,7 @@ button, input, select {
   width: 100%;
   background-color: var(--brand-primary);
   color: #ffffff;
-  padding: 14px 0;
+  padding: clamp(7px, 1vh, 11px) 0;
   border-top: 1.5px solid var(--brand-black);
   border-bottom: 1.5px solid var(--brand-black);
   overflow: hidden;
@@ -626,10 +628,10 @@ button, input, select {
 .two26-marquee-content {
   display: flex;
   align-items: center;
-  gap: 36px;
-  padding-right: 36px;
+  gap: 28px;
+  padding-right: 28px;
   font-family: var(--font-primary-dark);
-  font-size: 1.45rem;
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -649,13 +651,13 @@ button, input, select {
 .hero-bottom-bar {
   width: 100%;
   max-width: 1440px;
-  margin-top: 12px;
+  margin-top: clamp(4px, 0.8vh, 10px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   z-index: 7;
-  padding-top: 16px;
+  padding-top: clamp(6px, 0.9vh, 12px);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -668,8 +670,8 @@ button, input, select {
 }
 
 .hero-scroll-btn {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-pill);
   background-color: var(--brand-white);
   border: 1.5px solid var(--brand-black);
@@ -703,9 +705,9 @@ button, input, select {
 .category-icon-bar {
   background-color: var(--brand-white);
   border-bottom: 1.5px solid var(--brand-black);
-  padding: 16px 32px;
+  padding: 14px 32px;
   position: sticky;
-  top: 68px;
+  top: 60px;
   z-index: 900;
 }
 
