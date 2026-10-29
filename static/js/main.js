@@ -15,7 +15,35 @@ let currentPage = 1;
 const MOVIES_PER_PAGE = 16;
 let showAllMovies = false;
 
+// Synchronize landing hero viewport height so Announcement Bar + Navbar + Hero + Orange Marquee = 100vh
+function syncHeroViewportHeight() {
+  const annBar = document.querySelector('.announcement-bar');
+  const navBar = document.querySelector('.navbar');
+  if (annBar || navBar) {
+    const annHeight = annBar ? annBar.offsetHeight : 0;
+    const navHeight = navBar ? navBar.offsetHeight : 0;
+    const totalTop = annHeight + navHeight;
+    if (totalTop > 0) {
+      document.documentElement.style.setProperty('--landing-top-offset', totalTop + 'px');
+    }
+  }
+}
+
+function scrollToShows(e) {
+  if (e) e.preventDefault();
+  const target = document.getElementById('category-bar');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    window.location.href = '/movies';
+  }
+}
+
+window.addEventListener('resize', syncHeroViewportHeight);
+window.addEventListener('load', syncHeroViewportHeight);
+
 document.addEventListener('DOMContentLoaded', () => {
+  syncHeroViewportHeight();
   // Ensure Hero background video autoplays smoothly
   const heroVid = document.getElementById('hero-bg-video');
   if (heroVid) {

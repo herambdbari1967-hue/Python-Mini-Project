@@ -71,6 +71,7 @@
   --brand-purple: #000000;
   --brand-hero-bg: #f7e5e0;
   --brand-hero-gradient: linear-gradient(180deg, #f7e5e0 73%, #f8eee8);
+  --landing-top-offset: 94px;
 
   /* Typography Families */
   --font-primary: 'Mdnichrometest', Impact, -apple-system, sans-serif;
@@ -475,20 +476,36 @@ button, input, select {
 }
 
 /* --------------------------------------------------------------------------
-   6. HERO SECTION (Split Left & Right of 3D Video)
+   6. HERO SECTION (Viewport Locked 100vh Initial Fold)
    -------------------------------------------------------------------------- */
+.landing-hero-viewport {
+  width: 100%;
+  height: calc(100vh - var(--landing-top-offset, 94px));
+  height: calc(100dvh - var(--landing-top-offset, 94px));
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .editorial-hero-showcase {
   position: relative;
   width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
   background-color: var(--brand-hero-bg);
   background-image: var(--brand-hero-gradient);
   border-bottom: 1.5px solid var(--brand-black);
-  padding: clamp(10px, 1.6vh, 18px) 24px clamp(8px, 1.2vh, 12px);
+  padding: clamp(8px, 1.2vh, 16px) 24px clamp(6px, 0.9vh, 10px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* 3-Column Split Container: Small Left Text + Big Center Video + Small Right Text */
@@ -496,12 +513,14 @@ button, input, select {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  flex: 1 1 auto;
+  min-height: 0;
   display: grid;
   grid-template-columns: minmax(120px, 1fr) auto minmax(120px, 1fr);
   align-items: center;
   justify-content: center;
   gap: clamp(12px, 2vw, 32px);
-  padding: 2px 12px clamp(4px, 0.8vh, 8px);
+  padding: 2px 12px;
   position: relative;
   z-index: 5;
 }
@@ -546,17 +565,18 @@ button, input, select {
   text-align: right;
 }
 
-/* Center Column: 3D Video Frame (Bigger like before!) */
+/* Center Column: 3D Video Frame (Scales fluidly to viewport height) */
 .hero-split-center {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(380px, 44vw, 640px);
-  max-width: 100%;
-  max-height: min(340px, 40vh);
+  height: 100%;
+  max-height: min(320px, 36vh);
   aspect-ratio: 16 / 9;
+  width: auto;
+  max-width: 100%;
   position: relative;
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 .hero-video-frame {
@@ -609,14 +629,16 @@ button, input, select {
 /* Two26 Flowing Marquee Ribbon Below Hero */
 .two26-marquee-strip {
   width: 100%;
+  flex: 0 0 auto;
   background-color: var(--brand-primary);
   color: #ffffff;
-  padding: clamp(7px, 1vh, 11px) 0;
-  border-top: 1.5px solid var(--brand-black);
+  padding: clamp(6px, 0.8vh, 9px) 0;
+  border-top: none;
   border-bottom: 1.5px solid var(--brand-black);
   overflow: hidden;
   position: relative;
   z-index: 6;
+  box-sizing: border-box;
 }
 
 .two26-marquee-track {
@@ -631,7 +653,7 @@ button, input, select {
   gap: 28px;
   padding-right: 28px;
   font-family: var(--font-primary-dark);
-  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  font-size: clamp(1.02rem, 1.3vw, 1.22rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -651,13 +673,14 @@ button, input, select {
 .hero-bottom-bar {
   width: 100%;
   max-width: 1440px;
-  margin-top: clamp(4px, 0.8vh, 10px);
+  flex: 0 0 auto;
+  margin-top: clamp(2px, 0.5vh, 6px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   z-index: 7;
-  padding-top: clamp(6px, 0.9vh, 12px);
+  padding-top: clamp(4px, 0.6vh, 8px);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -670,8 +693,8 @@ button, input, select {
 }
 
 .hero-scroll-btn {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-pill);
   background-color: var(--brand-white);
   border: 1.5px solid var(--brand-black);
@@ -1901,6 +1924,11 @@ button, input, select {
 }
 
 @media (max-width: 768px) {
+  .landing-hero-viewport {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
   .nav-container {
     padding: 0 16px;
     height: 60px;
