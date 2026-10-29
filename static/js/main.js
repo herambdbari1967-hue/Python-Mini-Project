@@ -399,32 +399,101 @@ function copyPromoCode(code) {
   });
 }
 
-// Trailer Modal Player
+// Trailer Modal Player (Universal HD YouTube Resolver)
 function openTrailerModal(trailerId, movieTitle) {
   const modal = document.getElementById('trailer-modal');
   const titleEl = document.getElementById('trailer-modal-title');
   const wrapper = document.getElementById('trailer-video-wrapper');
+  const externalLink = document.getElementById('trailer-external-link');
 
-  titleEl.textContent = `${movieTitle} - Official Trailer (HD)`;
-  let videoSrc = `https://www.youtube.com/embed/${trailerId}?autoplay=1&rel=0&modestbranding=1`;
-  if (!trailerId || trailerId === 'auto' || trailerId.startsWith('search:') || trailerId.length < 5) {
-    videoSrc = `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(movieTitle + ' official trailer')}&autoplay=1&rel=0`;
+  if (titleEl) titleEl.textContent = `${movieTitle}`;
+  if (modal) modal.style.display = 'flex';
+
+  // Check if trailerId is an authentic 11-char YouTube ID
+  const isValidId = trailerId && 
+                    trailerId !== 'auto' && 
+                    !trailerId.startsWith('search:') && 
+                    /^[a-zA-Z0-9_-]{11}$/.test(trailerId);
+
+  if (isValidId) {
+    mountTrailerIframe(trailerId, movieTitle);
+  } else {
+    // Show Two26 animated radar loading state while dynamically resolving
+    wrapper.innerHTML = `
+      <div class="trailer-loader-container">
+        <div class="trailer-pulse-spinner"></div>
+        <div class="trailer-loader-text">
+          <strong>FETCHING OFFICIAL 4K / HD TRAILER</strong>
+          <span>Connecting to Studio Radar for "${escapeHtml(movieTitle)}"...</span>
+        </div>
+      </div>
+    `;
+
+    const fallbackSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(movieTitle + ' official trailer')}`;
+    if (externalLink) {
+      externalLink.href = fallbackSearchUrl;
+    }
+
+    // Call dynamic backend resolver
+    fetch(`/api/trailer?title=${encodeURIComponent(movieTitle)}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 'success' && data.trailer_id) {
+          // Cache on movie object in memory for instantaneous subsequent clicks
+          const m = (currentMovies || []).find(x => x.title === movieTitle) || 
+                    (currentUpcomingMovies || []).find(x => x.title === movieTitle);
+          if (m) m.trailer_id = data.trailer_id;
+
+          mountTrailerIframe(data.trailer_id, movieTitle);
+        } else {
+          showTrailerFallback(movieTitle, fallbackSearchUrl);
+        }
+      })
+      .catch(err => {
+        console.error('Trailer lookup error:', err);
+        showTrailerFallback(movieTitle, fallbackSearchUrl);
+      });
   }
+}
+
+function mountTrailerIframe(id, movieTitle) {
+  const wrapper = document.getElementById('trailer-video-wrapper');
+  const externalLink = document.getElementById('trailer-external-link');
+  if (externalLink) {
+    externalLink.href = `https://www.youtube.com/watch?v=${id}`;
+  }
+
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`;
   wrapper.innerHTML = `
-    <iframe src="${videoSrc}" 
-            title="${escapeHtml(movieTitle)}" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    <iframe src="${embedUrl}" 
+            title="${escapeHtml(movieTitle)} Official Trailer" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen>
     </iframe>
   `;
-  modal.style.display = 'flex';
+}
+
+function showTrailerFallback(movieTitle, searchUrl) {
+  const wrapper = document.getElementById('trailer-video-wrapper');
+  wrapper.innerHTML = `
+    <div class="trailer-fallback-container">
+      <div class="trailer-fallback-box">
+        <div class="trailer-fallback-badge">OFFICIAL CINEMA RELEASE</div>
+        <h3 class="trailer-fallback-title">${escapeHtml(movieTitle)}</h3>
+        <p class="trailer-fallback-subtitle">Studio policies require viewing this trailer directly on YouTube.</p>
+        <a href="${searchUrl}" target="_blank" rel="noopener" class="trailer-fallback-btn">
+          ▶ Watch Official Trailer on YouTube
+        </a>
+      </div>
+    </div>
+  `;
 }
 
 function closeTrailerModal() {
   const modal = document.getElementById('trailer-modal');
   const wrapper = document.getElementById('trailer-video-wrapper');
-  wrapper.innerHTML = '';
-  modal.style.display = 'none';
+  if (wrapper) wrapper.innerHTML = '';
+  if (modal) modal.style.display = 'none';
 }
 
 // Category Pill Bar

@@ -12,7 +12,8 @@ import threading
 from flask import Flask, render_template, request, jsonify, Response
 from finder_engine import (
     CITIES, THEATRES, NOW_SHOWING_MOVIES, UPCOMING_MOVIES, PROMO_CODES,
-    get_movie_shows, get_upcoming_movies, get_price_comparison, get_booking_details
+    get_movie_shows, get_upcoming_movies, get_price_comparison, get_booking_details,
+    resolve_youtube_trailer_id
 )
 from price_tracker import alert_manager
 from data_exporter import export_shows_to_csv, export_comparison_to_csv
@@ -93,6 +94,25 @@ def api_booking_details():
         return jsonify({"status": "error", "message": "Movie not found"}), 404
         
     return jsonify({"status": "success", "data": data})
+
+
+@app.route('/api/trailer', methods=['GET'])
+def api_trailer():
+    title = request.args.get('title', '').strip()
+    if not title:
+        return jsonify({"status": "error", "message": "title is required"}), 400
+        
+    trailer_id = resolve_youtube_trailer_id(title)
+    embed_url = f"https://www.youtube-nocookie.com/embed/{trailer_id}?autoplay=1&rel=0&modestbranding=1"
+    watch_url = f"https://www.youtube.com/watch?v={trailer_id}"
+    
+    return jsonify({
+        "status": "success",
+        "title": title,
+        "trailer_id": trailer_id,
+        "embed_url": embed_url,
+        "watch_url": watch_url
+    })
 
 @app.route('/api/promos', methods=['GET'])
 def api_promos():

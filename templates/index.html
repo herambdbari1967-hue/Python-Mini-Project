@@ -8,7 +8,7 @@
   <link rel="preload" href="/static/fonts/MDNichromeTest-Dark.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="/static/fonts/NeueMontreal-Medium.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="/static/fonts/NeueMontreal-Regular.otf" as="font" type="font/otf" crossorigin>
-  <link rel="stylesheet" href="/static/css/style.css?v=5">
+  <link rel="stylesheet" href="/static/css/style.css?v=6">
 </head>
 <body>
 
@@ -453,15 +453,28 @@
     </div>
   </div>
 
-  <!-- Official HD Trailer Video Modal Player -->
+  <!-- Official HD Trailer Video Modal Player (Two26 Studio System) -->
   <div id="trailer-modal" class="modal-overlay" style="display: none;">
-    <div class="modal-card" style="max-width: 860px; padding: 0; overflow: hidden; background: #000;">
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; background: var(--color-deep-olive); color: var(--color-soft-white);">
-        <span id="trailer-modal-title" style="font-weight: 700; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;">Official Trailer</span>
-        <button onclick="closeTrailerModal()" style="background: none; border: none; color: #fff; font-size: 24px; cursor: pointer;">×</button>
+    <div class="modal-card trailer-modal-card">
+      <div class="trailer-modal-header">
+        <div class="trailer-title-row">
+          <span class="trailer-pill-badge">OFFICIAL HD TRAILER</span>
+          <span id="trailer-modal-title" class="trailer-modal-title">Official Trailer</span>
+        </div>
+        <div class="trailer-header-actions">
+          <a id="trailer-external-link" href="#" target="_blank" rel="noopener" class="trailer-external-btn" title="Open directly in YouTube">
+            <span>Watch on YouTube</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+          <button class="trailer-close-btn" onclick="closeTrailerModal()" title="Close Player">×</button>
+        </div>
       </div>
-      <div id="trailer-video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0;">
-        <!-- YouTube iframe injected via JS -->
+      <div id="trailer-video-wrapper" class="trailer-video-wrapper">
+        <!-- YouTube iframe or loading spinner injected via JS -->
       </div>
     </div>
   </div>
