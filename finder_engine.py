@@ -805,7 +805,8 @@ def _fetch_bms_real_showtimes(movie_slug, city_slug, event_code):
                                                     match = re.search(r'[\d\.]+', raw_cost)
                                                     if match:
                                                         cost = int(float(match.group(0)))
-                                                        prices.append(cost)
+                                                        if cost >= 30:  # Ignore 0rs promotional or glitch seat tiers
+                                                            prices.append(cost)
 
                                             if prices:
                                                 prices.sort()
@@ -997,7 +998,7 @@ def get_movie_shows(city="Mumbai", search_query=None, selected_formats=None, max
                 if max_price and s["silver"] > max_price:
                     continue
 
-                if s["silver"] < min_price:
+                if s["silver"] > 0 and s["silver"] < min_price:
                     min_price = s["silver"]
 
                 matching_shows.append(s)
@@ -1013,7 +1014,7 @@ def get_movie_shows(city="Mumbai", search_query=None, selected_formats=None, max
                 })
 
         if filtered_theatres:
-            calculated_min = min_price if min_price != float('inf') else 180
+            calculated_min = min_price if (min_price != float('inf') and min_price > 0) else 110
             item = {
                 "id": mov["id"],
                 "title": mov["title"],
