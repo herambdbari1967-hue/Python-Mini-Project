@@ -70,6 +70,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('movie-grid')) {
     parseUrlParameters();
     loadMovies();
+
+    // Auto-refresh showtimes every 5 minutes if tab is active
+    setInterval(() => {
+      if (currentActiveTab === 'now_showing' && !document.hidden) {
+        loadMovies();
+      }
+    }, 300000);
+
+    // Auto-refresh when user switches back to this tab
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && currentActiveTab === 'now_showing') {
+        loadMovies();
+      }
+    });
   }
   
   loadAlerts();
