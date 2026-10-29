@@ -77,10 +77,13 @@ def api_upcoming():
 def api_comparison():
     movie_id = request.args.get('movie_id')
     city = request.args.get('city', 'Mumbai')
+    user_lat = request.args.get('user_lat', type=float)
+    user_lng = request.args.get('user_lng', type=float)
+    sort_by = request.args.get('sort', 'cheapest')
     if not movie_id:
         return jsonify({"status": "error", "message": "movie_id is required"}), 400
         
-    data = get_price_comparison(movie_id, city=city)
+    data = get_price_comparison(movie_id, city=city, user_lat=user_lat, user_lng=user_lng, sort_by=sort_by)
     if not data:
         return jsonify({"status": "error", "message": "Movie not found"}), 404
         

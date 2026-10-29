@@ -683,40 +683,265 @@ function resetAllFilters() {
   loadMovies();
 }
 
+// Price Comparison & Proximity Finder State
+let currentComparisonData = null;
+let currentCompareSort = 'cheapest';
+let currentCompareRadius = 'all';
+let currentCompareUserCoords = { lat: null, lng: null, name: '' };
+
+function calculateHaversineDistanceKm(lat1, lon1, lat2, lon2) {
+  try {
+    const R = 6371.0;
+    const dLat = (lat2 - lat1) * Math.PI / 180.0;
+    const dLon = (lon2 - lon1) * Math.PI / 180.0;
+    const a = Math.sin(dLat / 2.0) * Math.sin(dLat / 2.0) +
+              Math.cos(lat1 * Math.PI / 180.0) * Math.cos(lat2 * Math.PI / 180.0) *
+              Math.sin(dLon / 2.0) * Math.sin(dLon / 2.0);
+    const c = 2.0 * Math.atan2(Math.sqrt(a), Math.sqrt(1.0 - a));
+    return Math.round(R * c * 10) / 10;
+  } catch (e) {
+    return 5.0;
+  }
+}
+
 // Price Comparison Modal
 async function openCompareModal(movieId) {
   currentMovieForCompare = movieId;
   const modal = document.getElementById('compare-modal');
   const modalBody = document.getElementById('compare-modal-body');
-  modalBody.innerHTML = '<div style="text-align: center; padding: 40px;">Calculating price comparison matrix across multiplexes...</div>';
+  modalBody.innerHTML = '<div style="text-align: center; padding: 40px; font-family: var(--font-secondary); font-weight: 700;">Calculating price comparison & distance matrix across multiplexes...</div>';
   modal.style.display = 'flex';
 
   try {
-    const res = await fetch(`/api/comparison?movie_id=${movieId}&city=${encodeURIComponent(currentCity)}`);
+    let url = `/api/comparison?movie_id=${movieId}&city=${encodeURIComponent(currentCity)}&sort=${currentCompareSort || 'cheapest'}`;
+    if (currentCompareUserCoords.lat && currentCompareUserCoords.lng) {
+      url += `&user_lat=${currentCompareUserCoords.lat}&user_lng=${currentCompareUserCoords.lng}`;
+    }
+    const res = await fetch(url);
     const data = await res.json();
     if (data.status === 'success') {
       renderComparisonModal(data.comparison);
     }
   } catch (err) {
-    modalBody.innerHTML = '<p style="color: red;">Error loading comparison matrix.</p>';
+    modalBody.innerHTML = '<p style="color: red; text-align: center; padding: 20px;">Error loading comparison matrix.</p>';
   }
 }
 
 function renderComparisonModal(comp) {
+  currentComparisonData = comp;
+  if (!currentCompareUserCoords.lat || !currentCompareUserCoords.lng) {
+    currentCompareUserCoords = {
+      lat: comp.user_location.lat,
+      lng: comp.user_location.lng,
+      name: comp.user_location.name
+    };
+  }
+  if (!currentCompareSort) {
+    currentCompareSort = comp.sort_by || 'cheapest';
+  }
+
   document.getElementById('compare-movie-title').textContent = `${comp.movie_title} - Price Comparison`;
   document.getElementById('compare-movie-city').textContent = `Aggregating ${comp.total_shows} showtimes across ${currentCity}`;
 
-  const cheapest = comp.cheapest_option;
+  const hubs = comp.city_hubs || [];
+  const hubOptionsHtml = hubs.map(h => {
+    const isSel = Math.abs(h.lat - currentCompareUserCoords.lat) < 0.02 && Math.abs(h.lng - currentCompareUserCoords.lng) < 0.02;
+    return `<option value="${h.lat}|${h.lng}|${h.name}" ${isSel ? 'selected' : ''}>📍 ${h.name}</option>`;
+  }).join('');
+
   const modalBody = document.getElementById('compare-modal-body');
 
-  let rowsHtml = comp.comparison_table.map((row, idx) => {
-    const isCheapest = idx === 0;
+  modalBody.innerHTML = `
+    <!-- Location & Proximity Filter Toolbar -->
+    <div class="compare-filter-toolbar">
+      <div class="compare-toolbar-row">
+        <div class="compare-loc-group">
+          <span class="compare-loc-label">Your Location:</span>
+          <select id="compare-hub-select" class="compare-hub-select" onchange="onCompareHubSelected(this.value)">
+            ${hubOptionsHtml}
+          </select>
+          <button class="compare-gps-btn" id="compare-gps-btn" onclick="detectUserGpsForCompare()" title="Detect my current location">
+            <span>🎯</span> Use My GPS
+          </button>
+        </div>
+        <div class="compare-loc-status">
+          <span>📍</span> Distances calculated from <strong id="compare-active-loc-name">${escapeHtml(currentCompareUserCoords.name)}</strong>
+        </div>
+      </div>
+
+      <div class="compare-toolbar-row compare-filter-row">
+        <div class="compare-sort-group">
+          <span class="compare-filter-label">Sort By:</span>
+          <div class="compare-pill-tabs">
+            <button class="compare-pill-btn ${currentCompareSort === 'cheapest' ? 'active' : ''}" id="tab-sort-cheapest" onclick="setCompareSort('cheapest')">
+              🏷️ Lowest Price
+            </button>
+            <button class="compare-pill-btn ${currentCompareSort === 'best_value' ? 'active' : ''}" id="tab-sort-best_value" onclick="setCompareSort('best_value')">
+              ⭐ Best Value (Low Rate + Near)
+            </button>
+            <button class="compare-pill-btn ${currentCompareSort === 'nearest' ? 'active' : ''}" id="tab-sort-nearest" onclick="setCompareSort('nearest')">
+              📍 Nearest First
+            </button>
+          </div>
+        </div>
+
+        <div class="compare-dist-group">
+          <span class="compare-filter-label">Max Distance:</span>
+          <div class="compare-pill-tabs">
+            <button class="compare-pill-btn dist-pill ${currentCompareRadius === 'all' ? 'active' : ''}" onclick="setCompareRadius('all')">All</button>
+            <button class="compare-pill-btn dist-pill ${currentCompareRadius === '5' ? 'active' : ''}" onclick="setCompareRadius('5')">&lt; 5 km</button>
+            <button class="compare-pill-btn dist-pill ${currentCompareRadius === '10' ? 'active' : ''}" onclick="setCompareRadius('10')">&lt; 10 km</button>
+            <button class="compare-pill-btn dist-pill ${currentCompareRadius === '20' ? 'active' : ''}" onclick="setCompareRadius('20')">&lt; 20 km</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic Deal Banner -->
+    <div id="compare-dynamic-banner"></div>
+
+    <!-- Comparison Table -->
+    <div class="comparison-table-wrapper">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Theatre & Location</th>
+            <th>Distance</th>
+            <th>Showtime</th>
+            <th>Format</th>
+            <th>Silver Tier</th>
+            <th>Gold Tier</th>
+            <th>VIP Recliner</th>
+            <th>Seats Left</th>
+            <th>1-Click Booking</th>
+          </tr>
+        </thead>
+        <tbody id="compare-table-tbody">
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  renderComparisonTableBody();
+}
+
+function renderComparisonTableBody() {
+  if (!currentComparisonData || !currentComparisonData.comparison_table) return;
+
+  const tbody = document.getElementById('compare-table-tbody');
+  const banner = document.getElementById('compare-dynamic-banner');
+  if (!tbody || !banner) return;
+
+  let rows = [...currentComparisonData.comparison_table];
+  if (currentCompareRadius !== 'all') {
+    const maxR = parseFloat(currentCompareRadius);
+    rows = rows.filter(r => r.distance_km <= maxR);
+  }
+
+  if (currentCompareSort === 'nearest') {
+    rows.sort((a, b) => a.distance_km - b.distance_km || a.silver_price - b.silver_price);
+  } else if (currentCompareSort === 'best_value') {
+    rows.sort((a, b) => a.smart_score - b.smart_score || a.silver_price - b.silver_price);
+  } else {
+    rows.sort((a, b) => a.silver_price - b.silver_price || a.distance_km - b.distance_km);
+  }
+
+  if (rows.length === 0) {
+    banner.innerHTML = `
+      <div class="compare-banner cheapest-banner">
+        <div>
+          <strong>No showtimes found within ${currentCompareRadius} km of ${escapeHtml(currentCompareUserCoords.name)}.</strong>
+          <span class="banner-subtext">Try expanding the distance filter to &lt; 10 km, &lt; 20 km or All.</span>
+        </div>
+        <button class="action-btn primary" style="font-size: 12px; padding: 6px 12px;" onclick="setCompareRadius('all')">
+          Show All Distances
+        </button>
+      </div>
+    `;
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="9" style="text-align: center; padding: 32px; font-family: var(--font-secondary); color: var(--color-olive-muted);">
+          No theatres within ${currentCompareRadius} km radius. Switch your location hub or select "All" above to view all ${currentComparisonData.total_shows} available showtimes.
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  const minPrice = Math.min(...rows.map(r => r.silver_price));
+  const minDist = Math.min(...rows.map(r => r.distance_km));
+  const minScore = Math.min(...rows.map(r => r.smart_score));
+
+  const topRow = rows[0];
+
+  if (currentCompareSort === 'best_value') {
+    banner.innerHTML = `
+      <div class="compare-banner best-value-banner">
+        <div>
+          <strong>⭐ Best Value Deal:</strong> ${escapeHtml(topRow.theatre)} (${topRow.format}) at <strong>₹${topRow.silver_price}</strong>
+          <span class="banner-subtext">• 📍 ${topRow.distance_km} km away (Optimal balance of low ticket price & shortest commute)</span>
+        </div>
+        <button class="action-btn primary" style="font-size: 12px; padding: 6px 12px;" onclick="openBookingPortalModal('${currentMovieForCompare}', '${escapeHtml(topRow.theatre)}', '${topRow.time}', '${topRow.format}', '${topRow.booking_url || ''}')">
+          Book Best Value Show &rarr;
+        </button>
+      </div>
+    `;
+  } else if (currentCompareSort === 'nearest') {
+    banner.innerHTML = `
+      <div class="compare-banner nearest-banner">
+        <div>
+          <strong>📍 Nearest Multiplex:</strong> ${escapeHtml(topRow.theatre)} (${topRow.format}) at <strong>₹${topRow.silver_price}</strong>
+          <span class="banner-subtext">• Only ${topRow.distance_km} km from you</span>
+        </div>
+        <button class="action-btn primary" style="font-size: 12px; padding: 6px 12px;" onclick="openBookingPortalModal('${currentMovieForCompare}', '${escapeHtml(topRow.theatre)}', '${topRow.time}', '${topRow.format}', '${topRow.booking_url || ''}')">
+          Book Nearest Show &rarr;
+        </button>
+      </div>
+    `;
+  } else {
+    banner.innerHTML = `
+      <div class="compare-banner cheapest-banner">
+        <div>
+          <strong>🏷️ Lowest Price Found:</strong> ${escapeHtml(topRow.theatre)} (${topRow.format}) at <strong>₹${topRow.silver_price}</strong>
+          <span class="banner-subtext">• 📍 ${topRow.distance_km} km away</span>
+        </div>
+        <button class="action-btn primary" style="font-size: 12px; padding: 6px 12px;" onclick="openBookingPortalModal('${currentMovieForCompare}', '${escapeHtml(topRow.theatre)}', '${topRow.time}', '${topRow.format}', '${topRow.booking_url || ''}')">
+          Book Lowest Price Show &rarr;
+        </button>
+      </div>
+    `;
+  }
+
+  tbody.innerHTML = rows.map((row, idx) => {
+    const isTop = idx === 0;
+    const isCheapest = row.silver_price === minPrice;
+    const isNearest = row.distance_km === minDist;
+    const isBestValue = row.smart_score === minScore;
+
+    let badgeHtml = '';
+    if (isBestValue && (currentCompareSort === 'best_value' || isTop)) {
+      badgeHtml += '<span class="badge-best-value">⭐ Best Value</span>';
+    } else if (isCheapest) {
+      badgeHtml += '<span class="badge-cheapest">Lowest Price</span>';
+    }
+    if (isNearest && !badgeHtml.includes('Best Value')) {
+      badgeHtml += '<span class="badge-nearest">📍 Nearest</span>';
+    }
+
+    const distPillClass = row.distance_km <= 5 ? 'close' : (row.distance_km <= 15 ? 'mid' : 'far');
+
     return `
-      <tr class="${isCheapest ? 'cheapest-row' : ''}">
+      <tr class="${isTop ? 'cheapest-row' : ''}">
         <td>
           <strong>${escapeHtml(row.theatre)}</strong>
-          ${isCheapest ? '<span class="badge-cheapest">Lowest Price</span>' : ''}
-          <div style="font-size: 11px; color: var(--color-olive-muted);">${row.chain} • Rating: ${row.theatre_rating} • ${row.location}</div>
+          ${badgeHtml}
+          <div style="font-size: 11px; color: var(--color-olive-muted); margin-top: 2px;">
+            ${row.chain} • Rating: ${row.theatre_rating} • <span class="theatre-dist-badge">📍 ${row.location}</span>
+          </div>
+        </td>
+        <td class="compare-dist-cell">
+          <strong>${row.distance_km} km</strong>
+          <span class="compare-dist-pill ${distPillClass}">${row.distance_km <= 5 ? 'Nearby' : (row.distance_km <= 15 ? 'Moderate' : 'Far')}</span>
         </td>
         <td><strong>${row.time}</strong></td>
         <td><span style="font-weight: 600;">${row.format}</span></td>
@@ -724,7 +949,7 @@ function renderComparisonModal(comp) {
         <td>₹${row.gold_price}</td>
         <td>₹${row.recliner_price}</td>
         <td>
-          <span class="seats-badge ${row.seats_left <= 0 ? 'sold-out' : (row.seats_left < 10 ? 'almost-full' : (row.seats_left < 30 ? 'filling-fast' : 'available'))}" style="background-color: var(--brand-primary); color: #ffffff; display: inline-flex; align-items: center; justify-content: center; padding: 4px 10px; border-radius: 9999px; font-weight: 700; font-size: 11px; white-space: nowrap; border: 1px solid #000; box-shadow: 1.5px 1.5px 0 #000;">
+          <span class="seats-badge ${row.seats_left <= 0 ? 'sold-out' : (row.seats_left < 10 ? 'almost-full' : (row.seats_left < 30 ? 'filling-fast' : 'available'))}">
             ${row.seats_left > 0 ? `${row.seats_left} seats • ${row.availability || (row.seats_left < 10 ? 'Almost Full' : (row.seats_left < 30 ? 'Filling Fast' : 'Available'))}` : 'Sold Out'}
           </span>
         </td>
@@ -736,37 +961,92 @@ function renderComparisonModal(comp) {
       </tr>
     `;
   }).join('');
+}
 
-  modalBody.innerHTML = `
-    <div style="background-color: var(--color-sage-light); padding: 14px 18px; border-radius: var(--radius-sm); border: 1px solid var(--color-sage-border); display: flex; align-items: center; justify-content: space-between;">
-      <div>
-        <strong>Best Deal Found:</strong> ${escapeHtml(cheapest.theatre)} (${cheapest.format}) at <strong>₹${cheapest.silver_price}</strong>
-      </div>
-      <button class="action-btn primary" style="font-size: 12px; padding: 6px 12px;" onclick="openBookingPortalModal('${currentMovieForCompare}', '${escapeHtml(cheapest.theatre)}', '${cheapest.time}', '${cheapest.format}', '${cheapest.booking_url || ''}')">
-        Book Lowest Price
-      </button>
-    </div>
+function setCompareSort(sortKey) {
+  currentCompareSort = sortKey;
+  document.querySelectorAll('.compare-sort-group .compare-pill-btn').forEach(b => b.classList.remove('active'));
+  const activeBtn = document.getElementById(`tab-sort-${sortKey}`);
+  if (activeBtn) activeBtn.classList.add('active');
+  renderComparisonTableBody();
+}
 
-    <div class="comparison-table-wrapper">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Theatre & Location</th>
-            <th>Showtime</th>
-            <th>Format</th>
-            <th>Silver Tier</th>
-            <th>Gold Tier</th>
-            <th>VIP Recliner</th>
-            <th>Seats Left</th>
-            <th>1-Click Booking</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${rowsHtml}
-        </tbody>
-      </table>
-    </div>
-  `;
+function setCompareRadius(rad) {
+  currentCompareRadius = rad;
+  document.querySelectorAll('.compare-dist-group .compare-pill-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.trim().includes(rad) || (rad === 'all' && b.textContent.trim() === 'All'));
+  });
+  renderComparisonTableBody();
+}
+
+function onCompareHubSelected(val) {
+  if (val.startsWith('gps:')) {
+    const parts = val.replace('gps:', '').split(',');
+    recalculateCompareDistances(parseFloat(parts[0]), parseFloat(parts[1]), 'Live GPS Location');
+    return;
+  }
+  const parts = val.split('|');
+  const lat = parseFloat(parts[0]);
+  const lng = parseFloat(parts[1]);
+  const name = parts[2];
+  recalculateCompareDistances(lat, lng, name);
+}
+
+function recalculateCompareDistances(userLat, userLng, locName) {
+  if (!currentComparisonData || !currentComparisonData.comparison_table) return;
+  currentCompareUserCoords = { lat: userLat, lng: userLng, name: locName };
+  
+  const statusEl = document.getElementById('compare-active-loc-name');
+  if (statusEl) statusEl.textContent = locName;
+
+  currentComparisonData.comparison_table.forEach(r => {
+    r.distance_km = calculateHaversineDistanceKm(userLat, userLng, r.theatre_lat, r.theatre_lng);
+    r.smart_score = Math.round((r.silver_price + (r.distance_km * 3.5)) * 10) / 10;
+  });
+
+  renderComparisonTableBody();
+}
+
+function detectUserGpsForCompare() {
+  const btn = document.getElementById('compare-gps-btn');
+  if (!navigator.geolocation) {
+    alert("Geolocation is not supported by your browser.");
+    return;
+  }
+  btn.classList.add('loading');
+  btn.innerHTML = '<span>⏳</span> Locating...';
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      btn.classList.remove('loading');
+      btn.classList.add('gps-active');
+      btn.innerHTML = '<span>✅</span> GPS Active';
+      const userLat = pos.coords.latitude;
+      const userLng = pos.coords.longitude;
+      const locLabel = `My Location (${userLat.toFixed(2)}°, ${userLng.toFixed(2)}°)`;
+
+      const sel = document.getElementById('compare-hub-select');
+      if (sel) {
+        let gpsOpt = document.getElementById('hub-opt-gps');
+        if (!gpsOpt) {
+          gpsOpt = document.createElement('option');
+          gpsOpt.id = 'hub-opt-gps';
+          sel.prepend(gpsOpt);
+        }
+        gpsOpt.value = `gps:${userLat},${userLng}`;
+        gpsOpt.textContent = `🎯 ${locLabel}`;
+        sel.value = gpsOpt.value;
+      }
+
+      recalculateCompareDistances(userLat, userLng, locLabel);
+    },
+    (err) => {
+      btn.classList.remove('loading');
+      btn.innerHTML = '<span>🎯</span> Use My GPS';
+      alert("Unable to fetch location: " + (err.message || "Permission denied"));
+    },
+    { timeout: 10000, enableHighAccuracy: true }
+  );
 }
 
 function closeCompareModal() {

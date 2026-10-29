@@ -17,6 +17,7 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 import requests
 from bs4 import BeautifulSoup
+import math
 
 # Supported Major Indian Metros
 CITIES = [
@@ -736,12 +737,271 @@ def _fetch_bms_city_movies(city="Mumbai"):
 
 MUMBAI_LOCALITIES = [
     "Lower Parel", "BKC", "Bandra Kurla Complex", "Bandra", "Andheri East", "Andheri West", 
-    "Andheri", "Juhu", "Goregaon East", "Goregaon West", "Goregaon", "Malad West", "Malad East", 
-    "Malad", "Kandivali", "Borivali East", "Borivali West", "Borivali", "Dadar", "Kurla", 
-    "Ghatkopar", "Mulund", "Thane", "Vashi", "Nerul", "Kharghar", "Panvel", "Kalyan", 
-    "Dombivli", "Mira Road", "Bhayander", "Worli", "Colaba", "Santacruz", "Chembur", 
-    "Sion", "Koparkhairane", "Nalasopara", "Vasai", "Virar", "Seawoods", "Powai", "Bhandup"
+    "Andheri", "Juhu", "Vile Parle", "Santacruz", "Goregaon East", "Goregaon West", "Goregaon", 
+    "Malad West", "Malad East", "Malad", "Kandivali", "Borivali East", "Borivali West", "Borivali", 
+    "Dahisar", "Mira Road", "Bhayander", "Bhayandar", "Vasai", "Virar", "Nalasopara", "Dadar", "Wadala", "Kurla", 
+    "Ghatkopar", "Powai", "Kanjurmarg", "Bhandup", "Mulund", "Thane", "Vashi", "Nerul", "Seawoods", 
+    "Belapur", "Kharghar", "Panvel", "Kalyan", "Dombivli", "Ambernath", "Badlapur", "Ulhasnagar", 
+    "Bhiwandi", "Worli", "Colaba", "Chembur", "Sion", "Koparkhairane", "Airoli", "Ghansoli",
+    "Mahim", "Parel", "Lalbaug", "Mumbai Central", "Churchgate", "Marine Lines"
 ]
+
+CITY_CENTERS = {
+    "Mumbai": (19.0760, 72.8777),
+    "Delhi NCR": (28.6139, 77.2090),
+    "Bengaluru": (12.9716, 77.5946),
+    "Hyderabad": (17.3850, 78.4867),
+    "Pune": (18.5204, 73.8567),
+    "Chennai": (13.0827, 80.2707),
+    "Kolkata": (22.5726, 88.3639),
+    "Ahmedabad": (23.0225, 72.5714)
+}
+
+CITY_HUBS = {
+    "Mumbai": [
+        {"name": "Andheri (West / East)", "lat": 19.1136, "lng": 72.8697, "is_default": True},
+        {"name": "Bandra / BKC", "lat": 19.0657, "lng": 72.8687},
+        {"name": "South Mumbai (Lower Parel)", "lat": 18.9953, "lng": 72.8276},
+        {"name": "Powai / Bhandup", "lat": 19.1197, "lng": 72.9050},
+        {"name": "Malad / Goregaon", "lat": 19.1874, "lng": 72.8484},
+        {"name": "Borivali / Kandivali", "lat": 19.2307, "lng": 72.8567},
+        {"name": "Thane (Viviana / Korum)", "lat": 19.2183, "lng": 72.9781},
+        {"name": "Navi Mumbai (Vashi / Nerul)", "lat": 19.0771, "lng": 72.9986},
+        {"name": "Kalyan / Dombivli", "lat": 19.2403, "lng": 73.1305},
+        {"name": "Mira Road / Bhayander", "lat": 19.2812, "lng": 72.8561}
+    ],
+    "Delhi NCR": [
+        {"name": "Connaught Place (Central)", "lat": 28.6315, "lng": 77.2167, "is_default": True},
+        {"name": "Saket / South Delhi", "lat": 28.5244, "lng": 77.2066},
+        {"name": "Noida (Sector 18/32)", "lat": 28.5355, "lng": 77.3910},
+        {"name": "Gurgaon (Cyber City / MG Road)", "lat": 28.4595, "lng": 77.0266},
+        {"name": "Dwarka / West Delhi", "lat": 28.5921, "lng": 77.0460},
+        {"name": "Rohini / North Delhi", "lat": 28.7166, "lng": 77.1189}
+    ],
+    "Bengaluru": [
+        {"name": "Koramangala", "lat": 12.9352, "lng": 77.6245, "is_default": True},
+        {"name": "Indiranagar", "lat": 12.9784, "lng": 77.6408},
+        {"name": "Whitefield", "lat": 12.9698, "lng": 77.7500},
+        {"name": "MG Road / CBD", "lat": 12.9756, "lng": 77.6066},
+        {"name": "HSR Layout / Bellandur", "lat": 12.9121, "lng": 77.6446},
+        {"name": "Malleshwaram / Rajajinagar", "lat": 13.0031, "lng": 77.5643}
+    ],
+    "Hyderabad": [
+        {"name": "Hitec City / Madhapur", "lat": 17.4435, "lng": 78.3772, "is_default": True},
+        {"name": "Banjara Hills / Jubilee Hills", "lat": 17.4156, "lng": 78.4357},
+        {"name": "Gachibowli", "lat": 17.4401, "lng": 78.3489},
+        {"name": "Secunderabad", "lat": 17.4399, "lng": 78.4983},
+        {"name": "Kukatpally", "lat": 17.4947, "lng": 78.3996}
+    ],
+    "Pune": [
+        {"name": "Shivajinagar / FC Road", "lat": 18.5314, "lng": 73.8446, "is_default": True},
+        {"name": "Kothrud", "lat": 18.5074, "lng": 73.8077},
+        {"name": "Viman Nagar / Kalyani Nagar", "lat": 18.5679, "lng": 73.9143},
+        {"name": "Hinjewadi / Wakad", "lat": 18.5913, "lng": 73.7389},
+        {"name": "Hadapsar / Magarpatta", "lat": 18.5089, "lng": 73.9260}
+    ],
+    "Chennai": [
+        {"name": "T. Nagar / Central", "lat": 13.0418, "lng": 80.2341, "is_default": True},
+        {"name": "Anna Nagar", "lat": 13.0850, "lng": 80.2100},
+        {"name": "Velachery / OMR", "lat": 12.9815, "lng": 80.2180},
+        {"name": "Adyar / Besant Nagar", "lat": 13.0012, "lng": 80.2565},
+        {"name": "Vadapalani", "lat": 13.0500, "lng": 80.2120}
+    ],
+    "Kolkata": [
+        {"name": "Park Street / Camac Street", "lat": 22.5516, "lng": 88.3524, "is_default": True},
+        {"name": "Salt Lake / Sector V", "lat": 22.5867, "lng": 88.4178},
+        {"name": "South City / Jadavpur", "lat": 22.5004, "lng": 88.3626},
+        {"name": "New Town", "lat": 22.5958, "lng": 88.4795},
+        {"name": "Howrah", "lat": 22.5958, "lng": 88.2636}
+    ],
+    "Ahmedabad": [
+        {"name": "SG Highway / Vastrapur", "lat": 23.0350, "lng": 72.5293, "is_default": True},
+        {"name": "Prahlad Nagar / Satellite", "lat": 23.0125, "lng": 72.5097},
+        {"name": "Navrangpura / CG Road", "lat": 23.0365, "lng": 72.5611},
+        {"name": "Maninagar", "lat": 22.9978, "lng": 72.6033}
+    ]
+}
+
+LOCALITY_COORDINATES = {
+    # Mumbai & MMR
+    "Lower Parel": (18.9953, 72.8276),
+    "BKC": (19.0657, 72.8687),
+    "Bandra Kurla Complex": (19.0657, 72.8687),
+    "Bandra": (19.0596, 72.8295),
+    "Andheri West": (19.1363, 72.8277),
+    "Andheri East": (19.1150, 72.8690),
+    "Andheri": (19.1136, 72.8697),
+    "Juhu": (19.0988, 72.8267),
+    "Santacruz": (19.0843, 72.8360),
+    "Vile Parle": (19.0998, 72.8438),
+    "Goregaon": (19.1663, 72.8526),
+    "Goregaon East": (19.1663, 72.8526),
+    "Goregaon West": (19.1663, 72.8526),
+    "Malad": (19.1874, 72.8484),
+    "Malad West": (19.1874, 72.8484),
+    "Malad East": (19.1874, 72.8484),
+    "Kandivali": (19.2047, 72.8522),
+    "Borivali": (19.2307, 72.8567),
+    "Borivali West": (19.2307, 72.8567),
+    "Borivali East": (19.2307, 72.8567),
+    "Dahisar": (19.2570, 72.8590),
+    "Mira Road": (19.2812, 72.8561),
+    "Bhayander": (19.3012, 72.8526),
+    "Bhayandar": (19.3012, 72.8526),
+    "Vasai": (19.3919, 72.8397),
+    "Virar": (19.4700, 72.8000),
+    "Nalasopara": (19.4167, 72.8167),
+    "Dadar": (19.0178, 72.8478),
+    "Wadala": (19.0177, 72.8561),
+    "Sion": (19.0400, 72.8600),
+    "Kurla": (19.0726, 72.8845),
+    "Ghatkopar": (19.0860, 72.9090),
+    "Powai": (19.1197, 72.9050),
+    "Kanjurmarg": (19.1300, 72.9300),
+    "Bhandup": (19.1528, 72.9372),
+    "Mulund": (19.1726, 72.9565),
+    "Thane": (19.2183, 72.9781),
+    "Kalyan": (19.2403, 73.1305),
+    "Dombivli": (19.2184, 73.0867),
+    "Ambernath": (19.2064, 73.1906),
+    "Badlapur": (19.1668, 73.2368),
+    "Ulhasnagar": (19.2167, 73.1500),
+    "Bhiwandi": (19.2967, 73.0631),
+    "Vashi": (19.0771, 72.9986),
+    "Nerul": (19.0330, 73.0197),
+    "Seawoods": (19.0210, 73.0180),
+    "Belapur": (19.0200, 73.0400),
+    "Kharghar": (19.0473, 73.0699),
+    "Panvel": (18.9894, 73.1175),
+    "Koparkhairane": (19.1026, 73.0031),
+    "Ghansoli": (19.1254, 73.0003),
+    "Airoli": (19.1579, 72.9935),
+    "Chembur": (19.0522, 72.8994),
+    "Worli": (19.0166, 72.8168),
+    "Colaba": (18.9067, 72.8147),
+    "Mumbai Central": (18.9712, 72.8197),
+    "Churchgate": (18.9322, 72.8264),
+    "Marine Lines": (18.9438, 72.8236),
+    "Mahim": (19.0354, 72.8400),
+    "Parel": (18.9934, 72.8397),
+    "Lalbaug": (18.9934, 72.8397),
+
+    # Delhi NCR
+    "Connaught Place": (28.6315, 77.2167),
+    "Saket": (28.5244, 77.2066),
+    "Noida": (28.5355, 77.3910),
+    "Gurgaon": (28.4595, 77.0266),
+    "Gurugram": (28.4595, 77.0266),
+    "Dwarka": (28.5921, 77.0460),
+    "Rohini": (28.7166, 77.1189),
+    "Nehru Place": (28.5492, 77.2526),
+    "Vasant Kunj": (28.5282, 77.1554),
+    "Rajouri Garden": (28.6473, 77.1200),
+    "Karol Bagh": (28.6514, 77.1907),
+    "Laxmi Nagar": (28.6300, 77.2773),
+    "Ghaziabad": (28.6692, 77.4538),
+    "Faridabad": (28.4089, 77.3178),
+    "Janakpuri": (28.6219, 77.0878),
+    "Pitampura": (28.6989, 77.1386),
+
+    # Bengaluru
+    "Koramangala": (12.9352, 77.6245),
+    "Indiranagar": (12.9784, 77.6408),
+    "Whitefield": (12.9698, 77.7500),
+    "MG Road": (12.9756, 77.6066),
+    "HSR Layout": (12.9121, 77.6446),
+    "Electronic City": (12.8399, 77.6770),
+    "Malleshwaram": (13.0031, 77.5643),
+    "Rajajinagar": (12.9915, 77.5525),
+    "Jayanagar": (12.9308, 77.5838),
+    "Bellandur": (12.9260, 77.6762),
+    "Bannerghatta": (12.8876, 77.5970),
+    "Yelahanka": (13.1007, 77.5963),
+
+    # Hyderabad
+    "Banjara Hills": (17.4156, 78.4357),
+    "Hitec City": (17.4435, 78.3772),
+    "Gachibowli": (17.4401, 78.3489),
+    "Jubilee Hills": (17.4319, 78.4073),
+    "Kukatpally": (17.4947, 78.3996),
+    "Secunderabad": (17.4399, 78.4983),
+    "Madhapur": (17.4483, 78.3915),
+    "Ameerpet": (17.4375, 78.4482),
+    "Kondapur": (17.4699, 78.3578),
+    "Khairatabad": (17.4123, 78.4608),
+    "Uppal": (17.4057, 78.5591),
+
+    # Pune
+    "Kothrud": (18.5074, 73.8077),
+    "Viman Nagar": (18.5679, 73.9143),
+    "Hinjewadi": (18.5913, 73.7389),
+    "Wakad": (18.5987, 73.7661),
+    "Koregaon Park": (18.5362, 73.8940),
+    "Baner": (18.5590, 73.7868),
+    "Camp": (18.5167, 73.8800),
+    "Shivajinagar": (18.5314, 73.8446),
+    "Hadapsar": (18.5089, 73.9260),
+    "Magarpatta": (18.5135, 73.9242),
+    "Aundh": (18.5580, 73.8075),
+
+    # Chennai
+    "Anna Nagar": (13.0850, 80.2100),
+    "T. Nagar": (13.0418, 80.2341),
+    "Velachery": (12.9815, 80.2180),
+    "OMR": (12.8996, 80.2209),
+    "Adyar": (13.0012, 80.2565),
+    "Nungambakkam": (13.0569, 80.2425),
+    "Vadapalani": (13.0500, 80.2120),
+    "Royapettah": (13.0538, 80.2625),
+
+    # Kolkata
+    "Park Street": (22.5516, 88.3524),
+    "Salt Lake": (22.5867, 88.4178),
+    "New Town": (22.5958, 88.4795),
+    "South City": (22.5004, 88.3626),
+    "Ballygunge": (22.5280, 88.3650),
+    "Howrah": (22.5958, 88.2636),
+    "Behala": (22.4988, 88.3129),
+
+    # Ahmedabad
+    "SG Highway": (23.0500, 72.5200),
+    "Vastrapur": (23.0350, 72.5293),
+    "Satellite": (23.0276, 72.5186),
+    "CG Road": (23.0300, 72.5600),
+    "Bodakdev": (23.0375, 72.5120),
+    "Maninagar": (22.9978, 72.6033),
+    "Prahlad Nagar": (23.0125, 72.5097),
+    "Navrangpura": (23.0365, 72.5611)
+}
+
+def haversine_distance_km(lat1, lon1, lat2, lon2):
+    """Computes exact spherical geodesic distance between two GPS coordinates in kilometers."""
+    try:
+        R = 6371.0 # Earth's radius in kilometers
+        dlat = math.radians(lat2 - lat1)
+        dlon = math.radians(lon2 - lon1)
+        a = math.sin(dlat / 2.0)**2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon / 2.0)**2
+        c = 2.0 * math.atan2(math.sqrt(a), math.sqrt(1.0 - a))
+        return round(R * c, 1)
+    except Exception:
+        return 5.0
+
+def resolve_theatre_coordinates(theatre_name, location, city="Mumbai"):
+    """
+    Deterministically resolves real-world GPS coordinates for any theatre and locality.
+    1. Direct match with locality coordinates
+    2. Substring search in theatre name + location string
+    3. City center coordinates fallback
+    """
+    if location in LOCALITY_COORDINATES:
+        return LOCALITY_COORDINATES[location]
+        
+    combined = f"{theatre_name} {location}".lower()
+    for loc, coords in LOCALITY_COORDINATES.items():
+        if re.search(r'' + re.escape(loc.lower()) + r'', combined):
+            return coords
+            
+    return CITY_CENTERS.get(city, (19.0760, 72.8777))
 
 def _resolve_theatre_location(vname, default_city="Mumbai"):
     v_clean = re.sub(r'\(.*?\)', '', vname)
@@ -1267,10 +1527,11 @@ def get_upcoming_movies(search_query=None):
     return results
 
 
-def get_price_comparison(movie_id, city="Mumbai"):
+def get_price_comparison(movie_id, city="Mumbai", user_lat=None, user_lng=None, sort_by="cheapest"):
     """
     Generates a real-world multi-tier comparison matrix across all theatres, formats,
-    and seat tiers (Silver, Gold, VIP Recliner).
+    and seat tiers (Silver, Gold, VIP Recliner), enriched with exact geolocation distances
+    and smart value scoring.
     """
     shows = get_movie_shows(city=city)
     target = next((m for m in shows if m["id"] == movie_id), None)
@@ -1280,17 +1541,46 @@ def get_price_comparison(movie_id, city="Mumbai"):
     if not target:
         return None
 
+    # Resolve active user coordinates
+    hubs = CITY_HUBS.get(city, CITY_HUBS.get("Mumbai", []))
+    default_hub = next((h for h in hubs if h.get("is_default")), hubs[0] if hubs else None)
+    
+    if user_lat is not None and user_lng is not None:
+        active_lat = float(user_lat)
+        active_lng = float(user_lng)
+        matched_hub = next((h for h in hubs if abs(h["lat"] - active_lat) < 0.02 and abs(h["lng"] - active_lng) < 0.02), None)
+        active_loc_name = matched_hub["name"] if matched_hub else "Custom / GPS Location"
+    elif default_hub:
+        active_lat = default_hub["lat"]
+        active_lng = default_hub["lng"]
+        active_loc_name = default_hub["name"]
+    else:
+        active_lat, active_lng = CITY_CENTERS.get(city, (19.0760, 72.8777))
+        active_loc_name = f"{city} Center"
+
     rows = []
     for t in target["theatre_shows"]:
+        t_loc = t.get("location", city)
+        t_lat, t_lng = resolve_theatre_coordinates(t["theatre_name"], t_loc, city)
+        dist_km = haversine_distance_km(active_lat, active_lng, t_lat, t_lng)
+
         for s in t["shows"]:
+            silver_p = s["silver"]
+            # Smart Value Index: Ticket Price + ₹3.50 per km travel friction factor
+            smart_score = round(silver_p + (dist_km * 3.5), 1)
+
             rows.append({
                 "theatre": t["theatre_name"],
                 "chain": t["chain"],
-                "location": t.get("location", city),
+                "location": t_loc,
+                "theatre_lat": t_lat,
+                "theatre_lng": t_lng,
+                "distance_km": dist_km,
+                "smart_score": smart_score,
                 "theatre_rating": t["rating"],
                 "time": s["time"],
                 "format": s["format"],
-                "silver_price": s["silver"],
+                "silver_price": silver_p,
                 "gold_price": s["gold"],
                 "recliner_price": s["recliner"],
                 "seats_left": s["seats_left"],
@@ -1300,10 +1590,18 @@ def get_price_comparison(movie_id, city="Mumbai"):
                 "platform_links": s["platform_links"]
             })
 
-    # Sort by lowest silver price
-    rows.sort(key=lambda x: x["silver_price"])
+    # Sort options
+    if sort_by == "nearest":
+        rows.sort(key=lambda x: (x["distance_km"], x["silver_price"]))
+    elif sort_by == "best_value":
+        rows.sort(key=lambda x: (x["smart_score"], x["silver_price"]))
+    else:
+        # Default lowest silver price
+        rows.sort(key=lambda x: (x["silver_price"], x["distance_km"]))
 
-    cheapest = rows[0] if rows else None
+    cheapest = sorted(rows, key=lambda x: x["silver_price"])[0] if rows else None
+    nearest = sorted(rows, key=lambda x: (x["distance_km"], x["silver_price"]))[0] if rows else None
+    best_value = sorted(rows, key=lambda x: (x["smart_score"], x["silver_price"]))[0] if rows else None
     vip_best = sorted(rows, key=lambda x: x["recliner_price"])[0] if rows else None
 
     return {
@@ -1315,8 +1613,17 @@ def get_price_comparison(movie_id, city="Mumbai"):
         "release_date": target.get("release_date"),
         "trailer_id": target["trailer_id"],
         "city": city,
+        "user_location": {
+            "name": active_loc_name,
+            "lat": active_lat,
+            "lng": active_lng
+        },
+        "city_hubs": hubs,
         "cheapest_option": cheapest,
+        "nearest_option": nearest,
+        "best_value_option": best_value,
         "vip_best_option": vip_best,
+        "sort_by": sort_by,
         "total_shows": len(rows),
         "promos": PROMO_CODES,
         "comparison_table": rows
