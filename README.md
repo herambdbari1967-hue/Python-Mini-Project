@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://my-repo-one-bay.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-Vercel%20Production-ff5400?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" /></a>
+  <img src="https://img.shields.io/badge/Status-Complete%20%26%20Verified-success?style=for-the-badge" alt="Status" />
   <a href="#-tech-stack"><img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" /></a>
   <a href="#-tech-stack"><img src="https://img.shields.io/badge/Framework-Flask%203.x-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" /></a>
   <a href="#-design-system--two26-studio"><img src="https://img.shields.io/badge/UI%20Design-Two26%20Brutalist-ff5400?style=for-the-badge" alt="Two26 Studio" /></a>
@@ -17,7 +17,6 @@
 </p>
 
 <p align="center">
-  <a href="#-live-demo">Live Demo</a> •
   <a href="#-the-problem--our-solution">The Problem & Solution</a> •
   <a href="#-core-flagship-features">Core Features</a> •
   <a href="#-visual-showcase">Screenshots</a> •
@@ -26,14 +25,6 @@
   <a href="#-local-setup">Quick Start</a> •
   <a href="#-examiner-viva-guide">Examiner Viva Guide</a>
 </p>
-
----
-
-## 🌐 Live Production Deployment
-
-> [!NOTE]  
-> CinePlus is fully deployed on **Vercel Serverless Edge** with production-grade WSGI adapters, optimized client-side caching, and live BookMyShow feed integration:  
-> 👉 **[https://my-repo-one-bay.vercel.app/](https://my-repo-one-bay.vercel.app/)**
 
 ---
 
@@ -203,7 +194,7 @@ flowchart TD
 
 ```text
 ├── api/
-│   └── index.py                # Vercel Serverless WSGI entry point
+│   └── index.py                # WSGI Serverless entry point
 ├── docs/
 │   └── screenshots/            # High-resolution documentation screenshots
 ├── static/
@@ -223,7 +214,7 @@ flowchart TD
 ├── price_tracker.py            # Thread-safe background alert daemon & viva simulator
 ├── data_exporter.py            # Pandas-powered CSV export pipeline
 ├── requirements.txt            # Python dependencies
-├── vercel.json                 # Vercel edge deployment and routing manifest
+├── vercel.json                 # Cloud routing & serverless configuration
 └── README.md                   # Project documentation
 ```
 
@@ -315,7 +306,7 @@ When presenting this project to your college professors or external examiners, u
 
 - **Backend**: Python 3.10+, Flask, Werkzeug, Requests, BeautifulSoup4, Schedule, Pandas
 - **Frontend**: HTML5, Vanilla JavaScript (ES6+), CSS3 (Two26 Neo-Brutalist System, CSS Grid & Flexbox, Keyframe Animations)
-- **Deployment**: Vercel Serverless Edge Functions (`@vercel/python`)
+- **Architecture**: WSGI Serverless & Local Flask Runtime Architecture
 - **APIs & Data**: BookMyShow SSR Endpoints, W3C Geolocation API, HTML5 Canvas
 
 ---
