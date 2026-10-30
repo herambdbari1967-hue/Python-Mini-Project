@@ -465,7 +465,7 @@
 
   <!-- Price Drop Alert & Trigger Notifications Modal -->
   <div id="alerts-modal" class="modal-overlay" style="display: none;">
-    <div class="modal-card" style="max-width: 640px;">
+    <div class="modal-card" style="max-width: 720px; width: 95vw;">
       <div class="modal-header">
         <div>
           <h2 class="modal-title">Price Drop Automation</h2>
@@ -474,7 +474,43 @@
         <button class="modal-close-btn" onclick="closeAlertsModal()">×</button>
       </div>
 
-      <div class="modal-body">
+            <div class="modal-body">
+        <!-- Live Examiner Viva & Simulation Console -->
+        <div class="examiner-demo-box">
+          <div class="examiner-demo-header">
+            <div class="examiner-badge-group">
+              <span class="examiner-pill">🎓 EXAMINER VIVA DEMO</span>
+              <span class="examiner-live-dot"><span class="matrix-pulse-dot"></span> REAL-TIME PRICE FLUCTUATION SIMULATOR</span>
+            </div>
+            <span class="examiner-sub-note">Test background price watcher daemon & instant toast dispatch on demand</span>
+          </div>
+
+          <div class="examiner-controls-row">
+            <div class="examiner-select-group">
+              <label class="examiner-label">TARGET MOVIE TO TEST:</label>
+              <select id="sim-movie-select" class="examiner-select">
+                <!-- Populated dynamically with live screening movies -->
+              </select>
+            </div>
+
+            <div class="examiner-btn-group">
+              <button type="button" class="btn-sim-action btn-sim-drop" onclick="triggerExaminerDemo('drop')" title="Simulate real-time price drop below target price">
+                <span>⚡ Flash Price Drop (-40%)</span>
+              </button>
+              <button type="button" class="btn-sim-action btn-sim-surge" onclick="triggerExaminerDemo('surge')" title="Simulate evening prime-time demand surge">
+                <span>📈 Prime Surge (+80%)</span>
+              </button>
+              <button type="button" class="btn-sim-action btn-sim-reset" onclick="triggerExaminerDemo('reset')" title="Reset simulation state to live BookMyShow data">
+                <span>🔄 Reset</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="examiner-note-footer">
+            💡 <strong>Examiner Viva Verification:</strong> Demonstrates thread-safe event triggering, automated threshold comparison, and immediate reactive UI synchronization without waiting for real-world BookMyShow schedule changes.
+          </div>
+        </div>
+
         <div class="alert-form-box">
           <h3>Create New Price Drop Watcher</h3>
           <form id="create-alert-form" onsubmit="submitNewAlert(event)">

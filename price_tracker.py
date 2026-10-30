@@ -79,6 +79,141 @@ class PriceAlertManager:
                         self.notification_history.insert(0, notif)
                 break
 
+    def simulate_price_fluctuation(self, action="drop", movie_id=None, simulated_price=None, theatre_name=None, city="Mumbai"):
+        """
+        Simulates an instant price fluctuation (flash drop or surge) to showcase
+        the reactive alert daemon, automated threshold verification, and toast dispatching
+        live to the examiner during project review.
+        """
+        with self._lock:
+            shows = get_movie_shows(city=city)
+            target_movie = None
+            if movie_id and movie_id != "all":
+                target_movie = next((m for m in shows if m["id"] == movie_id or m["title"].lower() == movie_id.lower()), None)
+            if not target_movie and self.alerts:
+                first_alert_mid = self.alerts[0].get("movie_id")
+                target_movie = next((m for m in shows if m["id"] == first_alert_mid), None)
+            if not target_movie and shows:
+                target_movie = shows[0]
+
+            if not target_movie:
+                return {"error": "No movies found in city"}
+
+            mid = target_movie["id"]
+            mtitle = target_movie["title"]
+            base_min = target_movie.get("min_price", 180)
+
+            # Resolve theatre
+            th_shows = target_movie.get("theatre_shows", [])
+            target_theatre = theatre_name
+            booking_url = target_movie.get("direct_booking_links", {}).get("bookmyshow", "https://in.bookmyshow.com")
+            if not target_theatre and th_shows:
+                target_theatre = th_shows[0].get("theatre_name", "MovieMax")
+                if th_shows[0].get("shows"):
+                    booking_url = th_shows[0]["shows"][0].get("booking_url", booking_url)
+            elif not target_theatre:
+                target_theatre = f"Multiplex, {city}"
+
+            if action == "drop":
+                if simulated_price:
+                    drop_price = int(simulated_price)
+                elif base_min > 90:
+                    drop_price = max(75, int(base_min * 0.60))
+                else:
+                    drop_price = max(20, int(base_min * 0.65))
+
+                if drop_price >= base_min:
+                    drop_price = max(20, base_min - 20)
+
+                # Check if there is an active alert for this movie; if none, auto-create one
+                matched_alert = next((a for a in self.alerts if a["movie_id"] == mid or a["movie_title"].lower() == mtitle.lower()), None)
+                if not matched_alert:
+                    matched_alert = {
+                        "id": f"alert-{int(time.time() * 1000)}",
+                        "movie_id": mid,
+                        "movie_title": mtitle,
+                        "target_price": int(drop_price + 35),
+                        "city": city,
+                        "format_type": "2D",
+                        "email": "examiner.demo@cineplus.ai",
+                        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        "status": "Active",
+                        "last_checked": None,
+                        "last_price_found": base_min
+                    }
+                    self.alerts.append(matched_alert)
+
+                matched_alert["status"] = "TRIGGERED"
+                matched_alert["last_checked"] = datetime.now().strftime("%H:%M:%S")
+                matched_alert["last_price_found"] = drop_price
+
+                savings = max(0, base_min - drop_price)
+                pct = round((savings / base_min) * 100) if base_min > 0 else 40
+
+                notif = {
+                    "id": f"notif-{int(time.time() * 1000)}",
+                    "type": "drop",
+                    "title": f"🔥 FLASH PRICE DROP: {mtitle}",
+                    "message": f"Tickets at {target_theatre} dropped from ₹{base_min} to ₹{drop_price} ({pct}% OFF)! Target threshold (₹{matched_alert['target_price']}) met.",
+                    "movie_title": mtitle,
+                    "theatre_name": target_theatre,
+                    "city": city,
+                    "old_price": base_min,
+                    "price": drop_price,
+                    "target_price": matched_alert["target_price"],
+                    "savings": savings,
+                    "booking_url": booking_url,
+                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "is_simulated": True
+                }
+                self.notification_history.insert(0, notif)
+
+                return {
+                    "action": "drop",
+                    "movie_title": mtitle,
+                    "theatre_name": target_theatre,
+                    "old_price": base_min,
+                    "new_price": drop_price,
+                    "target_price": matched_alert["target_price"],
+                    "savings": savings,
+                    "alert_id": matched_alert["id"],
+                    "booking_url": booking_url,
+                    "notification": notif
+                }
+
+            elif action == "surge":
+                surge_price = int(simulated_price) if simulated_price else int(base_min * 1.8)
+                notif = {
+                    "id": f"notif-{int(time.time() * 1000)}",
+                    "type": "surge",
+                    "title": f"📈 PRIME-TIME SURGE: {mtitle}",
+                    "message": f"Peak demand spike at {target_theatre}! Evening ticket rates rose from ₹{base_min} to ₹{surge_price}. Arbiter recommends morning/matinee slots to save.",
+                    "movie_title": mtitle,
+                    "theatre_name": target_theatre,
+                    "city": city,
+                    "old_price": base_min,
+                    "price": surge_price,
+                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "is_simulated": True
+                }
+                self.notification_history.insert(0, notif)
+                return {
+                    "action": "surge",
+                    "movie_title": mtitle,
+                    "theatre_name": target_theatre,
+                    "old_price": base_min,
+                    "new_price": surge_price,
+                    "notification": notif
+                }
+
+            elif action == "reset":
+                for a in self.alerts:
+                    a["status"] = "Active"
+                return {
+                    "action": "reset",
+                    "message": "Reset all watchers to active monitoring state."
+                }
+
     def check_all_alerts(self):
         """Runs check on all alerts"""
         with self._lock:

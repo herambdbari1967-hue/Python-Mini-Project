@@ -1066,13 +1066,16 @@ async function loadAlerts() {
       renderAlertsList(data.alerts);
       renderNotificationsList(data.notifications);
 
-      document.getElementById('alert-badge-count').textContent = data.alerts.length;
-      document.getElementById('active-alerts-count').textContent = data.alerts.length;
-      document.getElementById('notif-count').textContent = data.notifications.length;
+      const alertBadge = document.getElementById('alert-badge-count');
+      if (alertBadge) alertBadge.textContent = data.alerts.length;
+      const activeCount = document.getElementById('active-alerts-count');
+      if (activeCount) activeCount.textContent = data.alerts.length;
+      const notifCount = document.getElementById('notif-count');
+      if (notifCount) notifCount.textContent = data.notifications.length;
 
       const dot = document.getElementById('notif-dot');
-      if (data.notifications.length > 0) {
-        dot.style.display = 'block';
+      if (dot) {
+        dot.style.display = data.notifications.length > 0 ? 'block' : 'none';
       }
     }
   } catch (err) {
@@ -1083,58 +1086,157 @@ async function loadAlerts() {
 function renderAlertsList(alerts) {
   const container = document.getElementById('active-alerts-list');
   if (!alerts || alerts.length === 0) {
-    container.innerHTML = '<p style="color: var(--color-olive-muted); font-size: 12px;">No active price alerts. Add one above!</p>';
+    container.innerHTML = '<p style="color: var(--color-olive-muted); font-size: 12px;">No active price alerts. Add one above or trigger via Examiner Demo!</p>';
     return;
   }
 
-  container.innerHTML = alerts.map(a => `
-    <div class="alert-item-card">
-      <div>
-        <strong>${escapeHtml(a.movie_title)}</strong> in ${escapeHtml(a.city)}
-        <div style="font-size: 11px; color: var(--color-olive-muted);">
-          Target: ₹${a.target_price} | Current: ₹${a.last_price_found || 'Scanning...'} | Format: ${a.format_type}
+  container.innerHTML = alerts.map(a => {
+    const isTriggered = a.status === 'TRIGGERED';
+    return `
+      <div class="alert-item-card ${isTriggered ? 'alert-triggered' : ''}">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>${escapeHtml(a.movie_title)}</strong>
+            ${isTriggered ? '<span class="badge-alert-triggered">🔥 TRIGGERED</span>' : '<span class="badge-alert-active">ACTIVE WATCHER</span>'}
+          </div>
+          <div style="font-size: 11px; color: var(--color-olive-muted); margin-top: 3px;">
+            Target: <strong>₹${a.target_price}</strong> | Current: <strong style="${isTriggered ? 'color: #16a34a;' : ''}">₹${a.last_price_found || 'Scanning...'}</strong> | ${escapeHtml(a.city)} • ${a.format_type}
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          ${isTriggered ? `<button class="action-btn primary" style="font-size: 11px; padding: 4px 10px;" onclick="closeAlertsModal(); openPriceMatrixModal('${a.movie_id}');">View Deal &rarr;</button>` : ''}
+          <button class="reset-link" style="color: var(--brand-black); font-size: 11px; font-weight: 700;" onclick="deleteAlert('${a.id}')">Delete</button>
         </div>
       </div>
-      <button class="reset-link" style="color: var(--color-deep-olive); font-size: 12px;" onclick="deleteAlert('${a.id}')">Delete</button>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 function renderNotificationsList(notifs) {
   const container = document.getElementById('notif-history-list');
   if (!notifs || notifs.length === 0) {
-    container.innerHTML = '<p style="color: var(--color-olive-muted); font-size: 12px;">No price drop triggers yet.</p>';
+    container.innerHTML = '<p style="color: var(--color-olive-muted); font-size: 12px;">No price drop triggers yet. Use Examiner Demo above to test live triggering.</p>';
     return;
   }
 
-  container.innerHTML = notifs.map(n => `
-    <div class="notif-item-card">
-      <div>
-        <strong>${escapeHtml(n.title)}</strong>
-        <div style="font-size: 12px; color: var(--color-deep-olive);">${escapeHtml(n.message)}</div>
-        <div style="font-size: 10px; color: var(--color-olive-muted); margin-top: 2px;">${n.timestamp}</div>
+  container.innerHTML = notifs.map(n => {
+    const isDrop = n.type === 'drop' || (n.title && (n.title.includes('DROP') || n.title.includes('Drop')));
+    return `
+      <div class="notif-item-card ${isDrop ? 'notif-drop' : 'notif-surge'}">
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <strong style="color: ${isDrop ? '#ff5400' : '#0284c7'}; font-size: 13px;">${escapeHtml(n.title)}</strong>
+            <span style="font-size: 10px; color: var(--color-olive-muted); font-weight: 600;">${n.timestamp}</span>
+          </div>
+          <div style="font-size: 12px; color: var(--brand-black); margin-top: 4px; font-weight: 500;">
+            ${escapeHtml(n.message)}
+          </div>
+        </div>
+        ${n.booking_url ? `
+          <a href="${n.booking_url}" target="_blank" rel="noopener noreferrer" class="action-btn primary" style="padding: 4px 10px; font-size: 11px; white-space: nowrap; margin-left: 10px; text-decoration: none;">
+            Book &rarr;
+          </a>
+        ` : ''}
       </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 function populateAlertMovieDropdown(movies) {
   const select = document.getElementById('alert-movie-select');
-  select.innerHTML = movies.map(m => `
-    <option value="${m.id}" data-title="${escapeHtml(m.title)}">${escapeHtml(m.title)} (from ₹${m.min_price})</option>
-  `).join('');
+  const simSelect = document.getElementById('sim-movie-select');
+  if (select && movies) {
+    select.innerHTML = movies.map(m => `
+      <option value="${m.id}" data-title="${escapeHtml(m.title)}">${escapeHtml(m.title)} (from ₹${m.min_price})</option>
+    `).join('');
+  }
+  if (simSelect && movies) {
+    simSelect.innerHTML = movies.map(m => `
+      <option value="${m.id}">${escapeHtml(m.title)} (Current: ₹${m.min_price})</option>
+    `).join('');
+  }
 }
 
 function openAlertForMovie(movieId, title, currentMin) {
   openAlertsModal();
   const select = document.getElementById('alert-movie-select');
-  select.value = movieId;
-  document.getElementById('alert-target-price').value = Math.max(50, currentMin - 40);
+  if (select) select.value = movieId;
+  const priceInput = document.getElementById('alert-target-price');
+  if (priceInput) priceInput.value = Math.max(50, currentMin - 40);
 }
 
 function openAlertsModal() {
-  const am = document.getElementById('alerts-modal') || document.getElementById('alert-modal'); if (am) am.style.display = 'flex';
+  const am = document.getElementById('alerts-modal') || document.getElementById('alert-modal'); 
+  if (am) am.style.display = 'flex';
+  const simSelect = document.getElementById('sim-movie-select');
+  if (simSelect && (!simSelect.options || simSelect.options.length === 0) && currentMovies && currentMovies.length > 0) {
+    populateAlertMovieDropdown(currentMovies);
+  }
   loadAlerts();
+}
+
+function showRichToast(msg, type = 'drop') {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+  const toast = document.createElement('div');
+  toast.className = `toast ${type === 'drop' ? 'toast-drop' : 'toast-surge'}`;
+  toast.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 16px;">${type === 'drop' ? '🔥' : '📈'}</span>
+      <span>${escapeHtml(msg)}</span>
+    </div>
+  `;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    setTimeout(() => toast.remove(), 300);
+  }, 5000);
+}
+
+function triggerBellRingAnimation() {
+  const bells = document.querySelectorAll('.nav-link[onclick="openAlertsModal()"], .nav-icon-btn[onclick="openAlertsModal()"]');
+  bells.forEach(b => {
+    b.classList.remove('bell-ring-active');
+    void b.offsetWidth;
+    b.classList.add('bell-ring-active');
+    setTimeout(() => b.classList.remove('bell-ring-active'), 1000);
+  });
+  const dot = document.getElementById('notif-dot');
+  if (dot) dot.style.display = 'block';
+}
+
+async function triggerExaminerDemo(action) {
+  const simMovieSelect = document.getElementById('sim-movie-select');
+  const movieId = simMovieSelect ? simMovieSelect.value : null;
+
+  try {
+    const res = await fetch('/api/alerts/simulate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: action,
+        movie_id: movieId,
+        city: currentCity
+      })
+    });
+    const data = await res.json();
+    if (data.status === 'success') {
+      const r = data.result;
+      if (action === 'drop') {
+        showRichToast(`EXAMINER DEMO: Price Drop Triggered! ${r.movie_title} fell to ₹${r.new_price} (Target: ₹${r.target_price}) at ${r.theatre_name}!`, 'drop');
+        triggerBellRingAnimation();
+      } else if (action === 'surge') {
+        showRichToast(`EXAMINER DEMO: Prime-Time Surge Detected for ${r.movie_title} (₹${r.new_price})!`, 'surge');
+        triggerBellRingAnimation();
+      } else {
+        showToast('Simulation state reset to live feeds.');
+      }
+      loadAlerts();
+    }
+  } catch (err) {
+    console.error('Simulation error:', err);
+    showToast('Simulation request failed');
+  }
 }
 
 function closeAlertsModal() {

@@ -178,6 +178,24 @@ def api_alerts():
         alert_manager.delete_alert(alert_id)
         return jsonify({"status": "success", "message": "Alert deleted"})
 
+@app.route('/api/alerts/simulate', methods=['POST'])
+def api_simulate_alert():
+    payload = request.get_json() or {}
+    action = payload.get('action', 'drop')
+    movie_id = payload.get('movie_id')
+    simulated_price = payload.get('price')
+    city = payload.get('city', 'Mumbai')
+    theatre_name = payload.get('theatre_name')
+    
+    result = alert_manager.simulate_price_fluctuation(
+        action=action,
+        movie_id=movie_id,
+        simulated_price=simulated_price,
+        theatre_name=theatre_name,
+        city=city
+    )
+    return jsonify({"status": "success", "result": result})
+
 @app.route('/api/export/shows', methods=['GET'])
 def export_shows():
     city = request.args.get('city', 'Mumbai')
